@@ -13,7 +13,7 @@
         //Thực hiện Cập nhật khi Click <a href="#" class="DaGiaoClick">
         $(".DaGiaoClick").click(function () {
             //Lấy Mã ĐH từ liên kết Click <a href> trên
-            var _MaDH = $(this).attr("data-id");
+            //var _MaDH = $(this).attr("data-id");
 
             // Thực hiện xử lý Ajax: gọi hàm UpdateOrder để xử lý
             $.post("/Admin/UpdateOrder", { "id": _MaDH },
