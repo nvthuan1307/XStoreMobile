@@ -1,0 +1,111 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<MvcMobileStore.Models.KhachHang>
+
+@{
+    ViewBag.Title = "Quản Trị Khách Hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*Scrip thực hiện Update lại Ẩn Hiện*@
+<script type="text/javascript">
+    $(function () {
+        //Thực hiện Cập nhật khi Click <a href="#" class="AnHienClick">
+        $(".AnHienClick").click(function () {
+            //Lấy Mã KH từ liên kết Click <a href> trên
+            var _MaKH = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm UpdateMember để xử lý
+            $.post("/Admin/UpdateMember", { "id": _MaKH },
+
+             function (data) {
+                //Thực hiện cập nhật lại Url hình ẩn hiện
+                $('#img_AnHien-' + _MaKH).attr('src', data);
+             });
+        });
+    });
+</script>
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Member">
+            <span>Khách hàng</span>
+        </a>
+    </li>
+</ul>
+
+@*Danh sách KHÁCH HÀNG*@
+<div class="title_ne1">DANH SÁCH KHÁCH HÀNG</div>
+@using (Html.BeginForm())
+{
+    <table border="1" style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+        <tr>
+            <th>Mã KH</th>
+            <th>Tài khoản</th>
+            <th>Họ tên</th>
+            <th>Điện thoại</th>
+            <th>Email</th>
+            <th>Giới tính</th>
+            <th>Ngày ĐK</th>
+            <th>Trạng thái</th>
+            <th>Gửi tin</th>
+            <th>Chọn</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td style="text-align: center">@item.MaKH</td>
+                <td style="text-align: center">
+                    <img src="@item.Avatar" class="Avatar" style="width:60px"/>
+                    <br />
+                    <label>@item.Username</label>
+                </td>
+                <td style="text-align: center">@item.HoTen</td>
+                <td style="text-align: center">@item.DienThoai</td>
+                <td style="text-align: center"><a href="mailto:@item.Email">@item.Email</a></td>
+                <td style="text-align: center">
+                    @if (item.GioiTinh == true)
+                    {
+                        <img src="~/Content/Admin/Images/male.png" title="Nam" style="width: 16px" />
+                    }
+                    else
+                    {
+                        <img src="~/Content/Admin/Images/female.png" title="Nữ" style="width: 16px" />
+                    }
+                </td>
+                <td style="text-align: center">@string.Format("{0:dd-MM-yyyy}", item.NgayDangKy)</td>
+                <td style="text-align: center">
+                    @if (item.AnHien == true)
+                    {
+                        <a href="#" class="AnHienClick" data-id="@item.MaKH">
+                            <img src="/Content/Admin/Images/icon_Hien.png" id="img_AnHien-@item.MaKH" title="Hiện" />
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="#" class="AnHienClick" data-id="@item.MaKH">
+                            <img src="/Content/Admin/Images/icon_An.png" id="img_AnHien-@item.MaKH" title="Ẩn" />
+                        </a>
+                    }
+                </td>
+                <td style="text-align: center"><a href="@Url.Action("Reply", "Admin", new { id = item.MaKH })" onclick="return confirm('Bạn muốn gửi tin nhắn đến khách hàng này?');">
+                    <img src="~/Content/Admin/Images/mail_send.png" /></a>
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" class="ckb_ID" name="ckb_ID" value="@item.MaKH"/>
+                </td>
+            </tr>
+        }
+    </table>
+    <div style="text-align: center;">
+        <input type="submit" value="Xóa khách hàng" class="button_ne" onclick="return confirm('Bạn có chắc muốn Xóa khách hàng đã chọn?');" />
+    </div>      
+}
+@Html.PagedListPager(Model, Page => Url.Action("Slider", new { Page = Page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)

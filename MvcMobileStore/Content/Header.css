@@ -1,0 +1,243 @@
+﻿/*#region Menu dropdown */
+ul.cssMenu, ul.cssMenu ul
+        {
+        	list-style:none;
+        	margin:0; padding:0;
+        	position: relative;
+        }
+		
+		/*Menu cấp 1*/
+        ul.cssMenu li
+        { 
+        	position: relative; 
+        	float: left; 
+        	zoom: 1; /*dùng cho IE*/
+        	/*background: #DDDDDD;*/
+        }
+        ul.cssMenu li:hover
+        { 
+        	background-image:url('../Content/Images/bgMenu_hover_Top.gif');background-repeat:no-repeat;
+            background-position: left 30% bottom ;
+            z-index:1001;
+        }
+        ul.cssMenu li a
+        {			
+        	display: block; 
+        	padding: 5px; 
+        	font-family: Arial, Times New Roman, Tahoma;
+        	font-size: 12px;
+        }
+        
+        /*Menu cấp 2*/
+        ul.cssMenu ul 						
+        { 
+        	display:none; /*ban đầu ẩn*/
+        	position: absolute;
+			width: 200px; 					
+        	/*border:1px solid #AAAAAA;*/
+        	padding:10px 0px 0px 5px;
+        	background:#FFF;		
+			top: 100%; 
+        	left: 0;
+        }
+        ul.cssMenu ul li
+        { 
+        	background: #FFF; 
+        	color: #333; 
+			border-bottom: 1px solid #DDDDDD; 
+            width:190px;
+			float: none; 
+		}
+									  
+        ul.cssMenu ul li a
+        { 
+        	width: 100%; 
+        	display: block; 
+        	color:#666;
+        } 
+         ul.cssMenu ul li a:hover
+        { 
+            color:#0AF;
+            background:#FFF;/* Định dạng thêm background và width để khi hover các menu con ko hiện background mũi tên*/
+            width:180px;
+        } 
+
+        /* Menu cấp 3 */
+        ul.cssMenu ul ul
+        { 
+        	left: 100%; 
+        	top: 0; 
+        }
+        
+        ul.cssMenu li:hover > ul 			
+        { 
+        	display:block; 
+            border-radius: 5px 5px 5px 5px;
+            box-shadow: 3px 3px 3px #999999;
+        }
+
+/*#endregion */
+
+/*#region SEARCH */
+.cf:before, .cf:after{
+                        content:"";
+                        display:table;
+                    }
+ 
+.cf:after{
+            clear:both;
+        }
+ 
+.cf{
+        zoom:1;
+    }    
+
+
+/* Form wrapper styling */
+.form-wrapper {
+    width: 450px;
+    padding: 5px;
+    margin: 12px 0px 0px 0px;
+    background: #444;
+    background: rgba(0,0,0,.2);
+    border-radius: 10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+}
+ 
+/* input text */
+ 
+.form-wrapper input {
+    width: 330px;
+    height: 12px;
+    padding: 10px 5px;
+    float: left;    
+    font-size: 15px;
+    border: 0;
+    background: #eee;
+    border-radius: 3px 0 0 3px;     
+}
+ 
+.form-wrapper input:focus {
+    outline: 0;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+}
+ 
+.form-wrapper input::-webkit-input-placeholder {
+   color: #999;
+   font-weight: normal;
+   font-style: italic;
+}
+ 
+.form-wrapper input:-moz-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}
+ 
+.form-wrapper input:-ms-input-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}    
+ 
+/* a */
+    .form-wrapper a {
+        overflow: visible;
+        position: relative;
+        float: right;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        height: 32px;
+        width: 110px;
+        font: bold 15px/32px 'lucida sans', 'trebuchet MS', 'Tahoma';
+        color: #fff;
+        text-transform: uppercase;
+        background: #337ea7;
+        border-radius: 0 3px 3px 0;
+        text-shadow: 0 -1px 0 rgba(0, 0,0, .3);
+    }
+
+        .form-wrapper a:hover {
+            background: #00ff90;
+        }   
+   
+.form-wrapper a:active,
+.form-wrapper a:focus{   
+    background: #c42f2f;
+    outline: 0;   
+}
+
+        .form-wrapper a:before { /* Mũi tên trái */
+            content: '';
+            position: absolute;
+            border-width: 8px 8px 8px 0;
+            border-style: solid solid solid none;
+            border-color: transparent #337ea7 transparent;
+            top: 8px;
+            left: -6px;
+        }
+
+        .form-wrapper a:hover:before {
+            border-right-color: #00ff90;
+        }
+ 
+.form-wrapper a:focus:before,
+.form-wrapper a:active:before{
+        border-right-color: #c42f2f;
+}      
+ 
+.form-wrapper a::-moz-focus-inner { /* remove extra a spacing for Mozilla Firefox */
+    border: 0;
+    padding: 0;
+}    
+
+/*#endregion */
+
+/*#region bar top social */
+.bar_top_social a {
+    float: right;
+    height: 16px;
+    display: block;
+    text-indent: -9999px;
+    background: url('../Content/Images/icon_social.png') no-repeat scroll 0% 0% transparent;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    opacity: 0.8;
+    transition: #000 0.3s linear 0s;
+
+}
+.bar_top_social a.facebook {
+    width: 16px;
+    background-position: 0px 0px;
+}
+.bar_top_social a.google_plus {
+    width: 16px;
+    background-position: -16px 0px;
+}
+.bar_top_social a.twitter {
+    width: 18px;
+    background-position: -32px 0px;
+}
+.bar_top_social a.youtube {
+    width: 20px;
+    background-position: -50px 0px;
+}
+.bar_top_social a:hover {
+    opacity: 1;
+}
+
+/*#endregion */
+
+/*#region Avatar */
+.Avatar {
+        border-radius: 50%;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+        border:1px solid #fff;
+        }
+/*#endregion */

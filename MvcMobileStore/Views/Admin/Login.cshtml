@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Login | Đăng Nhập";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style type="text/css">
+    .auto-Left {
+        text-align: right;
+        padding-top: 22px;
+        color: #FFF;
+        text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.7);
+    }
+
+    .auto-Right {
+        width: 295px;
+        padding-top: 22px;
+        padding-left: 10px;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    <div class="login_ne">
+        <table style="width: 485px;">
+            <tr>
+                <td colspan="2" style="text-align: center; color: #FFF; font-weight: bold; font-size: 17px; text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.7);">ĐĂNG NHẬP QUẢN TRỊ
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Tên đăng nhập:</td>
+                <td class="auto-Right">
+                    <input type="text" id="txt_Username" name="txt_Username" class="textCtrl" style="width: 200px; height: 20px" required="required" maxlength="30" pattern="[A-Za-z0-9]{3,30}" title="Tên đăng nhập tối thiểu có 3 ký tự và không được nhập ký tự đặc biệt !" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Mật khẩu:</td>
+                <td class="auto-Right">
+                    <input type="password" id="txt_Password" name="txt_Password" class="textCtrl" style="width: 200px; height: 20px" required="required" pattern="[A-Za-z0-9]{6,30}" title="Mật khẩu của bạn tối thiểu có 6 ký tự và không được nhập ký tự đặc biệt !" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <br />
+                    <input type="image" src="/Content/Admin/Images/login-btn.png" />
+                </td>
+            </tr>
+        </table>
+    </div>
+}

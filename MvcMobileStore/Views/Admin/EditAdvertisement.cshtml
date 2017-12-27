@@ -1,0 +1,114 @@
+﻿@model MvcMobileStore.Models.QuangCao
+
+@{
+    ViewBag.Title = "Sửa Quảng Cáo";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+}
+
+<style>
+    .auto_Left {
+        color: #141414;
+        text-align: right;
+        padding-top: 12px;
+    }
+
+    .auto_Right {
+        padding-top: 12px;
+        padding-left: 10px;
+    }
+</style>
+
+@*----------CKFinder tải lên----------*@
+<script type="text/javascript">
+    function BrowseServer() {
+        var finder = new CKFinder();
+        finder.basePath = '/ckfinder/';
+        finder.selectActionFunction = SetFileField;
+        finder.popup();
+    }
+    function SetFileField(fileUrl) {
+        document.getElementById('txt_UrlHinh').value = fileUrl;
+    }
+</script>
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Advertisement">
+            <span>Quảng Cáo</span>
+        </a>
+    </li>
+</ul>
+
+
+
+<div class="title_ne1">SỬA QUẢNG CÁO</div>
+
+@using (Html.BeginForm())
+{
+    <table id="Table1" style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+        <tr>
+            <td class="auto_Left">Tên quảng cáo:</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_TenQC" name="txt_TenQC" class="textCtrl" required="required" maxlength="255" value="@Model.TenQC" />
+            </td>
+            <td class="auto_Left">Hình quảng cáo:</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_UrlHinh" name="txt_UrlHinh" class="textCtrl" required="required" value="@Model.UrlHinh" />
+                <input id="btn_TaiLen" onclick="BrowseServer();" type="button" value="Tải lên" />@*onclick="BrowseServer();"*@
+            </td>
+        </tr>
+        <tr>
+            <td class="auto_Left">Tên công ty:</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_TenCty" name="txt_TenCty" class="textCtrl" required="required" maxlength="100" value="@Model.TenCty" />
+            </td>
+            <td class="auto_Left">Đường dẫn:</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_LinkUrl" name="txt_LinkUrl" class="textCtrl" required="required" maxlength="100" value="@Model.LinkUrl" />
+            </td>
+        </tr>
+
+        <tr>
+            <td class="auto_Left">Ngày bắt đầu:</td>
+            <td class="auto_Right">
+                <input type="date" id="txt_NgayBatDau" name="txt_NgayBatDau" class="textCtrl" required="required" value="@string.Format("{0:yyyy-MM-dd}", Model.Ngaybatdau)" />
+            </td>
+
+            <td class="auto_Left">Ngày hết hạn:</td>
+            <td class="auto_Right">
+                <input type="date" id="txt_NgayHetHan" name="txt_NgayHetHan" class="textCtrl" required="required" value="@string.Format("{0:yyyy-MM-dd}", Model.Ngayhethan)" />
+            </td>
+        </tr>
+
+        <tr>
+            <td class="auto_Left">Vị trí:</td>
+            <td class="auto_Right">
+                <input type="number" id="txt_ViTri" name="txt_ViTri" class="textCtrl" style="width: 40px" required="required" min="1" max="9" value="@Model.vitri" />
+            </td>
+            <td class="auto_Left">Trạng thái:</td>
+            <td class="auto_Right">
+                <select id="sl_AnHien" name="sl_AnHien" class="textCtrl" style="width: 60px;float:left">
+                    <option value="0">Ẩn</option>
+                    <option value="1" selected="@Model.AnHien">Hiện</option>
+                </select>
+                <div style="float:left;padding-left:50px">Mã QC:
+                    <input type="number" id="txt_MaQC" name="txt_MaQC" class="textCtrl" disabled="disabled" style="width:30px" value="@Model.MaQC"/>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" style="text-align: center; padding-top: 15px;">
+                <input id="NhapLai" type="reset" value="Nhập lại" class="button_ne" />
+                <input type="submit" value="Lưu chỉnh sửa" class="button_ne" />
+            </td>
+        </tr>
+    </table>
+}

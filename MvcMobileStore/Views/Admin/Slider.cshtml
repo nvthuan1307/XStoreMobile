@@ -1,0 +1,98 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<MvcMobileStore.Models.Slider>
+
+@{
+    ViewBag.Title = "Quản Trị Slider";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*Scrip thực hiện Update lại Ẩn Hiện*@
+<script type="text/javascript">
+    $(function () {
+        //Thực hiện Cập nhật khi Click <a href="#" class="AnHienClick">
+        $(".AnHienClick").click(function () {
+            //Lấy Mã Slider từ liên kết Click <a href> trên
+            var _MaSlider = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm UpdateSlider để xử lý
+            $.post("/Admin/UpdateSlider", { "id": _MaSlider },
+
+             function (data) {
+                //Thực hiện cập nhật lại Url hình ẩn hiện
+                $('#img_AnHien-' + _MaSlider).attr('src', data);
+             });
+        });
+    });
+</script>
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Slider">
+            <span>Slider</span>
+        </a>
+    </li>
+</ul>
+
+@*Danh sách Slider*@
+<div class="title_ne1">DANH SÁCH SLIDER</div>
+@using (Html.BeginForm())
+{
+    <table border="1" style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+        <tr>
+            <th>Mã Slider</th>
+            <th style="width: 180px">Hình ảnh</th>
+            <th>Link</th>
+            <th>Thứ tự</th>
+            <th>Trạng thái</th>
+            <th>Chỉnh sửa Slider</th>
+            <th>Chọn Slider</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td style="text-align: center">@item.MaSlider</td>
+                <td style="text-align: center">
+                    <img src="@item.UrlHinh" style="width:180px"/></td>
+                <td style="text-align: center"><a href="@item.LinkUrl" target="_blank">@item.LinkUrl</a></td>
+                <td style="text-align: center">@item.Thutu</td>
+                <td style="text-align: center">
+                    @if (item.AnHien == true)
+                    {
+                        <a href="#" class="AnHienClick" data-id="@item.MaSlider">
+                            <img src="/Content/Admin/Images/icon_Hien.png" id="img_AnHien-@item.MaSlider" title="Hiện" />
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="#" class="AnHienClick" data-id="@item.MaSlider">
+                            <img src="/Content/Admin/Images/icon_An.png" id="img_AnHien-@item.MaSlider" title="Ẩn" />
+                        </a>
+                    }
+                </td>
+                <td style="text-align: center"><a href="@Url.Action("EditSlider", "Admin", new { id = item.MaSlider })">
+                    <img src="~/Content/Admin/Images/icon_Sua.png" /></a>
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" class="ckb_ID" name="ckb_ID" value="@item.MaSlider"/>
+                </td>
+            </tr>
+        }
+    </table>
+    <div style="text-align: center; margin-left: 120px">
+        <input type="submit" value="Xóa Slider " class="button_ne" onclick="return confirm('Bạn có chắc muốn Xóa Slider đã chọn?');" />
+    </div>      
+}@*Lưu ý: đóng Form ở đây để Button chuyển sang trang Crate không thực thi được nút xóa Slider*@
+
+<div style="text-align: center; margin-top: -53px; margin-left: -120px">
+    <button class="button_ne" onclick="location.href='@Url.Action("CreateSlider", "Admin")'">Thêm Slider</button>
+</div>
+
+@Html.PagedListPager(Model, Page => Url.Action("Slider", new { Page = Page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b056a073ff644e42b69c865b124ba2f3" Name="Diagram1">
+        <EntityTypeShape EntityType="MobileStoreModel.Admin" Width="1.5" PointX="7.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileStoreModel.BinhLuan" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileStoreModel.CT_DonHang" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileStoreModel.DonHang" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileStoreModel.GioHang" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileStoreModel.KhachHang" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileStoreModel.LienHe" Width="1.5" PointX="5.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileStoreModel.Menu" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileStoreModel.NhaSanXuat" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileStoreModel.PhanQuyen_Admin" Width="1.5" PointX="10" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileStoreModel.QuangCao" Width="1.5" PointX="8.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileStoreModel.SanPham" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileStoreModel.Slider" Width="1.5" PointX="10.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileStoreModel.TinTuc" Width="1.5" PointX="10.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileStoreModel.ThongTin" Width="1.5" PointX="12.75" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="MobileStoreModel.FK_PQAdmin_Admin" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileStoreModel.FK_BL_KH" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileStoreModel.FK_BL_SP" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileStoreModel.FK_CT_DonHang_DonHang" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileStoreModel.FK_CT_DonHang_SP" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileStoreModel.FK_DonHang_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileStoreModel.FK_GioHang_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileStoreModel.FK_LH_KH" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileStoreModel.FK_SP_NSX" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

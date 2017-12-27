@@ -1,0 +1,68 @@
+﻿@model IEnumerable<MvcMobileStore.Models.CT_DonHang>
+
+@{
+    ViewBag.Title = "Chi Tiết Đơn Hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Order">
+            <span>Đơn Hàng</span>
+        </a>
+    </li>
+</ul>
+
+@*Chi Tiết Đơn hàng*@
+<div class="title_ne1">CHI TIẾT ĐƠN HÀNG</div>
+@using (Html.BeginForm())
+{
+    <table border="1" style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+        <tr>
+            <th>Mã ĐH</th>
+            <th>Khách hàng</th>
+            <th style="width: 222px">Sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Đơn giá</th>
+            <th>Thành tiền</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align: center">@item.MaDH</td>
+                <td style="text-align: center">
+                    <img src="@item.DonHang.KhachHang.Avatar" class="Avatar" style="width:80px"/>
+                    <br />
+                    @item.DonHang.KhachHang.HoTen
+                </td>
+                <td style="text-align: center">
+                    <div class="sale">
+                        <span style="font-size: 14px; color: #FFF; line-height: 95px; font-weight: bold">- @item.SanPham.KhuyenMai%</span>
+                    </div>
+                    <a href="@Url.Action("Details", "Home", new { id = item.MaSP })" target="_blank">
+                        <img src="@item.SanPham.UrlHinh" style="width: 120px;vertical-align:middle" />
+                        <br>
+                        <span style="font-weight: 700; color: #F60">@item.SanPham.TenSP</span>
+                    </a>
+                </td>
+                <td style="text-align: center">
+                    <span class="textCtrl">@item.SoLuong</span>
+                </td>
+                <td style="text-align: center">
+                    <span style="font-weight: 700; color: #F60; font-size: 14px">@string.Format("{0:#,##0}", item.SanPham.GiaHienTai)<sup> VNĐ</sup></span>
+                </td>
+                <td style="text-align: center">
+                    <span style="color: #666; font-size: 12px; font-weight: bold">Đã - @item.SanPham.KhuyenMai % Khuyến mãi</span><br />
+                    <br />
+                    <span style="font-weight: 700; color: #F60; font-size: 14px">@string.Format("{0:#,##0}", item.Thanhtien)<sup> VNĐ</sup></span>
+                </td>
+            </tr>
+        }
+    </table>
+}

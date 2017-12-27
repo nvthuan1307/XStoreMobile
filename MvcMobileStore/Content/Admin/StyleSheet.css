@@ -1,0 +1,558 @@
+﻿/*#region Layout */
+body {
+    font-family: Arial;
+    font-size: 15px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background: #EBF3F5;
+}
+
+#header {
+    background: url('/Content/Admin/Images/bgtop.jpg') no-repeat scroll center top transparent;
+    height: 91px;
+}
+
+#bgrepeart {
+    background: url('/Content/Admin/Images/bgBack.jpg') repeat-y scroll center center transparent;
+}
+
+#bg {
+    background: url('/Content/Admin/Images/bgTop.png') repeat-x scroll center top transparent;
+    padding-top: 8px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#body {
+    width: 1000px;
+    margin: auto;
+}
+
+#content {
+    width: 100%;
+    height: auto;
+    float: left;
+    padding: 15px 10px;
+    min-height: 350px;
+}
+
+#footer {
+    width: 100%;
+    background: url('/Content/Admin/Images/FooterBg.png') no-repeat scroll center top #8FC5CC;
+    font-size: 13px;
+    padding: 0px;
+    clear: both;
+    height: 220px;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: #2283e9;
+}
+
+    a:hover {
+        color: #5C9CDF;
+    }
+/*#endregion */
+
+/*#region login_ne, button_ne, title_ne, Sale*/
+.login_ne {
+    background-image: url(/Content/Admin/Images/login-box-backg.png);
+    background-repeat: no-repeat;
+    width: 485px;
+    height: 410px;
+    /*margin:20px 20px 20px 20px;*/
+    margin: auto;
+    padding-top: 100px;
+    margin-bottom: -120px;
+}
+
+.button_ne {
+    font-size: 12px;
+    color: #FFF;
+    background: rgb(24, 60, 92);
+    padding: 7px 10px;
+    border: 1px solid rgb(5, 38, 66);
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.43);
+    text-shadow: 0px -1px 0px #2B2B2B;
+    cursor: pointer;
+    -moz-box-sizing: border-box;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.button_ne:hover {
+        background-color: rgb(24, 84, 138);
+        text-shadow: 0 0 6px #d1c372;
+    }
+
+.title_ne {
+    border-bottom: 1px solid #02958E;
+    color: #02958E;
+    line-height: 34px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 980px;
+    margin-bottom: 15px;
+    float: left;
+}
+
+.title_ne1 {
+    text-align: center;
+    padding: 7px;
+    background-image: url(/Content/Admin/Images/bg_title.png);
+    color: #FFF;
+    width: 970px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 20px;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.7);
+}
+
+.sale {
+    background-image: url('/Content/Images/bgsaleoff.png');
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 80px;
+    position: absolute;
+    margin-left: 180px;
+}
+
+/*#endregion */
+
+/*#region Danh sách menu trang chủ */
+.Danhsach_menu ul li {
+    list-style: none outside none;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #FFF;
+    width: 980px;
+}
+
+.img_Menu {
+    width: 120px;
+    height: 70px;
+    border: 1px solid #CCC;
+    background: none repeat scroll 0% 0% #F0F0F0;
+    text-align: center;
+    padding-top: 20px;
+    margin-right: 35px;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+.Ten_menu {
+    text-align: center;
+    padding: 5px 0px 25px 0px;
+    width: 120px;
+    font-size: 13px;
+}
+
+.Danhsach_menu ul li:hover .img_Menu {
+    background: none repeat scroll 0% 0% transparent;
+    border: 1px solid #FFF;
+}
+/*#endregion */
+
+/*#region roadlinktop */
+
+.roadlinktop {
+    background: none repeat scroll 0% 0% #04ADA5;
+    list-style: none outside none;
+    border: 1px solid #05938C;
+    width: 980px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin-top: -2px;
+    padding: 0;
+}
+
+    .roadlinktop li {
+        float: left;
+    }
+
+        .roadlinktop li a {
+            color: #FFF;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+    .roadlinktop a span {
+        padding: 0px 10px;
+        font-size: 13px;
+    }
+/*#endregion */
+
+/*#region Css phần textbox */
+.textCtrl {
+    border-left: 1px solid #C0C0C0;
+    border-right: 1px solid #E9E9E9;
+    border-top: 1px solid #C0C0C0;
+    border-bottom: 1px solid #E9E9E9;
+    font-family: Calibri,'Trebuchet MS',Verdana,Geneva,Arial,Helvetica,sans-serif;
+    color: #000;
+    background-color: #FFF;
+    padding: 3px;
+    margin-bottom: 2px;
+    border-radius: 4px;
+    outline: 0px none;
+    font-size: 13px;
+    width: 280px;
+}
+
+    .textCtrl:focus, .textCtrl.Focus {
+        border-bottom-color: #E6E6E6;
+        background: url('/Content/Admin/Images/bg_Texbox.png') repeat-x scroll 0% 0% #FFFFF0;
+        border-top-color: #969696;
+        box-shadow: 0px 0px 4px #5C9CDF;
+    }
+
+.Xen_Form_Ne {
+    border-top: 1px solid #D7EDFC;
+    margin: auto;
+    margin-top: 10px;
+    width: 900px;
+}
+/*Phần này làm thêm không cho nhập số trong textbox nhưng vẫn có css định dạng màu mè*/
+.number_ne {
+    border-left: 1px solid #C0C0C0;
+    border-right: 1px solid #E9E9E9;
+    border-top: 1px solid #C0C0C0;
+    border-bottom: 1px solid #E9E9E9;
+    font-family: Calibri,'Trebuchet MS',Verdana,Geneva,Arial,Helvetica,sans-serif;
+    color: #000;
+    background-color: #FFF;
+    padding: 3px;
+    margin-bottom: 2px;
+    border-radius: 4px;
+    outline: 0px none;
+    font-size: 13px;
+    width: 280px;
+}
+
+    .number_ne:focus, .number_ne.Focus {
+        border-bottom-color: #E6E6E6;
+        background: url('/Content/Images/bg_Texbox.png') repeat-x scroll 0% 0% #FFFFF0;
+        border-top-color: #969696;
+        box-shadow: 0px 0px 4px #5C9CDF;
+    }
+
+/*#endregion */
+
+/*#region Menu dropdown */
+ul.cssMenu, ul.cssMenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+    /*Menu cấp 1*/
+    ul.cssMenu li {
+        position: relative;
+        float: left;
+        zoom: 1; /*dùng cho IE*/
+        /*background: #DDDDDD;*/
+    }
+
+        ul.cssMenu li:hover {
+            background-image: url('/Content/Images/bgMenu_hover_Top.gif');
+            background-repeat: no-repeat;
+            background-position: left 60% bottom;
+            z-index: 1001;
+        }
+
+        ul.cssMenu li a {
+            display: block;
+            padding: 5px;
+            font-family: Arial, Times New Roman, Tahoma;
+            font-size: 12px;
+        }
+
+    /*Menu cấp 2*/
+    ul.cssMenu ul {
+        display: none; /*ban đầu ẩn*/
+        position: absolute;
+        width: 200px;
+        /*border:1px solid #AAAAAA;*/
+        padding: 10px 0px 0px 5px;
+        background: #FFF;
+        top: 100%;
+        left: 0;
+    }
+
+        ul.cssMenu ul li {
+            background: #FFF;
+            color: #333;
+            border-bottom: 1px solid #DDDDDD;
+            width: 190px;
+            float: none;
+        }
+
+            ul.cssMenu ul li a {
+                width: 100%;
+                display: block;
+                color: #666;
+            }
+
+                ul.cssMenu ul li a:hover {
+                    color: #0AF;
+                    background: #FFF; /* Định dạng thêm background và width để khi hover các menu con ko hiện background mũi tên*/
+                    width: 180px;
+                }
+
+        /* Menu cấp 3 */
+        ul.cssMenu ul ul {
+            left: 100%;
+            top: 0;
+        }
+
+    ul.cssMenu li:hover > ul {
+        display: block;
+        border-radius: 5px 5px 5px 5px;
+        box-shadow: 3px 3px 3px #999999;
+    }
+
+/*#endregion */
+
+/*#region Css Liên hệ */
+.NguoiGui {
+    border: 1px solid #D7EDFC;
+    border-radius: 5px;
+    position: relative;
+    background: url('/Content/Images/bg_UserLienHe.png') repeat-x scroll center bottom #D7EDFC;
+}
+
+    .NguoiGui div.avatarLH {
+        padding: 10px;
+        border-radius: 4px;
+        background-color: #F0F8FC;
+    }
+
+    .NguoiGui div.user_text {
+        padding: 6px;
+    }
+
+    .NguoiGui div.Ten {
+        font-weight: bold;
+        display: block;
+        overflow: hidden;
+        line-height: 16px;
+    }
+
+    .NguoiGui div.Loai {
+        font-size: 11px;
+        display: block;
+    }
+
+.ngaygui_lh {
+    padding-top: 10px;
+    padding-right: 15px;
+    text-align: right;
+    font-size: 11px;
+    color: #999;
+}
+
+.ItemStyle_LienHe {
+    border-bottom: 1px solid #D7EDFC;
+    padding: 15px 5px 30px 5px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    margin: auto;
+    text-align: left;
+}
+
+/*#endregion */
+
+/*#region Phân trang */
+.pagination-container {
+    text-align: center;
+}
+
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0 8px 0;
+    border-radius: 4px;
+    text-align: right;
+}
+
+    .pagination > li {
+        display: inline;
+    }
+
+        .pagination > li > a,
+        .pagination > li > span {
+            position: relative;
+            float: left;
+            padding: 3px 12px;
+            margin-left: -1px;
+            line-height: 1.428571429;
+            text-decoration: none;
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+        }
+
+        .pagination > li:first-child > a,
+        .pagination > li:first-child > span {
+            margin-left: 0;
+            border-bottom-left-radius: 4px;
+            border-top-left-radius: 4px;
+        }
+
+        .pagination > li:last-child > a,
+        .pagination > li:last-child > span {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .pagination > li > a:hover,
+        .pagination > li > span:hover,
+        .pagination > li > a:focus,
+        .pagination > li > span:focus {
+            background-color: #eeeeee;
+        }
+
+    .pagination > .active > a,
+    .pagination > .active > span,
+    .pagination > .active > a:hover,
+    .pagination > .active > span:hover,
+    .pagination > .active > a:focus,
+    .pagination > .active > span:focus {
+        z-index: 2;
+        color: #ffffff;
+        cursor: default;
+        background-color: #428bca;
+        border-color: #428bca;
+    }
+
+    .pagination > .disabled > span,
+    .pagination > .disabled > a,
+    .pagination > .disabled > a:hover,
+    .pagination > .disabled > a:focus {
+        color: #999999;
+        cursor: not-allowed;
+        background-color: #ffffff;
+        border-color: #dddddd;
+    }
+
+.pagination-lg > li > a,
+.pagination-lg > li > span {
+    padding: 10px 16px;
+    font-size: 18px;
+}
+
+.pagination-lg > li:first-child > a,
+.pagination-lg > li:first-child > span {
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+}
+
+.pagination-lg > li:last-child > a,
+.pagination-lg > li:last-child > span {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.pagination-sm > li > a,
+.pagination-sm > li > span {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.pagination-sm > li:first-child > a,
+.pagination-sm > li:first-child > span {
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.pagination-sm > li:last-child > a,
+.pagination-sm > li:last-child > span {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.pager {
+    padding-left: 0;
+    margin: 20px 0;
+    text-align: center;
+    list-style: none;
+}
+
+    .pager:before,
+    .pager:after {
+        display: table;
+        content: " ";
+    }
+
+    .pager:after {
+        clear: both;
+    }
+
+    .pager:before,
+    .pager:after {
+        display: table;
+        content: " ";
+    }
+
+    .pager:after {
+        clear: both;
+    }
+
+    .pager li {
+        display: inline;
+    }
+
+        .pager li > a,
+        .pager li > span {
+            display: inline-block;
+            padding: 5px 14px;
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 15px;
+        }
+
+            .pager li > a:hover,
+            .pager li > a:focus {
+                text-decoration: none;
+                background-color: #eeeeee;
+            }
+
+    .pager .next > a,
+    .pager .next > span {
+        float: right;
+    }
+
+    .pager .previous > a,
+    .pager .previous > span {
+        float: left;
+    }
+
+    .pager .disabled > a,
+    .pager .disabled > a:hover,
+    .pager .disabled > a:focus,
+    .pager .disabled > span {
+        color: #999999;
+        cursor: not-allowed;
+        background-color: #ffffff;
+    }
+/*#endregion */
+
+/*#region Avatar */
+.Avatar {
+        border-radius: 50%;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+        border:1px solid #fff;
+        }
+/*#endregion */

@@ -1,0 +1,139 @@
+﻿@model MvcMobileStore.Models.Admin
+
+@{
+    ViewBag.Title = "Account | Tài Khoản";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style type="text/css">
+    .auto-Left {
+        color: #141414;
+        text-align: right;
+        padding-top: 22px;
+    }
+
+    .auto-Right {
+        width: 580px;
+        padding-top: 22px;
+        padding-left: 10px;
+    }
+
+    .Hinh {
+        border-radius: 50%;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+        border: 3px solid #c7b89e;
+    }
+</style>
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Account">
+            <span>Thông tin quản trị</span>
+        </a>
+    </li>
+</ul>
+
+@*Phần Thông Tin Cá Nhân*@
+@using (Html.BeginForm("Account", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="show" style="padding: 20px;">
+        <table style="width: 700px;">
+            <tr>
+                <td class="auto-Left">Tên Đăng nhập:</td>
+                <td class="auto-Right">
+                    <input type="text" id="txt_Username" name="txt_Username" class="textCtrl" style="width:400px" disabled="disabled" value="@Model.Username"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Mật khẩu:</td>
+                <td class="auto-Right">
+                    <input type="password" id="txt_Password" name="txt_Password" class="textCtrl" style="width:400px" style="width:400px" disabled="disabled" value="@Model.Password"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Ngày đăng ký:</td>
+                <td class="auto-Right">
+                    <input type="text" id="txt_NgayDK" name="txt_NgayDK" class="textCtrl" disabled="disabled" style="width:400px" value="@string.Format("{0:dd/MM/yyy}", Model.NgayDangKy)"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="Xen_Form_Ne"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Hình đại diện:</td>
+                <td class="auto-Right">
+                    <img id="img_HinhDD" class="Hinh" style="vertical-align:middle; width:160px;height:160px" src="@Model.Avatar" />
+                    <input type="file" id="_FileUpload" name="_FileUpload" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Email:</td>
+                <td class="auto-Right">
+                    <input type="email" id="txt_Email" name="txt_Email" class="textCtrl" style="width:400px" placeholder="ex: DaoAnhDung@Gmail.com" required="required" value="@Model.Email"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Họ tên:</td>
+                <td class="auto-Right">
+                    <input type="text" id="txt_HoTen" name="txt_HoTen" class="textCtrl" required="required" style="width:400px" value="@Model.HoTen" maxlength="30" pattern="^[^\u0021-\u0026\u0028-\u002C\u002E-\u0040\u005B-\u0060\u007B-\u007F\u0080-\u009F\u00A1-\u00BF\u00D7\u00F7\u2014-\u2018\u2020-\u206F]+$" title="Họ tên chỉ được nhập chữ !"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Địa chỉ:</td>
+                <td class="auto-Right">
+                    <input type="text" id="txt_DiaChi" name="txt_DiaChi" class="textCtrl" required="required" style="width:400px" value="@Model.DiaChi"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Điện thoại:</td>
+                <td class="auto-Right">
+                    <input type="text" id="txt_DienThoai" name="txt_DienThoai" class="number_ne" maxlength="11" style="width:400px" required="required" value="@Model.DienThoai" pattern="[0-9]{10,11}" title="Vui lòng nhập số điện thoại đúng định dạng 10-11 số !"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Số chứng minh thư:</td>
+                <td class="auto-Right">
+                    <input type="text" id="txt_Cmnd" name="txt_Cmnd" class="number_ne" maxlength="9" required="required" style="width:400px" value="@Model.CMND" pattern="[0-9]{9}" title="Vui lòng nhập đúng định dạng số CMND 9 số !"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Ngày sinh:</td>
+                <td class="auto-Right">
+                    <input type="date" id="txt_NgaySinh" name="txt_NgaySinh" class="textCtrl" style="width:400px" required="required" value="@string.Format("{0:yyyy-MM-dd}", Model.NgaySinh)" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Giới tính:</td>
+                <td class="auto-Right">
+                    <select id="sl_GioiTinh" name="sl_GioiTinh" class="textCtrl" style="width: 60px">
+                        <option value="0">Nữ</option>
+                        <option value="1" selected="@Model.GioiTinh">Nam</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="Xen_Form_Ne"></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <input id="NhapLai" type="reset" value="Nhập lại" class="button_ne" />
+                    <input type="submit" id="btn_Sumit" name="btn_Sumit" value="Lưu chỉnh sửa" class="button_ne" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="footer-shadow"></div>
+}

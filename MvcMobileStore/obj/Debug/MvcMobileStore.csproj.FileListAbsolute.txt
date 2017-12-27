@@ -1,0 +1,276 @@
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\MvcMobileStore.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\MvcMobileStore.pdb
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\Antlr3.Runtime.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\CKFinder.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.AspNet.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.Core.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OAuth.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OpenId.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\EntityFramework.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\Microsoft.Data.Edm.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\Microsoft.Data.OData.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\Microsoft.Web.Infrastructure.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\Newtonsoft.Json.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\PagedList.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\PagedList.Mvc.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Net.Http.Formatting.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Spatial.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.Helpers.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.OData.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.WebHost.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.Mvc.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.Optimization.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.Razor.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.Deployment.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.Razor.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\WebGrease.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\WebMatrix.Data.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\WebMatrix.WebData.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\CKFinder.pdb
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\PagedList.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\PagedList.Mvc.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\EntityFramework.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\Newtonsoft.Json.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Net.Http.Formatting.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.Helpers.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.WebHost.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.Mvc.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.Razor.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.Deployment.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.Razor.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\WebMatrix.Data.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\WebMatrix.WebData.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.AspNet.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.Core.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OAuth.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OpenId.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.OData.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\Microsoft.Data.Edm.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\Microsoft.Data.OData.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\System.Spatial.xml
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\de\Microsoft.Data.Edm.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\es\Microsoft.Data.Edm.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\fr\Microsoft.Data.Edm.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\it\Microsoft.Data.Edm.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\ja\Microsoft.Data.Edm.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\ko\Microsoft.Data.Edm.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\ru\Microsoft.Data.Edm.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\de\Microsoft.Data.OData.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\es\Microsoft.Data.OData.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\fr\Microsoft.Data.OData.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\it\Microsoft.Data.OData.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\ja\Microsoft.Data.OData.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\ko\Microsoft.Data.OData.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\ru\Microsoft.Data.OData.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\de\System.Spatial.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\es\System.Spatial.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\fr\System.Spatial.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\it\System.Spatial.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\ja\System.Spatial.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\ko\System.Spatial.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\ru\System.Spatial.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\zh-Hans\System.Spatial.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\bin\zh-Hant\System.Spatial.resources.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\obj\Debug\MvcMobileStore.dll
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\obj\Debug\MvcMobileStore.pdb
+E:\Năm III\Kỳ VI\Công Nghệ Web Nâng Cao\Đề tài\MvcMobileStore\MvcMobileStore\obj\Debug\MvcMobileStore.csprojResolveAssemblyReference.cache
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\MvcMobileStore.dll.config
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\MvcMobileStore.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\MvcMobileStore.pdb
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Antlr3.Runtime.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\CKFinder.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.AspNet.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.Core.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OAuth.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OpenId.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\EntityFramework.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Microsoft.Data.Edm.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Microsoft.Data.OData.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Microsoft.Web.Infrastructure.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Newtonsoft.Json.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\PagedList.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\PagedList.Mvc.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Net.Http.Formatting.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Spatial.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Helpers.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.OData.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.WebHost.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Mvc.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Optimization.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Razor.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.Deployment.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.Razor.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\WebGrease.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\WebMatrix.Data.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\WebMatrix.WebData.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\CKFinder.pdb
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\PagedList.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\PagedList.Mvc.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\EntityFramework.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Newtonsoft.Json.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Net.Http.Formatting.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Helpers.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.WebHost.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Mvc.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Razor.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.Deployment.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.Razor.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\WebMatrix.Data.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\WebMatrix.WebData.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.AspNet.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.Core.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OAuth.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OpenId.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.OData.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Microsoft.Data.Edm.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Microsoft.Data.OData.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Spatial.xml
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\de\Microsoft.Data.Edm.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\es\Microsoft.Data.Edm.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\it\Microsoft.Data.Edm.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\de\Microsoft.Data.OData.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\es\Microsoft.Data.OData.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\fr\Microsoft.Data.OData.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\it\Microsoft.Data.OData.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ja\Microsoft.Data.OData.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ko\Microsoft.Data.OData.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ru\Microsoft.Data.OData.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\de\System.Spatial.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\es\System.Spatial.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\fr\System.Spatial.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\it\System.Spatial.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ja\System.Spatial.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ko\System.Spatial.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ru\System.Spatial.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\zh-Hans\System.Spatial.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\zh-Hant\System.Spatial.resources.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\obj\Debug\MvcMobileStore.csprojResolveAssemblyReference.cache
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\obj\Debug\MvcMobileStore.dll
+D:\Truong DH KTKTBinhDuong\LaptrinhWebNCMVC(2015)\DetaiMVC\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\obj\Debug\MvcMobileStore.pdb
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\MvcMobileStore.dll.config
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\MvcMobileStore.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\MvcMobileStore.pdb
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Antlr3.Runtime.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\CKFinder.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.AspNet.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.Core.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OAuth.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OpenId.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\EntityFramework.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Microsoft.Data.Edm.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Microsoft.Data.OData.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Microsoft.Web.Infrastructure.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Newtonsoft.Json.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\PagedList.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\PagedList.Mvc.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Net.Http.Formatting.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Spatial.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Helpers.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.OData.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.WebHost.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Mvc.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Optimization.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Razor.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.Deployment.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.Razor.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\WebGrease.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\WebMatrix.Data.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\WebMatrix.WebData.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\CKFinder.pdb
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\PagedList.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\PagedList.Mvc.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\EntityFramework.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Newtonsoft.Json.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Net.Http.Formatting.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Helpers.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.WebHost.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Mvc.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Razor.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.Deployment.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.WebPages.Razor.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\WebMatrix.Data.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\WebMatrix.WebData.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.AspNet.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.Core.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OAuth.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OpenId.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Web.Http.OData.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Microsoft.Data.Edm.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\Microsoft.Data.OData.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\System.Spatial.xml
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\de\Microsoft.Data.Edm.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\es\Microsoft.Data.Edm.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\it\Microsoft.Data.Edm.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\de\Microsoft.Data.OData.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\es\Microsoft.Data.OData.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\fr\Microsoft.Data.OData.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\it\Microsoft.Data.OData.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ja\Microsoft.Data.OData.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ko\Microsoft.Data.OData.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ru\Microsoft.Data.OData.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\de\System.Spatial.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\es\System.Spatial.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\fr\System.Spatial.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\it\System.Spatial.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ja\System.Spatial.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ko\System.Spatial.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\ru\System.Spatial.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\zh-Hans\System.Spatial.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\bin\zh-Hant\System.Spatial.resources.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\obj\Debug\MvcMobileStore.csprojResolveAssemblyReference.cache
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\obj\Debug\MvcMobileStore.csproj.CoreCompileInputs.cache
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\obj\Debug\MvcMobileStore.dll
+D:\Môn Công Cụ\DaoAnhDung_11100306\DaoAnhDung_11100306\MvcMobileStore\MvcMobileStore\obj\Debug\MvcMobileStore.pdb

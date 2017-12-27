@@ -1,0 +1,121 @@
+﻿@model MvcMobileStore.Models.TinTuc
+
+@{
+    ViewBag.Title = "Sửa Tin Tức";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+}
+
+<style type="text/css">
+    .auto_Left {
+        color: #141414;
+        text-align: right;
+        padding-top: 12px;
+    }
+
+    .auto_Right {
+        padding-top: 12px;
+        padding-left: 10px;
+    }
+    #cke_txt_NoiDung {width:800px;}
+</style>
+
+@*----------CKFinder tải lên----------*@
+<script type="text/javascript">
+    function BrowseServer() {
+        var finder = new CKFinder();
+        finder.basePath = '/ckfinder/';
+        finder.selectActionFunction = SetFileField;
+        finder.popup();
+    }
+    function SetFileField(fileUrl) {
+        document.getElementById('txt_UrlHinh').value = fileUrl;
+    }
+</script>
+
+@*----------CKEditor Nội Dung----------*@
+<script type="text/javascript">
+    var ckeditor
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, { language: languageCode });
+    }
+    $(function () { createEditor('vi', 'txt_NoiDung') });
+</script>
+
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/News">
+            <span>Tin công nghệ</span>
+        </a>
+    </li>
+</ul>
+
+
+<div class="title_ne1">THÊM TIN CÔNG NGHỆ</div>
+
+@using (Html.BeginForm())
+{
+    <table id="Table1" style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+
+        <tr>
+            <td class="auto_Left">Tiêu đề:</td>
+            <td class="auto_Right">
+                <textarea id="txt_TieuDe" name="txt_TieuDe" class="textCtrl" required="required" maxlength="255" style="max-width: 280px">@Model.TieuDe</textarea>
+            </td>
+            <td class="auto_Left">Tóm tắt:</td>
+            <td class="auto_Right">
+                <textarea id="txt_TomTat" name="txt_TomTat" class="textCtrl" required="required" maxlength="255" style="max-width: 280px">@Model.TomTat</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto_Left">Lượt xem:</td>
+            <td class="auto_Right">
+                <input type="number" id="txt_LuotXem" name="txt_LuotXem" class="textCtrl" required="required" value="@Model.LuotXem"/>
+            </td>
+            <td class="auto_Left">Hình ảnh:</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_UrlHinh" name="txt_UrlHinh" class="textCtrl" required="required" value="@Model.UrlHinh" />
+                <input id="btn_TaiLen" onclick="BrowseServer();" type="button" value="Tải lên" /> @*onclick="BrowseServer();"*@        
+            </td>
+        </tr>
+        <tr>
+            <td class="auto_Left">Ngày cập nhật:</td>
+            <td class="auto_Right">
+                <input type="date" id="txt_NgayCapNhat" name="txt_NgayCapNhat" class="textCtrl" required="required" value="@string.Format("{0:yyyy-MM-dd}", Model.NgayCapNhat)" />
+            </td>
+            <td class="auto_Left">Trạng thái:</td>
+            <td class="auto_Right">
+                <select id="sl_AnHien" name="sl_AnHien" class="textCtrl"style="float:left;width:60px">
+                    <option value="0">Ẩn</option>
+                    <option value="1" selected="@Model.AnHien">Hiện</option>
+                </select>
+                <div style="float:left;padding-left:50px">Mã Tin:
+                    <input type="number" id="txt_MaTin" name="txt_MaTin" class="textCtrl" disabled="disabled" style="width:30px" value="@Model.MaTin"/>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto_Left">Nội dung:</td>
+            <td class="auto_Right" colspan="3">
+                <textarea id="txt_NoiDung" name="txt_NoiDung" required="required">@Model.NoiDung</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" style="text-align: center; padding-top: 15px;">
+                <input id="NhapLai" type="reset" value="Nhập lại" class="button_ne" />
+                <input type="submit" value="Lưu chỉnh sửa" class="button_ne" />
+            </td>
+        </tr>
+    </table>
+}
+
+

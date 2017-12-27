@@ -1,0 +1,96 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<MvcMobileStore.Models.LienHe>
+
+@{
+    ViewBag.Title = "Trả Lời Liên Hệ";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+}
+
+@*----------CKEditor Nội Dung----------*@
+<script type="text/javascript">
+    var ckeditor
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, { language: languageCode });
+    }
+    $(function () { createEditor('vi', 'txt_NoiDung') });
+</script>
+
+<style type="text/css">
+    #cke_txt_NoiDung {
+        width: 980px;
+    }
+</style>
+
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Contact">
+            <span>Liên hệ</span>
+        </a>
+    </li>
+</ul>
+
+@using (Html.BeginForm())
+{
+    <table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="ItemStyle_LienHe">
+                    <div style="width: 124px; float: left;">
+                        <div class="NguoiGui">
+                            <div class="avatarLH">
+                                <img  src="@item.Avatar" style="width: 100px;vertical-align:middle">
+                            </div>
+                            <div class="user_text">
+                                <div class="Ten">
+                                    <span>@item.TenNguoiGui</span>
+                                </div>
+                                <div class="Loai">
+                                    @if (item.LuotGui == true)
+                                    {
+                                        <span>Administrator</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Khách hàng</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td class="ItemStyle_LienHe">
+                    <div class="textCtrl" style="width: 820px; min-height: 120px">
+                        <span style="width: 820px; max-width: 820px; height: 120px; max-height: 120px">@Html.Raw(item.NoiDung)</span>
+                    </div>
+                    <div class="ngaygui_lh">
+                        <span>@item.NgayGui</span>
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+        if (@Model.Count() > 0)
+        {
+            @Html.PagedListPager(Model, Page => Url.Action("Reply", new { Page = Page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)  
+        }
+        else
+        {
+            <br />
+        }
+    <textarea id="txt_NoiDung" name="txt_NoiDung" required="required"></textarea>
+    <div style="text-align: center">
+        <input type="submit" class="button_ne" value=" Gửi đi " style="margin: 12px 0 3px 0" />
+    </div>   
+}

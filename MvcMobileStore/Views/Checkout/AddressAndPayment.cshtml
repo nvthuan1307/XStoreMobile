@@ -1,0 +1,193 @@
+﻿@*@model MvcMobileStore.Models.DonHang*@
+@model MvcMobileStore.Models.KhachHang
+
+@{
+    ViewBag.Title = "AddressAndPayment";
+    Layout = "~/Views/Shared/_LayoutMasterPage.cshtml";
+}
+
+<style type="text/css">
+    .auto-Left {
+        color: #141414;
+        text-align: right;
+        padding-top: 22px;
+    }
+
+    .auto-Right {
+        width: 510px;
+        padding-top: 22px;
+        padding-left: 10px;
+    }
+</style>
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+
+    //Khi Click "Lấy từ thông tin tài khoản" thì Gán các giá trị của thông tin tài khoản cho thông tin giao hàng (Lưu ý phải có thư viện Js)
+    $(function () {
+        $(".LayThongTin").click(function () {
+            document.getElementById('txt_HoTenNhan').value = $('#txt_HoTen').val();
+            document.getElementById('txt_DiaChiNhan').value = $('#txt_DiaChi').val();
+            document.getElementById('txt_DienThoaiNhan').value = $('#txt_DienThoai').val();
+        });
+    });
+
+    //Mặc định load lên thì Href liên kết đến bảo kim ẩn đi
+    $(document).ready(function () {
+        $('.LinkBaoKim').hide();
+    });
+
+    //Script Khi chọn hình thức thanh toán sẽ ẩn hiện Href liên kết đến bảo kim, Input xác nhận và ngược lại
+    function ThayDoi() {
+        var Chon = document.getElementById("sl_ThanhToan").value;
+        if (Chon == "0") {
+            $('.LinkBaoKim').show();
+            $('#XacNhan').hide();
+        }
+        else {
+            $('.LinkBaoKim').hide();
+            $('#XacNhan').show();
+        }
+    };
+
+    //Khi đã Click vào Href liên kết đến bảo kim thì ẩn liên kết bảo kim đi và hiện xác nhận lên
+    $(function () {
+        $(".LinkBaoKim").click(function () {
+            $('.LinkBaoKim').hide();
+            $('#XacNhan').show();
+        });
+    });
+</script>
+
+
+@*Phần breadcrumbs *@
+<ul id="breadcrumbs-one" style="margin: 0px">
+    <li><a href="/ShoppingCart"><span>1</span>Giỏ hàng</a></li>
+    <li><a href="#"><span>2</span>Thông tin đặt hàng</a></li>
+    <li><a href="#"><span>3</span>Hình thức thanh toán</a></li>
+    <li><a href="#"><span>4</span>Xác nhận</a></li>
+    <li><a class="current"><b>5</b>Hoàn thành</a></li>
+</ul>
+
+<div class="show" style="padding: 30px 10px 0px 10px; min-height: 1217px">
+    @using (Html.BeginForm())
+    {
+        @*Thông tin đặt hàng*@
+        <table style="width: 685px; border: 1px solid rgb(208, 208, 208);">
+            <tr>
+                <td colspan="2">
+                    <div class="title_1" style="line-height: 35px;">
+                        &nbsp;&nbsp; THÔNG TIN TÀI KHOẢN
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Họ tên:</td>
+                <td class="auto-Right">
+                    <input type="text" id="txt_HoTen" name="txt_HoTen" class="textCtrl" disabled="disabled" value="@Model.HoTen" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Địa chỉ:</td>
+                <td class="auto-Right">
+                    <input type="text" id="txt_DiaChi" name="txt_DiaChi" class="textCtrl" disabled="disabled" value="@Model.DiaChi" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Điện thoại:</td>
+                <td class="auto-Right">
+                    <input type="text" id="txt_DienThoai" name="txt_DienThoai" class="textCtrl" disabled="disabled" value="@Model.DienThoai" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Email:</td>
+                <td class="auto-Right">
+                    <input type="text" id="txt_Email" name="txt_Email" class="textCtrl" disabled="disabled" value="@Model.Email" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding: 10px 0">
+                    <div class="Xen_Form_Ne"></div>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="title_1" style="line-height: 35px;">
+                        &nbsp;&nbsp; THÔNG TIN GIAO HÀNG
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding: 30px 0px 0px 70px">
+                    <div style="color: #666; font-style: italic; font-size: 12px;">
+                        Vui lòng nhập các thông tin giao hàng của quý khách hoặc
+                    <a href="#" class="LayThongTin">Lấy từ thông tin tài khoản</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Tên người nhận:</td>
+                <td class="auto-Right">
+                    <input type="text" id="txt_HoTenNhan" name="txt_HoTenNhan" class="textCtrl" required="required" maxlength="30" pattern="^[^\u0021-\u0026\u0028-\u002C\u002E-\u0040\u005B-\u0060\u007B-\u007F\u0080-\u009F\u00A1-\u00BF\u00D7\u00F7\u2014-\u2018\u2020-\u206F]+$" title="Họ tên chỉ được nhập chữ !" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Địa chỉ nhận:</td>
+                <td class="auto-Right">
+                    <input type="text" id="txt_DiaChiNhan" name="txt_DiaChiNhan" class="textCtrl" required="required" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left">Điện thoại nhận:</td>
+                <td class="auto-Right">
+                    <input type="text" id="txt_DienThoaiNhan" name="txt_DienThoaiNhan" class="number_ne" maxlength="11" required="required" pattern="[0-9]{10,11}" title="Vui lòng nhập số điện thoại đúng định dạng 10-11 số !" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-Left" style="padding-bottom: 25px">Ngày giao hàng:</td>
+                <td class="auto-Right" style="padding-bottom: 25px">
+                    <input type="date" id="txt_NgayGiaoHang" name="txt_NgayGiaoHang" class="textCtrl" required="required" />
+                </td>
+            </tr>
+        </table>
+
+        @*Hình Thức Thanh Toán*@
+        <div style="width: 685px; border: 1px solid rgb(208, 208, 208); margin-top: 50px">
+            <div class="title_1" style="line-height: 35px;">
+                &nbsp;&nbsp; HÌNH THỨC THANH TOÁN
+            </div>
+            <br />
+            <br />
+            <div style="text-align: center">
+                <img src="~/Content/Images/ThanhToan.png" />
+            </div>
+            <div style="text-align: center; padding: 30px 0">
+                <p style="color: #666; font-style: italic; font-size: 12px; text-align: center;">Vui lòng chọn một hình thức thanh toán để mua hàng</p>
+                <select id="sl_ThanhToan" name="sl_ThanhToan" class="textCtrl" onchange="ThayDoi();">
+                    <option value="0">Thanh toán trước khi giao hàng</option>
+                    <option value="1" selected="selected">Thanh toán sau khi giao hàng</option>
+                </select>
+            </div>
+            <div style="text-align: center">
+            </div>
+        </div>
+        <br />
+        <br />
+
+        <table style="width: 685px; height: 100px; border: 1px solid rgb(208, 208, 208); text-align: center">
+            <tr>
+                <td style="width: 50%; text-align: right; padding-right: 20px">
+                    <a href="@Url.Action("Index", "ShoppingCart")" class="btn_Ne" style="font-size: 15px;">Quay lại</a>
+                </td>
+                <td style="text-align: left; padding-left: 20px">
+                    <input id="XacNhan" type="submit" class="btn_Ne" style="font-size: 15px; margin-top: 0px" value="Xác nhận" />
+                    <a class="LinkBaoKim" target="_blank" href="https://www.baokim.vn/payment/product/version11?business=Hacker.Handsome.93%40gmail.com&id=&order_description=M%C3%A0n+h%C3%ACnh%3A%09DVGA%2C+4.0%22%2C+640+x+1136+pixels+%0D%0ACPU%3A%09Apple+A7%2C+2+nh%C3%A2n%2C+1.3+GHz+%0D%0ARAM%091+GB+%0D%0AH%E1%BB%87+%C4%91i%E1%BB%81u+h%C3%A0nh%3A%09iOS+7.0+%0D%0ACamera+ch%C3%ADnh%3A%098.0+MP%2C+Quay+phim+FullHD+1080p%4030fps+%0D%0ACamera+ph%E1%BB%A5%3A%091.2+MP+%0D%0AB%E1%BB%99+nh%E1%BB%9B+trong%3A%0964+GB+%0D%0ATh%E1%BA%BB+nh%E1%BB%9B+ngo%C3%A0i+%C4%91%E1%BA%BFn%3A%09Kh%C3%B4ng+%0D%0ADung+l%C6%B0%E1%BB%A3ng+pin%3A%091560+mAh&product_name=iPhone+5S+64GB+&product_price=22290000&product_quantity=1&total_amount=22290000&url_cancel=http%3A%2F%2Fwww.dungmobile.somee.com%2F%2FCheckout%2FAddressAndPayment&url_detail=http%3A%2F%2Fwww.dungmobile.somee.com%2FHome%2FDetails%2F1&url_success=http%3A%2F%2Fwww.dungmobile.somee.com%2F%2FCheckout%2FAddressAndPayment">
+                        <img src="http://developer.baokim.vn/uploads/baokim_btn/thanhtoanantoan-s.png" style="height: 36px; padding-top: 4px" alt="Thanh toán an toàn với Bảo Kim !" border="0" title="Thanh toán trực tuyến an toàn dùng tài khoản Ngân hàng (VietcomBank, TechcomBank, Đông Á, VietinBank, Quân Đội, VIB, SHB,... và thẻ Quốc tế (Visa, Master Card...) qua Cổng thanh toán trực tuyến BảoKim.vn">
+                    </a>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+<div class="footer-shadow"></div>

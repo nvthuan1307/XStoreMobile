@@ -1,0 +1,12 @@
+﻿@model IEnumerable<MvcMobileStore.Models.Slider>
+
+@foreach (var item in Model)
+{
+    <div class="img">
+        <a href="@item.LinkUrl" target='_blank'>
+            <img style='cursor: pointer' src="@item.UrlHinh" alt='' width='540' height='210' />
+        </a>
+    </div>
+}
+
+

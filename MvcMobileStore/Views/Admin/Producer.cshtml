@@ -1,0 +1,93 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<MvcMobileStore.Models.NhaSanXuat>
+
+@{
+    ViewBag.Title = "Quản Trị Nhà Sản Xuất";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*Scrip thực hiện Update lại Ẩn Hiện*@
+<script type="text/javascript">
+    $(function () {
+        //Thực hiện Cập nhật khi Click <a href="#" class="AnHienClick">
+        $(".AnHienClick").click(function () {
+            //Lấy Mã NSX từ liên kết Click <a href> trên
+            var _MaNSX = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm UpdateProducer để xử lý
+            $.post("/Admin/UpdateProducer", { "id": _MaNSX },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_AnHien-' + _MaNSX).attr('src', data);
+             });
+        });
+    });
+</script>
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Producer">
+            <span>Nhà sản xuất</span>
+        </a>
+    </li>
+</ul>
+
+@*Danh sách NXS*@
+<div class="title_ne1">DANH SÁCH NHÀ SẢN XUẤT</div>
+@using (Html.BeginForm())
+{
+    <table border="1" style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+        <tr>
+            <th>Mã nhà sản xuất</th>
+            <th>Tên nhà sản xuất</th>
+            <th>Trạng thái</th>
+            <th>Chỉnh sửa nhà sản xuất</th>
+            <th>Chọn nhà sản xuất</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td style="text-align: center">@item.MaNSX</td>
+                <td style="text-align: center">@item.TenNSX</td>
+                <td style="text-align: center">
+                    @if (item.AnHien == true)
+                    {
+                        <a href="#" class="AnHienClick" data-id="@item.MaNSX">
+                            <img src="/Content/Admin/Images/icon_Hien.png" id="img_AnHien-@item.MaNSX" title="Hiện" />
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="#" class="AnHienClick" data-id="@item.MaNSX">
+                            <img src="/Content/Admin/Images/icon_An.png" id="img_AnHien-@item.MaNSX" title="Ẩn" />
+                        </a>
+                    }
+                </td>
+                <td style="text-align: center"><a href="@Url.Action("EditProducer", "Admin", new { id = item.MaNSX })">
+                    <img src="~/Content/Admin/Images/icon_Sua.png" /></a>
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" class="ckb_ID" name="ckb_ID" value="@item.MaNSX"/>
+                </td>
+            </tr>
+        }
+    </table>
+    <div style="text-align: center; margin-left: 150px">
+        <input type="submit" value="Xóa nhà sản xuất " class="button_ne" onclick="return confirm('Bạn có chắc muốn Xóa nhà sản xuất đã chọn?');" />
+    </div>      
+}@*Lưu ý: đóng Form ở đây để Button chuyển sang trang Crate không thực thi được nút xóa nhà sản xuất*@
+
+<div style="text-align: center; margin-top: -53px; margin-left: -150px">
+    <button class="button_ne" onclick="location.href='@Url.Action("CreateProducer", "Admin")'">Thêm nhà sản xuất</button>
+</div>
+
+@Html.PagedListPager(Model, Page => Url.Action("Producer", new { Page = Page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)

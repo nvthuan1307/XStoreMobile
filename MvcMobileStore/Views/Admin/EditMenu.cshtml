@@ -1,0 +1,72 @@
+﻿@model MvcMobileStore.Models.Menu
+
+@{
+    ViewBag.Title = "Sửa Menu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<style type="text/css">
+    .auto-Left {
+        text-align: right;
+        padding-top: 22px;
+    }
+
+    .auto-Right {
+        width: 550px;
+        padding-top: 22px;
+        padding-left: 10px;
+    }
+</style>
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Menu">
+            <span>Menu</span>
+        </a>
+    </li>
+</ul>
+
+<div class="title_ne1">CHỈNH SỬA MENU</div>
+
+@using (Html.BeginForm())
+{
+    <table id="Table1" style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+        <tr>
+            <td class="auto-Left">Mã Menu:</td>
+            <td class="auto-Right">
+                <input type="text" id="txt_MaMenu" class="textCtrl" style="width: 20px;" disabled="disabled" value="@Model.MaMenu"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-Left">Tên Menu:</td>
+            <td class="auto-Right">
+                <input type="text" id="txt_TenMenu" name="txt_TenMenu" class="textCtrl" required="required" value="@Model.TenMenu"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-Left">Đường dẫn:</td>
+            <td class="auto-Right">
+                <input type="text" id="txt_Url" name="txt_Url" class="textCtrl" required="required" value="@Model.url"/>
+            </td>
+        </tr>
+         <tr>
+            <td class="auto-Left">Thứ tự:</td>
+            <td class="auto-Right">
+                <input type="number" id="txt_ThuTu" name="txt_ThuTu" class="textCtrl" required="required" value="@Model.Thutu"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center; padding-top: 15px;">
+                <input id="NhapLai" type="reset" value="Nhập lại" class="button_ne" />
+                <input type="submit" value="Lưu chỉnh sửa" class="button_ne" />
+            </td>
+        </tr>
+    </table>
+}

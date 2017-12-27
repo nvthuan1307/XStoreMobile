@@ -1,0 +1,35 @@
+﻿<!--------------------------------------------Menu-------------------------------------------------------------->
+<div id="site-body" class="inside-page-body product-body sim-card-body clearfix">
+    <input type="hidden" id="provinceid" />
+    <section class="content-block-wrapper navigation-banner clearfix">
+        <div class="navigation">
+            @{Html.RenderAction("_pMenuTop", "Home");}
+        </div>
+
+        <!--------------------------------------------Slide-------------------------------------------------------------->
+        <div id="banner" class="banner">
+            <div class="banner-wrapper clearfix">
+                <div class="arrow-wrapper mask clearfix">
+                    <div class="left-arrow">
+                        <a href="javascript:void(0);">
+                            <img src="/Content/Images/Slide/left.png"></a>
+                    </div>
+                    <div class="right-arrow">
+                        <a href="javascript:void(0);">
+                            <img src="/Content/Images/Slide/right.png"></a>
+                    </div>
+                </div>
+                <div class="the-mask clearfix">
+                    <div class="mask-left"></div>
+                    <div class="image-wrapper clearfix">
+                        @{Html.RenderAction("_pSlider", "Home");}
+                    </div>
+                    <div class="mask-right"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        var _cposi = '1';
+    </script>
+</div>

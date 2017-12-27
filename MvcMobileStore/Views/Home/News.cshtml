@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "News | Tin Công Nghệ";
+    Layout = "~/Views/Shared/_LayoutMasterPage.cshtml";
+}
+
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<MvcMobileStore.Models.TinTuc>
+
+@*Phần breadcrumbs*@
+    <ul id="breadcrumbs-one" style="margin: 0">
+        <li><a href="/Home"><img src="~/Content/Images/home.png" style="vertical-align:top"/>&nbsp; Trang chủ</a></li>
+        <li><a class="current">Tin công nghệ</a></li>
+    </ul>
+
+<div class="show">
+    @foreach(var item in Model)
+    {
+    <div style="padding: 40px 30px 0px 30px">      
+        <a href="@Url.Action("Reader", "Home", new { id=item.MaTin})" style="font-size: 28px; font-weight: normal; color: #03468C;">@item.TieuDe</a>
+        <br />
+        <div style="color: #666; font-style: italic; line-height: 40px; font-size: 12px;">
+            <img src="~/Content/Images/icon_time.png"/>
+            Cập nhật cuối lúc:<label style="font-weight: 700">@string.Format("{0:dd/MM/yyyy}",item.NgayCapNhat)</label>
+            ,
+            <img src="~/Content/Images/icon_eye.png"/>
+            Đã xem:   
+            <label style="font-weight: 700">@string.Format("{0:#,##0}",item.LuotXem)</label>
+            lượt
+        </div>
+        <a href="@Url.Action("Reader", "Home", new { id=item.MaTin})">
+            <img style="vertical-align:top;width:640px;" src="@item.UrlHinh" title="@item.TieuDe"/>           
+        </a>
+        <br />
+        <br />
+        <br />
+        <label style="text-align: justify; color: #333; font-size: 14px;line-height:25px">@item.TomTat</label>
+        <br />
+        <br />
+        <hr size="0.5px" width="640px" color="silver" />
+    </div>
+    }
+
+    @Html.PagedListPager(Model, Page => Url.Action("News", new { Page = Page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+ 
+</div>
+<div class="footer-shadow"></div>
+
+

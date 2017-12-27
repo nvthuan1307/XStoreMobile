@@ -1,0 +1,168 @@
+﻿@model MvcMobileStore.Models.SanPham
+
+@{
+    ViewBag.Title = Model.TenSP;
+    Layout = "~/Views/Shared/_LayoutMasterPage.cshtml";
+}
+
+@*Css của cấu hình (mô tả) chi tiết*@
+<style> 
+img.lazy {
+    max-width: 690px;
+}
+.product-compare td.g, .product-compare td.f, #detail-frame td.g, #detail-frame td.f {
+    border-top: 1px solid rgb(238, 238, 238) !important;
+}
+.product-compare td.g,
+.product-compare td.g, #detail-frame td.g {
+    border-bottom: 1px solid #FFF;
+    background-color: rgba(246, 246, 246, 0.71);
+    font-weight: bold;
+    color: #656565;
+    width: 150px !important;
+    padding-left: 10px;
+    font-size: 13px !important;
+}
+
+duct-compare td, #detail-frame td {
+    padding: 2px;
+    height: 20px;
+    text-align: left;
+    font-size: 12px;
+}
+
+.product-compare td.p, #detail-frame td.p {
+    border-bottom: 1px solid #FFF;
+    padding-left: 5px;
+    line-height: 30px;
+    font-size: 13px !important;
+    min-width: 135px;
+    background-color: #FCFCFC;
+    color: #434343;
+}
+</style>
+
+@*Css của đánh giá SP (Cách dòng đẹp hơn)*@
+<style>
+    p {margin-bottom:18px;}
+</style>
+
+<script src="~/Scripts/Xoay360.js"></script>
+
+@*Phần breadcrumbs*@
+<ul id="breadcrumbs-one" style="margin:0">
+        <li><a href="/Home"><img src="~/Content/Images/home.png" style="vertical-align:top"/>&nbsp; Trang chủ</a></li>
+        <li><a href="@Url.Action("Producer", "Home", new { id = Model.MaNSX })">Hãng sản xuất @Model.NhaSanXuat.TenNSX</a></li>
+        <li><a class="current">@Model.TenSP</a></li>
+</ul>
+
+@*Phần chi tiết SP*@
+@using (Html.BeginForm())
+{
+    <div class="show">
+    <table style="width:700px;">
+            <tr>
+                <td>      
+                    <div class="gim_sale">@*Gim khuyễn mãi*@
+                        <label style="font-size: 14px; color: #FFF;line-height:150px;padding-left:8px;font-weight:bold">- @Model.KhuyenMai%</label>
+                    </div>
+                    <br /><br /><br /><br />    
+                    <img src="@Model.UrlHinh" style="width:350px;vertical-align:top"/>               
+                </td>
+                <td style="width:50%">
+                    <br />
+                    <label style="font-weight: bold;color:#FF6000;font-size:20px">@Model.TenSP</label>
+                    <br />
+                    <div style="color:#666; font-style: italic;line-height:25px; font-size:12px;">
+                        <img src="~/Content/Images/icon_time.png" />
+                        Cập nhật cuối lúc: <label style="font-weight:bold">@string.Format("{0:dd/MM/yyyy}",Model.NgayCapNhat)</label>                       
+                        ,
+                        <img src="~/Content/Images/icon_eye.png" />
+                        Đã xem: <label style="font-weight:bold">@string.Format("{0:#,##0}",Model.LuotXem)</label> lượt                                     
+                    </div>   
+                    <br />    
+                    <div style="color:#333;line-height:25px; font-size:14px;">       
+                        @Html.Raw((Model.MoTa).Replace("\n","<br><li Type=square>") )                       
+                    </div>
+                    <br />
+                    <strong style="color:#666;">Trạng thái:</strong> 
+                    <label style="color:#333;">@if (Model.SoLuongTon != 0) { <label>Còn hàng</label>} @if (Model.SoLuongTon == 0){ <label>Hết hàng</label>}</label>
+                    <em style="color:#666;font-size:12px;padding-left:20px;">Số người mua: 
+                        <label style="font-weight:bold">@Model.SLDaBan</label></em>        
+                    <br /><br />
+                    <strong style="color:#ff6600;font-size:15px;">Giá bán: </strong>
+                    <label style="font-weight: 700;color:#666;font-size:14px">@string.Format("{0:#,##0}",Model.GiaHienTai)<sup> VNĐ</sup></label>     
+                    <label style="font-style: italic;color:#666;font-size:14px;padding-left:20px"><s>@string.Format("{0:#,##0}",Model.GiaCu)<sup> VNĐ</sup></s></label>                
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div style="border: 1px solid #f0f0f0;border-radius: 5px;padding: 10px;font-size:11px;color:#666;text-align:center;width:350px;margin:10px 0px 20px 170px;">                                  
+                        <a href="@Url.Action("AddToCart", "ShoppingCart", new { id=Model.MaSP})">
+                            <img src="~/Content/Images/button_datmua.png" />
+                        </a>
+                        <br />
+                        <img src="~/Content/Images/verify.png" />   
+                        Giao hàng trong vòng từ 2 đến 3 ngày (trừ thứ 7 và chủ nhật)
+                        <br />
+                        <img src="~/Content/Images/verify.png" /> 
+                        Đặt hàng qua hotline: <strong>0123456789 </strong>(miễn phí)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">@*Phần Hide/Show nội dung*@
+                    <blockquote class="spoiler">
+                        @Html.Raw(Model.MoTaCT)
+                    </blockquote><br />
+                </td>
+            </tr>                      
+        </table>
+        </div>
+    <div class="footer-shadow"></div>
+    
+//Tab menu
+<ul id="tabs">
+    <li><a href="#" name="tab1">Hình 360<sup>o</sup></a></li>
+    <li><a href="#" name="tab2">Đánh giá SP</a></li>
+    <li><a href="#" name="tab3">Bình Luận</a></li>
+    <li><a href="#" name="tab4">HD mua hàng</a></li>    
+</ul>
+
+<div id="content">
+    <div id="tab1" style="text-align:center"> @*Hình 360 độ*@
+        <div style="padding:60px 0;height:457px;">
+            @Html.Raw(Model.Code1 + Model.UrlHinh360 + Model.Code2)
+        </div>        
+    </div>
+
+    <div id="tab2"> @*Phần Đánh giá CT*@
+        <div style="padding:10px">
+            @Html.Raw(Model.DanhGiaCT)
+        </div>
+    </div>
+
+    <div id="tab3">@*Bình luận*@
+        <div style="padding:10px">
+        <div id="fb-root"></div>
+            <script>
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+            <div class="fb-comments" data-href="@Request.Url.ToString()" data-width="680" data-num-posts="10"></div>
+        </div>
+    </div>
+
+    <div id="tab4">@*HD mua hàng*@
+        <div style="padding:10px">
+            <img src="~/Content/Images/huong-dan-mua-hang.png" style="width:680px"/>          
+        </div>
+    </div>
+    <div class="footer-shadow"></div>
+</div>
+}
