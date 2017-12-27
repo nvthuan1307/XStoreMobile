@@ -1,0 +1,192 @@
+﻿@model MvcMobileStore.Models.SanPham
+
+@{
+    ViewBag.Title = "Sửa Sản Phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+}
+
+<style type="text/css">
+    .auto_Left {
+        color: #141414;
+        text-align: right;
+        padding-top: 12px;
+    }
+
+    .auto_Right {
+        padding-top: 12px;
+        padding-left: 10px;
+    }
+
+    #cke_txt_MoTa, #cke_txt_MoTaCT, #cke_txt_DanhGiaCT {
+        width: 800px;
+    }
+</style>
+
+@*----------CKFinder tải lên----------*@
+<script type="text/javascript">
+    function BrowseServer() {
+        var finder = new CKFinder();
+        finder.basePath = '/ckfinder/';
+        finder.selectActionFunction = SetFileField;
+        finder.popup();
+    }
+    function SetFileField(fileUrl) {
+        document.getElementById('txt_UrlHinh').value = fileUrl;
+    }
+</script>
+
+<script type="text/javascript">
+    function BrowseServer1() {
+        var finder1 = new CKFinder();
+        finder1.basePath = '/ckfinder/';
+        finder1.selectActionFunction = SetFileField1;
+        finder1.popup();
+    }
+    function SetFileField1(fileUrl) {
+        document.getElementById('txt_UrlHinh360').value = fileUrl;
+    }
+</script>
+
+@*----------CKEditor----------*@
+<script type="text/javascript">
+    var ckeditor
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, { language: languageCode });
+    }
+    $(function () { createEditor('vi', 'txt_MoTa') });
+</script>
+
+<script type="text/javascript">
+    var ckeditor
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, { language: languageCode });
+    }
+    $(function () { createEditor('vi', 'txt_MoTaCT') });
+</script>
+
+<script type="text/javascript">
+    var ckeditor
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, { language: languageCode });
+    }
+    $(function () { createEditor('vi', 'txt_DanhGiaCT') });
+</script>
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Product">
+            <span>Sản phẩm</span>
+        </a>
+    </li>
+</ul>
+
+<div class="title_ne1">SỬA SẢN PHẨM</div>
+
+@using (Html.BeginForm())
+{
+    <table style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+        <tr>
+            <td class="auto_Left">Tên sản phẩm</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_TenSP" name="txt_TenSP" class="textCtrl" required="required" value="@Model.TenSP" />
+            </td>
+            <td class="auto_Left">Hình ảnh:</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_UrlHinh" name="txt_UrlHinh" class="textCtrl" required="required" value="@Model.UrlHinh" />
+                <input type="button" id="btn_TaiLen" onclick="BrowseServer();" value="Tải lên" />@*onclick="BrowseServer();"*@
+            </td>
+        </tr>
+        <tr>
+            <td class="auto_Left">Giá hiện tại:</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_GiaHienTai" name="txt_GiaHienTai" class="number_ne" maxlength="8" required="required" pattern="[0-9]{4,8}" title="Chỉ được nhập đơn vị số nghìn đến chục triệu !" value="@Model.GiaHienTai" />
+            </td>
+            <td class="auto_Left">Hình xoay 360 độ:</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_UrlHinh360" name="txt_UrlHinh360" class="textCtrl" required="required" value="@Model.UrlHinh360" />
+                <input type="button" id="btn_Tailen360" onclick="BrowseServer1();" value="Tải lên" />@*onclick="BrowseServer1();"*@
+            </td>
+        </tr>
+        <tr>
+            <td class="auto_Left">Giá cũ:</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_GiaCu" name="txt_GiaCu" class="number_ne" maxlength="8" required="required" pattern="[0-9]{4,8}" title="Chỉ được nhập đơn vị số nghìn đến chục triệu !" value="@Model.GiaCu" />
+            </td>
+            <td class="auto_Left">Nhà sản xuất:</td>
+            <td class="auto_Right">
+                @Html.DropDownList("sl_NhaSX", null, new { @class = "textCtrl" })
+            </td>
+        </tr>
+        <tr>
+            <td class="auto_Left">Số lượng tồn</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_SLTon" name="txt_SLTon" class="number_ne" maxlength="3" required="required" pattern="[0-9]{1,3}" title="Chỉ được nhập số !" value="@Model.SoLuongTon" />
+            </td>
+            <td class="auto_Left">Khuyễn mãi</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_KhuyenMai" name="txt_KhuyenMai" class="number_ne" maxlength="2" required="required" pattern="[0-9]{1,2}" title="Chỉ được nhập số !" value="@Model.KhuyenMai" />
+            </td>
+        </tr>
+        <tr>
+            <td class="auto_Left">Số lượng đã bán:</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_SLDaBan" name="txt_SLDaBan" class="number_ne" maxlength="3" required="required" pattern="[0-9]{1,3}" title="Chỉ được nhập số !" value="@Model.SLDaBan" />
+            </td>
+            <td class="auto_Left">Lượt xem:</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_LuotXem" name="txt_LuotXem" class="number_ne" maxlength="8" required="required" pattern="[0-9]{1,8}" title="Chỉ được nhập số !" value="@Model.LuotXem" />
+            </td>
+        </tr>
+        <tr>
+            <td class="auto_Left">Ngày cập nhật:</td>
+            <td class="auto_Right">
+                <input type="date" id="txt_NgayCapNhat" name="txt_NgayCapNhat" class="textCtrl" required="required" value="@string.Format("{0:yyyy-MM-dd}", Model.NgayCapNhat)" />
+            </td>
+            <td class="auto_Left">Ẩn hiện:</td>
+            <td class="auto_Right">
+                <select id="sl_AnHien" name="sl_AnHien" class="textCtrl" style="width:60px;float:left">
+                    <option value="0">Ẩn</option>
+                    <option value="1" selected="@Model.AnHien">Hiện</option>
+                </select>
+                <div style="float:left;padding-left:50px">Mã SP:
+                    <input type="number" id="txt_MaSP" name="txt_MaSP" class="textCtrl" disabled="disabled" style="width:30px" value="@Model.MaSP"/>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto_Left">Mô tả:</td>
+            <td class="auto_Right" colspan="3">
+                <textarea id="txt_MoTa" name="txt_MoTa" required="required">@Model.MoTa</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto_Left">Mô tả chi tiết:</td>
+            <td class="auto_Right" colspan="3">
+                <textarea id="txt_MoTaCT" name="txt_MoTaCT" required="required">@Model.MoTaCT</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto_Left">Đánh giá chi tiết:</td>
+            <td class="auto_Right" colspan="3">
+                <textarea id="txt_DanhGiaCT" name="txt_DanhGiaCT" required="required">@Model.DanhGiaCT</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div style="text-align: center">
+                    <input id="NhapLai" type="reset" value="Nhập lại" class="button_ne" />
+                    <input type="submit" value="Lưu chỉnh sửa" class="button_ne" />
+                </div>
+            </td>
+        </tr>
+    </table>
+}

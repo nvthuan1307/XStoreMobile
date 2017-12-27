@@ -1,0 +1,89 @@
+﻿@model int
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Complete | Hoàn Thành</title>
+
+    <link rel="shortcut icon" href="/Content/Images/ico.png" />
+
+
+    <style type="text/css">
+        body {
+            background: #e0e0e0;
+            background-image: url('/Content/Images/bg_ThongBaoFull.png');
+            color: #333;
+        }
+
+        #bg_ThongBao {
+            background-image: url('/Content/Images/bg_ThongBao.png');
+            background-repeat: no-repeat;
+            width: 700px;
+            height: 333px;
+            margin: auto;
+            margin-top: 150px;
+        }
+
+        #NoiDung {
+            text-align: center;
+            width: 700px;
+            height: 300px;
+            font-size: large;
+            padding-top: 10px;
+            color: #333;
+        }
+
+        .btn_Ne {
+            clear: both;
+            display: block;
+            padding: 10px 25px;
+            margin: 20px auto;
+            text-align: center;
+            background: none repeat scroll 0% 0% #FF9002;
+            color: #FFF;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 3px;
+            cursor: pointer;
+            border: 1px solid #D67208;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.43);
+        }
+
+            .btn_Ne:hover {
+                text-shadow: -1px 0px 1px rgba(0, 0, 0, 0.2);
+                color: #FFF;
+                background: none repeat scroll 0% 0% #FF9601;
+                box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.9) inset;
+            }
+    </style>
+    <script type="text/javascript">
+        setTimeout("document.location='/Home'", 15000);
+    </script>
+</head>
+<body>
+    <div id="bg_ThongBao">
+        <div id="NoiDung">
+            <br /><br />
+            <img src="~/Content/Images/logo_footer.png" />
+            <br />
+            <br />
+            <strong style="color: #ff6a00;">ĐẶT HÀNG THÀNH CÔNG</strong>
+            <br />
+            Chúng tôi sẽ gọi xác nhận lại đơn hàng trong vòng 24 giờ.
+            <br />
+            Khi cần trợ giúp, vui lòng gọi 01659.020.020
+            <br />
+            Đang quay lại trang chủ...
+            <br />
+            <img src="~/Content/Images/loading.gif" />
+            <a href="@Url.Action("Index", "Home")" class="btn_Ne" style="margin:auto;padding:5px 10px;width:100px" title="click nếu quý khách cảm thấy đợi lâu!" >Kết thúc</a>
+        </div>
+    </div>
+</body>
+</html>

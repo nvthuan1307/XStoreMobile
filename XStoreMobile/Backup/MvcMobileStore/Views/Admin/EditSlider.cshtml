@@ -1,0 +1,98 @@
+﻿@model MvcMobileStore.Models.Slider
+
+@{
+    ViewBag.Title = "Sửa Slider";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+}
+
+<style type="text/css">
+    .auto-Left {
+        text-align: right;
+        padding-top: 22px;
+    }
+
+    .auto-Right {
+        width: 600px;
+        padding-top: 22px;
+        padding-left: 10px;
+    }
+</style>
+
+@*----------CKeditor tải lên----------*@
+<script type="text/javascript">
+    function BrowseServer() {
+        var finder = new CKFinder();
+        finder.basePath = '/ckfinder/';
+        finder.selectActionFunction = SetFileField;
+        finder.popup();
+    }
+    function SetFileField(fileUrl) {
+        document.getElementById('txt_UrlHinh').value = fileUrl;
+    }
+</script>
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Slider">
+            <span>Slider</span>
+        </a>
+    </li>
+</ul>
+
+<div class="title_ne1">THÊM SLIDER</div>
+
+@using (Html.BeginForm())
+{
+    <table id="Table1" style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+        <tr>
+            <td class="auto-Left">Mã Slider:</td>
+            <td class="auto-Right">
+                <input type="text" id="txt_MaSlider" class="textCtrl" style="width: 20px;" disabled="disabled" value="@Model.MaSlider" />
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-Left">Hình ảnh:</td>
+            <td class="auto-Right">
+                <input type="text" id="txt_UrlHinh" name="txt_UrlHinh" class="textCtrl" required="required" value="@Model.UrlHinh" />
+                <input id="btn_TaiLen" onclick="BrowseServer();" type="button" value="Tải lên" />
+                @*onclick="BrowseServer();"*@
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-Left">Link:</td>
+            <td class="auto-Right">
+                <input type="text" id="txt_LinkUrl" name="txt_LinkUrl" class="textCtrl" required="required" value="@Model.LinkUrl" />
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-Left">Thứ tự:</td>
+            <td class="auto-Right">
+                <input type="number" id="txt_ThuTu" name="txt_ThuTu" class="textCtrl" required="required" value="@Model.Thutu"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-Left">Trạng thái:</td>
+            <td class="auto-Right">
+                <select id="sl_AnHien" name="sl_AnHien" class="textCtrl" style="width:60px">
+                    <option value="0">Ẩn</option>
+                    <option value="1" selected="@Model.AnHien">Hiện</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center; padding-top: 15px;">
+                <input id="NhapLai" type="reset" value="Nhập lại" class="button_ne" />
+                <input type="submit" value="Lưu chỉnh sửa" class="button_ne" />
+            </td>
+        </tr>
+    </table>
+}
+

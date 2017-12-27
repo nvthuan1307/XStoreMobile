@@ -1,0 +1,48 @@
+﻿@model MvcMobileStore.Models.ThongTin
+
+@{
+    ViewBag.Title = "Quản Trị Giới Thiệu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+}
+
+
+<style type="text/css">
+    #cke_txt_GioiThieu {
+        width: 982px;
+    }
+</style>
+
+@*----------CKEditor----------*@
+<script type="text/javascript">
+    var ckeditor
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, { language: languageCode });
+    }
+    $(function () { createEditor('vi', 'txt_GioiThieu') });
+</script>
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/About">
+            <span>Giới thiệu</span>
+        </a>
+    </li>
+</ul>
+
+<div class="title_ne1">GIỚI THIỆU WEBSITE</div>
+@using (Html.BeginForm())
+{  
+    <textarea id="txt_GioiThieu" name="txt_GioiThieu" required="required">@Model.GioiThieu</textarea>   
+    <div style="text-align: center">
+        <input type="submit" value="Lưu chỉnh sửa" class="button_ne" />
+    </div>
+}

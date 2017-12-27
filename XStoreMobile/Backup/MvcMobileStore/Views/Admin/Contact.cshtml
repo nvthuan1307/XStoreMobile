@@ -1,0 +1,84 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<MvcMobileStore.Models.LienHe>
+
+@{
+    ViewBag.Title = "Quản Trị Liên Hệ";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Contact">
+            <span>Liên hệ</span>
+        </a>
+    </li>
+</ul>
+
+@*Danh sách Liên hệ*@
+<div class="title_ne1">DANH SÁCH LIÊN HỆ</div>
+@using (Html.BeginForm())
+{
+    <table border="1" style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+        <tr>
+            <th>Mã LH</th>
+            <th>Người gửi</th>
+            <th>Ngày gửi</th>
+            <th>Nội dung</th>
+            <th>Đã trả lời</th>
+            <th>Đã đọc</th>
+            <th>Reply</th>
+            <th>Chọn</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align: center">@item.MaLH</td>
+                <td style="text-align: center">
+                    <img src="@item.Avatar" class="Avatar" style="width:40px"/>
+                    <br />
+                    <label>@item.TenNguoiGui</label></td>
+                <td style="text-align: center">@string.Format("{0:dd-MM-yyyy}", item.NgayGui)</td>
+                <td style="text-align: center;">@Html.Raw(item.NoiDung)</td>
+                <td style="text-align: center">
+                    @if (item.LuotGui == true)
+                    {
+                        <img src="/Content/Admin/Images/icon_Hien.png" title="Rồi" /> 
+                    }
+                    else
+                    {
+                        <img src="/Content/Admin/Images/icon_An.png" title="Chưa" /> 
+                    }
+                </td>
+                <td style="text-align: center">
+                    @if (item.DaDocAD == true)
+                    {
+                        <img src="/Content/Admin/Images/mail_1.png" title="Rồi" /> 
+                    }
+                    else
+                    {
+                        <img src="/Content/Admin/Images/mail.png" title="Chưa" /> 
+                    }
+                </td>
+                <td style="text-align: center"><a href="@Url.Action("Reply", "Admin", new { id = item.MaKH })">
+                    <img src="/Content/Admin/Images/mail_send.png" title="Trả lời" /></a>
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" class="ckb_ID" name="ckb_ID" value="@item.MaLH"/>
+                </td>
+            </tr>
+        }
+    </table>
+    <div style="text-align: center;">
+        <input type="submit" value="Xóa liên hệ" class="button_ne" onclick="return confirm('Bạn có chắc muốn Xóa liên hệ đã chọn?');" />
+    </div>  
+}
+
+@Html.PagedListPager(Model, Page => Url.Action("Contact", new { Page = Page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)

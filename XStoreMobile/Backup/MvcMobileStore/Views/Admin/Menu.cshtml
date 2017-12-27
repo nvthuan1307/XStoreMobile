@@ -1,0 +1,51 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<MvcMobileStore.Models.Menu>
+
+@{
+    ViewBag.Title = "Quản trị Menu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Menu">
+            <span>Menu</span>
+        </a>
+    </li>
+</ul>
+
+@*Danh sách Menu*@
+<div class="title_ne1">DANH SÁCH MENU</div>
+@using (Html.BeginForm())
+{
+    <table border="1" style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+        <tr>
+            <th>Mã Menu</th>
+            <th>Tên Menu</th>
+            <th>Đường dẫn</th>
+            <th>Thứ tự</th>
+            <th>Chỉnh sửa</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align: center">@item.MaMenu</td>
+                <td style="text-align: center">@item.TenMenu</td>
+                <td style="text-align: center"><a href="@item.url" target="_blank">@item.url</a></td>
+                <td style="text-align: center">@item.Thutu</td>
+                <td style="text-align: center"><a href="@Url.Action("EditMenu", "Admin", new { id = item.MaMenu })">
+                    <img src="~/Content/Admin/Images/icon_Sua.png" /></a>
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+@Html.PagedListPager(Model, Page => Url.Action("Menu", new { Page = Page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)

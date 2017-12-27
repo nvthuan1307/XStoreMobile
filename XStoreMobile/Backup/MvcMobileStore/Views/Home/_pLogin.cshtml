@@ -1,0 +1,37 @@
+﻿    <div class="ctrlWrapper">
+		<dl class="ctrlUnit">
+			<dt><label for="LoginControl" style="padding-left:60px;">Tên tài khoản của bạn:&nbsp;&nbsp; </label>
+                <input type="text" name="txt_Username" id="txt_Username" autofocus="autofocus" class="textCtrl" tabindex="101" style="width: 370px;"/>
+			</dt>   
+		</dl>
+         <br />
+		<dl class="ctrlUnit">
+			<dt>
+				<label for="ctrl_password" style="padding-left:50px;">Bạn đã có tài khoản rồi?</label>
+			</dt>
+			<dd>
+				<ul style="padding-left:217px;margin-top:-15px">				
+                    <li style="height:53px">                     
+                        <label><input name="rdb_Chon" type="radio" value="0" tabindex="105"> Không, tạo một tài khoản ngay bây giờ.</label>
+                        <br/><div style="height:8px"></div>
+                        <label><input name="rdb_Chon" type="radio" value="1" tabindex="105" checked="checked" class="Disabler"> Có, mật khẩu của tôi là:</label>
+					</li>
+					<li id="ctrl_registered_Disabler">
+                        <input type="password" id="txt_password" name="txt_password" class="textCtrl" tabindex="102" style="width: 370px;">
+						<div class="lostPassword"><a href="#overlay" class="OverlayTrigger OverlayCloser" tabindex="106">Quên mật khẩu?</a></div>
+					</li>
+				</ul>
+			</dd>
+		</dl>
+	
+		<dl class="ctrlUnit submitUnit">
+			<dt></dt>
+			<dd style="padding-left:215px;">
+				<input type="submit" class="button primary" value="OK" tabindex="104" id="btn_DangNhap" />
+				<label class="rememberPassword">
+                    <input type="checkbox" name="ckb_GhiNho" value="1" id="ckb_GhiNho" tabindex="103" /> Duy trì trạng thái đăng nhập
+				</label>
+			</dd>
+		</dl>
+	</div>	
+@Html.Partial("_pQuenMatKhau")

@@ -1,0 +1,45 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<MvcMobileStore.Models.SanPham>
+
+  <ul id="product_grid">
+            @foreach (var item in Model)
+            {
+                <li class="product_item">
+                    <div class="detail">
+                        @*Ẩn hiện biểu tượng Khuyễn mãi*@
+                        @if(item.KhuyenMai!=0)
+                        {                     
+                            <div class="sale">
+                                <Label style="font-size: 14px; color: #FFF; line-height:95px;font-weight:bold">- @item.KhuyenMai%</Label>
+                            </div>
+                        }
+                        <br />
+                        <a href="@Url.Action("Details", "Home", new { id=item.MaSP})">
+                            <img src="@item.UrlHinh" style="width:200px"/>
+                            <br />
+                            <div class="ProductName" style="text-align:left;padding-left:15px;color:#666666;font-weight:bold">
+                                <br />
+                                @item.TenSP
+                            </div>
+                            <br />
+                            <div class="Price-List" style="text-align:left;padding-left:15px;color:#FF6600;font-weight:700;">
+                                @string.Format("{0:#,##0}", item.GiaHienTai) <sup>đ</sup>
+                            </div>
+                        </a> 
+                    </div> 
+                
+                    <div class="more-detail">
+                        <br />
+                        <a href="@Url.Action("Details", "Home", new { id=item.MaSP})">
+                            <label style="color:#666;font-weight:bold;">@item.TenSP</label>
+                            <ul class="item_list" style="margin: 0px; text-align: left;padding:5px 10px;font-size:12px;color:#666">     
+                                @Html.Raw((item.MoTa).Replace("\n", "<br />")) @*Dùng Raw Encode để nhận được mã HTML*@
+                            </ul>
+                        </a>
+                    </div>                
+                </li>
+            }
+    </ul>
+<div class="clear"></div> @*Khi sản phẩm không đầy 1 hàng thì không làm cho phần dưới tràn lên*@
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { Page = Page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)    

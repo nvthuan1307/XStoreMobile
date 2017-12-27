@@ -6,18 +6,7 @@
     $(function () {
         // effect sub menu
         var $actived = $("#sub-nav ul.sub-menu li.active");
-        $("#sub-nav ul.sub-menu li.fl").hover(function () {
-            $actived.removeClass('active');
-            $(this).addClass('active');
-        }, function () {
-            $(this).removeClass('active');
-            $actived.addClass('active');
-        });
-
-        // back top button
-        $("li.back-top").click(function () {
-            $('html,body').animate({ scrollTop: 0 }, 500);
-        })
+       
     })
 </script>
 

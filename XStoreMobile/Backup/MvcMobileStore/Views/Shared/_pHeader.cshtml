@@ -1,0 +1,88 @@
+﻿<link href="~/Content/Header.css" rel="stylesheet" />
+
+@*Script Khi Load lên sẽ kiểm tra tin nhắn đã đọc chưa để thông báo*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Thực hiện xử lý Ajax: gọi hàm CheckRead để xử lý (Ở đây lấy giá trị Response.Write để kiểm tra đã đọc chưa)
+        $.post("/Home/CheckRead",
+
+        //data là giá trị nhận DaDoc hay ChuaDoc ở hàm CheckRead trả về (Chưa đọc thì Show thông báo có tin nhắn mới và ngược lại thì ẩ đi)
+        function (data) {
+            if (data == "ChuaDoc") {
+                $('#TinNhanHinh').show();
+                $('#TinNhanChu').show();
+            }
+            else {
+                $('#TinNhanHinh').hide();
+                $('#TinNhanChu').hide();
+            }
+        });
+    });
+</script>
+
+<div style="height: 29px;">
+    @*----------Bar Top Social----------*@
+    <div class="bar_top_social" style="float: left; width: 850px">
+        <a class="facebook" target="_blank" title="Facebook" href="https://www.facebook.com/"></a>
+        <a class="google_plus" target="_blank" title="google plus" href="https://plus.google.com"></a>
+        <a class="twitter" target="_blank" title="twitter" href="https://twitter.com/"></a>
+        <a class="youtube" target="_blank" title="youtube" href="https://www.youtube.com/"></a>
+    </div>
+
+    @* Tài khoản*@
+    @if (Session["Username"] != null)//Đã đăng nhập
+    {
+        <div style="float: right;">
+            <ul class="cssMenu">
+                <li>
+                    <a href="/Home/Account">
+                        <img class="Avatar" src="@Session["Avatar"].ToString()" style="margin-top:-3px; height:22px;width:22px;vertical-align:top" />
+                        <label style="color: #D7EDFC; padding-left: 2px">@Session["HoTen"].ToString()</label>
+                        <img id="TinNhanHinh" src="/Content/Images/icon_message.png" style="width: 20px; vertical-align: text-top;" />
+                    </a>
+                    <ul>
+                        <li><a href="/Home/Account">Thông tin cá nhân</a></li>
+                        <li><a href="/Home/Contact">Hộp thư
+                            <label id="TinNhanChu" style="font-weight: bold">(Có 1 tin nhắn mới)</label></a></li>
+                        <li><a href="/Home/ChangePassword">Đổi mật khẩu</a></li>
+                        <li><a href="/Home/Logout">Thoát</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    }
+</div>
+
+<div>
+    @*----------Logo----------*@
+    <div style="float: left; width: 85%">
+       
+    </div>
+
+    @*----------Search----------*@
+    <div style="float: left; width: 85%;">
+        <form class="form-wrapper cf" style="float: right; margin-top: 5px;" runat="server">
+            <input type="text" id="txt_Tim" runat="server" placeholder="Bạn muốn tìm gì hôm nay?" />
+            <a href="@Url.Action("Search", "Home", new { id = "xxx" })" class="TimClick">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search</a>
+            <script>
+                $(function () {
+                    $('.TimClick').click(function () {
+                        var id = $("#txt_Tim").val();
+                        if (id == "") {
+                            alert("Vui lòng nhập một từ khóa để tìm kiếm !");
+                            this.href = window.location;
+                        }
+                        else {
+                            this.href = this.href.replace("xxx", id);
+                        }
+                    });
+                });
+            </script>
+        </form>
+    </div>
+
+    @*Giỏ hàng tóm tắt*@
+   
+</div>
+
+

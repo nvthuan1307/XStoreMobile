@@ -1,0 +1,115 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<MvcMobileStore.Models.SanPham>
+
+@{
+    ViewBag.Title = "Quản Trị Sản Phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*Scrip thực hiện Update lại Ẩn Hiện*@
+<script type="text/javascript">
+    $(function () {
+        //Thực hiện Cập nhật khi Click <a href="#" class="AnHienClick">
+        $(".AnHienClick").click(function () {
+            //Lấy Mã SP từ liên kết Click <a href> trên
+            var _MaSP = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm UpdateProduct để xử lý
+            $.post("/Admin/UpdateProduct", { "id": _MaSP },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_AnHien-' + _MaSP).attr('src', data);
+             });
+        });
+    });
+</script>
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Product">
+            <span>Sản phẩm</span>
+        </a>
+    </li>
+</ul>
+
+<div class="title_ne1">DANH SÁCH SẢN PHẨM</div>
+@using (Html.BeginForm())
+{
+    <table border="1" style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+        <tr>
+            <th>Mã SP</th>
+            <th style="width: 225px">Sản phẩm</th>
+            <th>Nhà sản xuất</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Ngày cập nhật</th>
+            <th>Trạng thái</th>
+            <th>Sửa</th>
+            <th>Chọn</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align: center">@item.MaSP</td>
+                <td style="text-align: center">
+                    <div class="sale">
+                        <span style="font-size: 14px; color: #FFF; line-height: 95px; font-weight: bold">- @item.KhuyenMai%</span>
+                    </div>
+                    <a href="@Url.Action("Details", "Home", new { id = item.MaSP })" target="_blank">
+                        <img src="@item.UrlHinh" style="width: 120px;vertical-align:middle" />
+                        <br>
+                        <span style="font-weight: 700; color: #F60">@item.TenSP</span>
+                    </a>
+                </td>
+                <td style="text-align: center">
+                    <span class="textCtrl">@item.NhaSanXuat.TenNSX</span>
+                </td>
+                <td style="text-align: center">
+                    <span style="font-weight: 700; color: #F60; font-size: 14px">@string.Format("{0:#,##0}", item.GiaHienTai)<sup> VNĐ</sup></span>
+                    <br />
+                    <span style="font-style: italic; color: #666; font-size: 14px;"><s>@string.Format("{0:#,##0}", item.GiaCu)<sup> VNĐ</sup></s></span>
+                </td>
+                <td style="text-align: center">
+                    <span class="textCtrl">@item.SoLuongTon</span>
+                </td>
+                <td style="text-align: center" ><span class="textCtrl">@string.Format("{0:dd/MM/yyyy}", item.NgayCapNhat)</span></td>
+                <td style="text-align: center">
+                    @if (item.AnHien == true)
+                    {
+                        <a href="#" class="AnHienClick" data-id="@item.MaSP">
+                            <img src="/Content/Admin/Images/icon_Hien.png" id="img_AnHien-@item.MaSP" title="Hiện" />
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="#" class="AnHienClick" data-id="@item.MaSP">
+                            <img src="/Content/Admin/Images/icon_An.png" id="img_AnHien-@item.MaSP" title="Ẩn" />
+                        </a>
+                    }
+                </td>
+                <td style="text-align: center"><a href="@Url.Action("EditProduct", "Admin", new { id = item.MaSP })">
+                    <img src="~/Content/Admin/Images/icon_Sua.png" /></a>
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" class="ckb_ID" name="ckb_ID" value="@item.MaSP"/>
+                </td>
+            </tr>
+        }
+    </table>
+    <div style="text-align: center; margin-left: 120px">
+        <input type="submit" value="Xóa sản phẩm " class="button_ne" onclick="return confirm('Bạn có chắc muốn Xóa Sản Phẩm đã chọn?');" />
+    </div>      
+}@*Lưu ý: đóng Form ở đây để Button chuyển sang trang Crate không thực thi được nút xóa sản phẩm*@
+<div style="text-align: center; margin-top: -53px; margin-left: -120px">
+    <button class="button_ne" onclick="location.href='@Url.Action("CreateProduct", "Admin")'">Thêm sản phẩm</button>
+</div>
+
+@Html.PagedListPager(Model, Page => Url.Action("Product", new { Page = Page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)

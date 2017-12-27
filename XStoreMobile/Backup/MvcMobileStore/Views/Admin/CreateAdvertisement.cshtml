@@ -1,0 +1,111 @@
+﻿@model MvcMobileStore.Models.QuangCao
+
+@{
+    ViewBag.Title = "Thêm Quảng Cáo";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+}
+
+<style>
+    .auto_Left {
+        color: #141414;
+        text-align: right;
+        padding-top: 12px;
+    }
+
+    .auto_Right {
+        padding-top: 12px;
+        padding-left: 10px;
+    }
+</style>
+
+@*----------CKFinder tải lên----------*@
+<script type="text/javascript">
+    function BrowseServer() {
+        var finder = new CKFinder();
+        finder.basePath = '/ckfinder/';
+        finder.selectActionFunction = SetFileField;
+        finder.popup();
+    }
+    function SetFileField(fileUrl) {
+        document.getElementById('txt_UrlHinh').value = fileUrl;
+    }
+</script>
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Advertisement">
+            <span>Quảng Cáo</span>
+        </a>
+    </li>
+</ul>
+
+
+<div class="title_ne1">THÊM QUẢNG CÁO</div>
+
+@using (Html.BeginForm())
+{
+    <table id="Table1" style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+        <tr>
+            <td class="auto_Left">Tên quảng cáo:</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_TenQC" name="txt_TenQC" class="textCtrl" required="required" maxlength="255" />
+            </td>
+            <td class="auto_Left">Hình quảng cáo:</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_UrlHinh" name="txt_UrlHinh" class="textCtrl" required="required" />
+                <input id="btn_TaiLen" onclick="BrowseServer();" type="button" value="Tải lên" />@*onclick="BrowseServer();"*@
+            </td>
+        </tr>
+        <tr>
+            <td class="auto_Left">Tên công ty:</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_TenCty" name="txt_TenCty" class="textCtrl" required="required" maxlength="100" />
+            </td>
+            <td class="auto_Left">Đường dẫn:</td>
+            <td class="auto_Right">
+                <input type="text" id="txt_LinkUrl" name="txt_LinkUrl" class="textCtrl" required="required" maxlength="100" />
+            </td>
+        </tr>
+
+        <tr>
+            <td class="auto_Left">Ngày bắt đầu:</td>
+            <td class="auto_Right">
+                <input type="date" id="txt_NgayBatDau" name="txt_NgayBatDau" class="textCtrl" required="required" />
+            </td>
+
+            <td class="auto_Left">Ngày hết hạn:</td>
+            <td class="auto_Right">
+                <input type="date" id="txt_NgayHetHan" name="txt_NgayHetHan" class="textCtrl" required="required" />
+            </td>
+        </tr>
+
+        <tr>
+            <td class="auto_Left">Vị trí:</td>
+            <td class="auto_Right">
+                <input type="number" id="txt_ViTri" name="txt_ViTri" class="textCtrl" style="width: 40px" required="required" min="1" max="9" />
+            </td>
+            <td class="auto_Left">Trạng thái:</td>
+            <td class="auto_Right">
+                <select id="sl_AnHien" name="sl_AnHien" class="textCtrl" style="width: 60px">
+                    <option value="0">Ẩn</option>
+                    <option value="1" selected="selected">Hiện</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="4" style="text-align: center; padding-top: 15px;">
+                <input id="NhapLai" type="reset" value="Nhập lại" class="button_ne" />
+                <input type="submit" value="Thêm quảng cáo" class="button_ne" />
+            </td>
+        </tr>
+    </table>
+}

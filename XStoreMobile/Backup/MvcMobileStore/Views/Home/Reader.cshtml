@@ -1,0 +1,74 @@
+﻿@model MvcMobileStore.Models.TinTuc
+
+@{
+    ViewBag.Title = Model.TieuDe;
+    Layout = "~/Views/Shared/_LayoutMasterPage.cshtml";
+}
+
+@*(Css tương tự bên trang Details cho phần đánh giá SP: Cách dòng đẹp hơn)*@
+<style>
+    p {
+        margin-bottom: 18px;
+    }
+</style>
+
+@*Phần breadcrumbs*@
+<ul id="breadcrumbs-one" style="margin: 0">
+    <li><a href="/Home">
+        <img src="~/Content/Images/home.png" style="vertical-align: top" />&nbsp; Trang chủ</a></li>
+    <li><a href="/Home/News">Tin công nghệ</a></li>
+    <li><a class="current">@Model.TieuDe</a></li>
+</ul>
+
+@*Phần chi tiết tin*@
+<div class="show" style="padding: 30px 15px 0px 15px">
+    <label style="font-weight: bold; color: #333; line-height: 25px">@Model.TomTat</label>
+    <br />
+    <br />
+    @Html.Raw(Model.NoiDung)
+    <div style="color: #666; font-style: italic; line-height: 40px; font-size: 12px; text-align: right">
+        <img src="~/Content/Images/icon_time.png" />
+        Cập nhật cuối lúc:<label style="font-weight: 700">@string.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat)</label>
+        ,
+        <img src="~/Content/Images/icon_eye.png" />
+        Đã xem:
+        <label style="font-weight: 700">@string.Format("{0:#,##0}", Model.LuotXem)</label>
+        lượt
+    </div>
+</div>
+<div class="footer-shadow"></div>
+
+@*===========================================================================================*@
+@*Tab menu*@
+<ul id="tabs">
+    <li><a href="#" name="tab1">Tin khác</a></li>
+    <li><a href="#" name="tab2">Bình luận</a></li>
+</ul>
+
+<div id="content">
+    <div id="tab1">@*Tin khác*@
+        @foreach (var item in ViewBag.TinKhac)
+        {
+            <img src="~/Content/Images/icon_pen.png" style="padding-left: 15px;vertical-align:text-top" />    
+            <a href="@Url.Action("Reader", "Home", new { id = item.MaTin })" class="tinkhac">@item.TieuDe</a>
+            <br />
+        }<br />
+    </div>
+
+    <div id="tab2">@*Bình luận*@
+          <div style="padding:10px">
+        <div id="fb-root"></div>
+            <script>
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+            <div class="fb-comments" data-href="@Request.Url.ToString()" data-width="680" data-num-posts="10"></div>
+        </div>
+    </div>
+    <div class="footer-shadow"></div>
+</div>

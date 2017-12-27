@@ -1,0 +1,144 @@
+﻿tr,th,td{
+margin:0;padding:0;border:0;outline:0;
+font-weight:inherit;font-style:inherit;
+font-size:100%;font-family:inherit;}
+
+ol,ul{list-style:none}
+table{border-collapse:separate;border-spacing:0}
+caption,th,td{/*text-align:left;*/font-weight:normal}
+blockquote:before,blockquote:after,q:before,q:after{content:""}
+blockquote,q{quotes:"" ""}a img{border:none}
+.clearfix:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0}
+* html .clearfix{zoom:1}*:first-child+html 
+.clearfix{zoom:1}.table{display:table}.table-row{display:table-row}
+.table-cell{display:table-cell}
+.vertical-align-middle{vertical-align:middle}
+.align-center{margin:0 auto}
+.nolist{list-style:none;padding:0;margin:0}
+.nodisplay{display:none}.uppercase{text-transform:uppercase}
+.capitalize{text-transform:capitalize}.copyrights p{margin-bottom:0}
+.align-left{text-align:left}
+.align-right{text-align:right}.float-left{float:left}
+.float-right{float:right}
+.image-replace{font-size:1px;line-height:0;text-indent:-1000000px}
+.border-top{border-top:1px dotted #aaa;margin-top:20px;padding-top:20px}
+
+.width-80{width:80%}.width-90{width:90%}blockquote.quote{}blockquote.quote div.content p{
+font-size:14px;line-height:18px;margin-bottom:18px}
+blockquote.quote div.author{text-align:right}.img-avatar{
+float:left;margin:4px 10px 10px 0;width:140px}.img-avatar-right{
+float:right;margin:4px 0 10px 10px}.img-border{border:1px solid #999;
+border-radius:3px;padding:4px}.img-circle{border:5px solid #eee;
+border-radius:500px;padding:0}.img-width-310{width:300px}.img-width-640{width:630px}.img-width-970{
+width:960px}.pager{margin:20px 0 0;padding:0}
+.pager .wp-paginate{margin:0;padding:0;text-align:center}
+.pager .wp-paginate li{display:inline-block;list-style:none outside none;margin:0 5px 0 0;padding:0}
+.pager .wp-paginate li a,.pager .wp-paginate li span{border:1px solid #999;border-radius:5px;
+color:#999;display:block;margin:0;padding:5px 8px 4px}
+.pager .wp-paginate li span.title{display:none}
+.pager .wp-paginate li span.current{border-color:#000;color:#000;font-weight:bold}
+.pager .wp-paginate li span.gap{border:0;padding:0}
+.pager .wp-paginate li a:hover{border-color:#555;box-shadow:0 0 8px rgba(155,155,155,.6);color:#000}
+hgroup.site-heading h1,hgroup.site-heading h1 a{color:#000;font-size:90px;font-weight:bold;letter-spacing:-.01em;
+line-height:99px;margin-bottom:9px}
+hgroup.site-heading h1 a.image-replace{font-size:1px;line-height:1em}
+hgroup.site-heading h1 a:hover{border-bottom:0;color:#069;text-decoration:none}
+hgroup.site-heading h2{font-size:27px;line-height:36px;margin-bottom:9px}
+hgroup.site-heading h1,hgroup.site-heading h2{}.showgrid{background-image:url(grid-x.png)}
+body.showgrid{background-image:url(grid-y.png);background-position:center top}
+
+ul,ol,p,blockquote{font-size:13px;line-height:18px;}
+ul{list-style:square}ol{list-style:decimal}
+blockquote{color:#000;
+font-style:normal;padding:9px 36px;margin:0 36px 18px;margin-bottom:18px}
+blockquote p{font-size:14px;line-height:18px;margin-bottom:18px;text-align:justify}
+blockquote p.last,blockquote p:last-child,blockquote ol.last,
+blockquote ol:last-child,blockquote ul.last,blockquote ul:last-child{margin-bottom:0}
+blockquote p+p{text-indent:0}blockquote cite:before{content:'— '}
+blockquote cite{color:#ccc;font-size:13px;line-height:18px;text-transform:uppercase}
+ul li p,ol li p,ul li ol,ul li ul,ol li ol,ol li ul,p blockquote,pre p,p code,blockquote pre,
+blockquote code,ol li pre,ol li code,ul li pre,ul li code,ol li label,ul li label,p abbr,p acronym{font-size:13px}
+p a{font-size:13px}ul li ol,ul li ul,ol li ol,ol li ul{margin:9px 27px 0}ul li ul,ol li ul{list-style-type:disc}
+ul,ol{}ul.paragraph li,ol.paragraph li,ul li p,ol li p{margin-bottom:18px}
+p{text-indent:0;-moz-hyphens:auto;-ms-hyphens:auto;-webkit-hyphens:auto;hyphens:auto;word-wrap:break-word}
+strong{font-weight:bold}em,dfn{font-style:italic}dfn{font-weight:bold}sup,sub{line-height:0}
+time,abbr,acronym{border-bottom:1px dotted #000;letter-spacing:.1em;text-transform:uppercase}
+address{font-style:italic}address p{}del{color:#777}time{display:inline}
+pre,code{background:#000;color:#fff;margin:18px 0;white-space:pre;word-wrap:break-word;white-space:pre-wrap}
+pre.normal,code.normal{white-space:normal}pre,code,tt{font:13px 'andale mono','lucida console',monospace;
+line-height:18px}blockquote pre{margin-bottom:0}dl{display:block}dl dt,dl dd{font-size:13px;line-height:18px}
+dl dt{font-weight:bold}dl dd{margin-bottom:18px}table.table{width:100%}
+
+div#fancy_title table{border:0;width:auto}div#fancy_title table th,
+div#fancy_title table td{border:0}figure{margin:0;padding:0;margin-bottom:18px;text-align:center}
+
+#site-body{margin:0 0 20px;padding:0}
+#site-body .content-block-wrapper{margin:0;margin-bottom:8px;padding:0}
+#site-body .navigation-banner{}
+#site-body .navigation-banner .navigation{float:left;width:420px}
+#site-body .navigation-banner .navigation ul,
+#site-body .navigation-banner .navigation ul li,#site-body .navigation-banner .navigation ul li a{float:left}
+#site-body .navigation-banner .navigation ul li a{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;background-repeat:no-repeat;color:#fff;font-size:13px;line-height:15px;text-align:center;text-shadow:1px 1px rgba(0,0,0,.25);transition:all 300ms ease 100ms;-webkit-transition:all 300ms ease 100ms}
+#site-body .navigation-banner .navigation ul li a.hover{border-color:#555;box-shadow:0 1px 25px rgba(0,0,0,.4) inset}
+#site-body .navigation-banner .navigation ul{margin-right:2px}/*Khoảng cách ngang của menu nè*/
+#site-body .navigation-banner .navigation ul.last{margin-right:0}
+#site-body .navigation-banner .navigation ul li{margin-bottom:2px}/*Khoảng cách dọc của menu nè*/
+#site-body .navigation-banner .navigation ul li.digital,
+#site-body .navigation-banner .navigation ul li.accessories,
+#site-body .navigation-banner .navigation ul li.sim-card{margin-bottom:3px}
+#site-body .navigation-banner .navigation ul li.last{margin-bottom:0}
+#site-body .navigation-banner .navigation .col1,#site-body .navigation-banner .navigation .col1 li,
+#site-body .navigation-banner .navigation .col1 li a{width:175px}/*Chiều dài menu dọc 1*/
+#site-body .navigation-banner .navigation .col1 li.mobile{}
+#site-body .navigation-banner .navigation .col1 li.mobile a{background-color:#ff8a00;
+background-image:url(../Content/Images/icon-mobile.png);background-position:center 9px;height:90px;padding-top:65px}
+#site-body .navigation-banner .navigation .col1 li.mobile a.hover{background-position:center 33px;padding-top:9px}/*Chuyển động menu*/
+#site-body .navigation-banner .navigation .col1 li.tablet{}
+#site-body .navigation-banner .navigation .col1 li.tablet a{background-color:#d9532d;background-image:url(../Content/Images/icon-tablet.png);
+background-position:20px 9px;height:64px;padding:23px 10px 0 70px;text-align:left}
+#site-body .navigation-banner .navigation .col1 li.tablet a.hover{background-position:111px 9px;padding-left:10px;padding-right:70px}/*Chuyển động menu*/
+#site-body .navigation-banner .navigation .col1 li.laptop{}
+#site-body .navigation-banner .navigation .col1 li.laptop a{background-color:#b61b43;background-image:url(../Content/Images/icon-laptop.png);
+background-position:94px 9px;height:52px;padding:18px 10px 0 38px;text-align:left}
+#site-body .navigation-banner .navigation .col1 li.laptop a.hover{background-position:31px 9px;padding:18px 10px 0 94px}/*Chuyển động menu*/
+#site-body .navigation-banner .navigation .col2,
+#site-body .navigation-banner .navigation .col2 li,#site-body .navigation-banner .navigation .col2 li a{width:140px}
+#site-body .navigation-banner .navigation .col2 li a{padding:0 5px}
+#site-body .navigation-banner .navigation .col2 li.accessories{}
+#site-body .navigation-banner .navigation .col2 li.accessories a{background-color:#9f005d;background-image:url(../Content/Images/icon-headphone.png);background-position:90px 15px;height:60px;padding-top:24px;padding-left:20px;text-align:left}
+#site-body .navigation-banner .navigation .col2 li.accessories a.hover{
+background-position:20px 15px;padding-left:70px}/*Chuyển động menu*/
+
+#site-body .navigation-banner .navigation .col2 li.sim-card{}
+#site-body .navigation-banner .navigation .col2 li.sim-card a{background-color:#0084cc;background-image:url(../Content/Images/icon-sim-card.png);background-position:11px 19px;height:68px;padding-left:52px;padding-top:17px}
+#site-body .navigation-banner .navigation .col2 li.sim-card a.hover{background-position:99px 19px;padding-left:5px;padding-right:47px}/*Chuyển động menu*/
+#site-body .navigation-banner .navigation .col2 li.application{width:70px;margin-right:2px}
+#site-body .navigation-banner .navigation .col2 li.application a{background-color:#197b30;background-image:url(../Content/Images/icon-angrybird.png);background-position:center 5px;height:76px;padding-top:43px;width:70px}
+#site-body .navigation-banner .navigation .col2 li.application a.hover{background-position:center 38px;padding-top:5px}/*Chuyển động menu*/
+#site-body .navigation-banner .navigation .col2 li.digital{width:68px}
+#site-body .navigation-banner .navigation .col2 li.digital a{background-color:#0f63a3;background-image:url(../Content/Images/icon-camera.png);background-position:center 10px;height:76px;padding-top:40px;width:68px}
+
+
+#site-body .navigation-banner .navigation .col2 li.digital a.hover{background-position:center 44px;padding-top:10px}/*Chuyển động menu*/
+#site-body .navigation-banner .navigation .col3{width:101px}
+#site-body .navigation-banner .navigation .col3 li{width:101px}
+#site-body .navigation-banner .navigation .col3 li a{background-color:#999;height:51px;padding-top:18px;width:101px}
+#site-body .navigation-banner .banner{background-color:#eee;float:right;height:210px;width:540px}
+#site-body .navigation-banner .banner .banner-wrapper .arrow-wrapper{position:relative}
+#site-body .navigation-banner .banner .banner-wrapper .arrow-wrapper .left-arrow,
+#site-body .navigation-banner .banner .banner-wrapper .arrow-wrapper .right-arrow{position:absolute;top:83px;z-index:1000}
+#site-body .navigation-banner .banner .banner-wrapper .arrow-wrapper .left-arrow{left:0}
+#site-body .navigation-banner .banner .banner-wrapper .arrow-wrapper .right-arrow{right:0}
+#site-body .navigation-banner .banner .banner-wrapper{}
+#site-body .navigation-banner .banner .banner-wrapper .the-mask{height:210px;overflow:hidden;position:relative;width:540px}
+#site-body .navigation-banner .banner .banner-wrapper .the-mask .mask-left,
+#site-body .navigation-banner .banner .banner-wrapper .the-mask .mask-right{background:#000;background:rgba(0,0,0,.8);display:none;height:210px;
+position:absolute;top:0;width:95px;z-index:100}
+#site-body .navigation-banner .banner .banner-wrapper .the-mask .mask-right{right:0}
+#site-body .navigation-banner .banner .banner-wrapper .the-mask .image-wrapper{float:left;position:absolute;left:0;top:0;z-index:10}
+#site-body .navigation-banner .banner .banner-wrapper .the-mask .image-wrapper .img{
+float:left;height:210px;overflow:hidden;width:540px}
+#site-body .product-news .product-list-wrapper{float:left;width:601px}
+#site-body .product-news .product-list-wrapper .product-list{border:1px solid #ddd;border-right:0;border-bottom:0}
+#site-body .product-news .product-list-wrapper .product-list li{border:1px solid #ddd;border-top:0;
+border-left:0;float:left;height:219px;margin:0;padding:0;position:relative;overflow:hidden;width:199px}

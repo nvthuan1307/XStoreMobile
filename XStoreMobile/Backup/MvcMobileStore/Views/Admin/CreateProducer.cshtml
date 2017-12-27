@@ -1,0 +1,69 @@
+﻿@model MvcMobileStore.Models.NhaSanXuat
+
+@{
+    ViewBag.Title = "Thêm Nhà Sản Xuất";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style type="text/css">
+    .auto-Left {
+        text-align: right;
+        padding-top: 22px;
+    }
+
+    .auto-Right {
+        width: 550px;
+        padding-top: 22px;
+        padding-left: 10px;
+    }
+</style>
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Producer">
+            <span>Nhà sản xuất</span>
+        </a>
+    </li>
+</ul>
+
+
+<div class="title_ne1">THÊM NHÀ SẢN XUẤT</div>
+
+@using (Html.BeginForm())
+{
+    <table id="Table1" style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+        <tr>
+            <td class="auto-Left">Mã nhà sản xuất:</td>
+            <td class="auto-Right">
+                <input type="text" id="txt_MaNSX" class="textCtrl" style="width: 20px;" disabled="disabled"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-Left">Tên nhà sản xuất:</td>
+            <td class="auto-Right">
+                <input type="text" id="txt_TenNSX" name="txt_TenNSX" class="textCtrl" required="required" />
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-Left">Trạng thái:</td>
+            <td class="auto-Right">
+              <select id="sl_AnHien" name="sl_AnHien" class="textCtrl" style="width:60px">
+                  <option value="0">Ẩn</option>
+                  <option value="1" selected="selected">Hiện</option>
+              </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center; padding-top: 15px;">
+                <input id="NhapLai" type="reset" value="Nhập lại" class="button_ne" />
+                <input type="submit" value="Thêm nhà sản xuất" class="button_ne" />
+            </td>
+        </tr>
+    </table>
+}

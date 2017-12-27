@@ -1,0 +1,49 @@
+﻿@model MvcMobileStore.Models.ThongTin
+@{
+    ViewBag.Title = "Quản Trị SiteMap";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+}
+
+<style type="text/css">
+    #cke_txt_SiteMap {
+        width: 982px;
+    }
+</style>
+
+@*----------CKEditor----------*@
+<script type="text/javascript">
+    var ckeditor
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, { language: languageCode });
+    }
+    $(function () { createEditor('vi', 'txt_SiteMap') });
+</script>
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/SiteMap">
+            <span>SiteMap</span>
+        </a>
+    </li>
+</ul>
+
+<div class="title_ne1">BẢN ĐỒ WEBSITE</div>
+@using (Html.BeginForm())
+{  
+    <div style="width: 984px">
+        @Html.Raw(Model.sitemap)
+    </div>
+    <textarea id="txt_SiteMap" name="txt_SiteMap" required="required">@Html.Encode(Model.sitemap)</textarea>   
+    <div style="text-align: center">
+        <input type="submit" value="Lưu chỉnh sửa" class="button_ne" />
+    </div>
+}

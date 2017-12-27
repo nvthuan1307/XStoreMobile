@@ -1,0 +1,106 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<MvcMobileStore.Models.QuangCao>
+
+@{
+    ViewBag.Title = "Quản Trị Quảng Cáo";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*Scrip thực hiện Update lại Ẩn Hiện*@
+<script type="text/javascript">
+    $(function () {
+        //Thực hiện Cập nhật khi Click <a href="#" class="AnHienClick">
+        $(".AnHienClick").click(function () {
+            //Lấy Mã QC từ liên kết Click <a href> trên
+            var _MaQC = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm UpdateAdvertisement để xử lý
+            $.post("/Admin/UpdateAdvertisement", { "id": _MaQC },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_AnHien-' + _MaQC).attr('src', data);
+             });
+        });
+    });
+</script>
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Advertisement">
+            <span>Quảng cáo</span>
+        </a>
+    </li>
+</ul>
+
+@*Danh sách NXS*@
+<div class="title_ne1">DANH SÁCH QUẢNG CÁO</div>
+@using (Html.BeginForm())
+{
+    <table border="1" style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+        <tr>
+            <th>Mã QC</th>
+            <th>Tên quảng cáo</th>
+            <th>Tên Cty</th>
+            <th style="width: 150px">Hình quảng cáo</th>
+            <th>Đường dẫn</th>
+            <th>Vị trí</th>
+            <th>Ngày bắt đầu</th>
+            <th>Ngày hết hạn</th>
+            <th>Trạng thái</th>
+            <th>Sửa</th>
+            <th>Chọn</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align: center">@item.MaQC</td>
+                <td style="text-align: center">@item.TenQC</td>
+                <td style="text-align: center">@item.TenCty</td>
+                <td style="text-align: center">
+                    <img src="@item.UrlHinh" style="width:150px" /></td>
+                <td style="text-align: center"><a href ="@item.LinkUrl" target="_blank">@item.LinkUrl</a></td>
+                <td style="text-align: center">@item.vitri</td>
+                <td style="text-align: center">@string.Format("{0:dd-MM-yyyy}", item.Ngaybatdau)</td>
+                <td style="text-align: center">@string.Format("{0:dd-MM-yyyy}", item.Ngayhethan)</td>
+                <td style="text-align: center">
+                    @if (item.AnHien == true)
+                    {
+                        <a href="#" class="AnHienClick" data-id="@item.MaQC">
+                            <img src="/Content/Admin/Images/icon_Hien.png" id="img_AnHien-@item.MaQC" title="Hiện" />
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="#" class="AnHienClick" data-id="@item.MaQC">
+                            <img src="/Content/Admin/Images/icon_An.png" id="img_AnHien-@item.MaQC" title="Ẩn" />
+                        </a>
+                    }
+                </td>
+                <td style="text-align: center"><a href="@Url.Action("EditAdvertisement", "Admin", new { id = item.MaQC })">
+                    <img src="~/Content/Admin/Images/icon_Sua.png" /></a>
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" class="ckb_ID" name="ckb_ID" value="@item.MaQC"/>
+                </td>
+            </tr> 
+        }
+    </table>
+    <div style="text-align: center; margin-left: 150px">
+        <input type="submit" value="Xóa quảng  cáo " class="button_ne" onclick="return confirm('Bạn có chắc muốn Xóa quảng cáo đã chọn?');" />
+    </div>      
+}@*Lưu ý: đóng Form ở đây để Button chuyển sang trang Crate không thực thi được nút xóa quảng cáo*@
+
+<div style="text-align: center; margin-top: -53px; margin-left: -150px">
+    <button class="button_ne" onclick="location.href='@Url.Action("CreateAdvertisement", "Admin")'">Thêm Quảng Cáo</button>
+</div>
+
+@Html.PagedListPager(Model, Page => Url.Action("Advertisement", new { Page = Page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MvcMobileStore.Models.ThongTin>
+
+@{
+    ViewBag.Title = "About | Giới Thiệu";
+    Layout = "~/Views/Shared/_LayoutMasterPage.cshtml";
+}
+
+@*Css(Cách dòng đẹp hơn)*@
+<style>
+    p {margin-bottom:18px;}
+</style>
+
+@*Phần breadcrumbs*@
+<ul id="breadcrumbs-one" style="margin: 0">
+    <li><a href="/Home"><img src="~/Content/Images/home.png" style="vertical-align: top" />&nbsp; Trang chủ</a></li>
+    <li><a class="current">Giới thiệu</a></li>
+</ul>
+
+<div class="show" style="padding:30px 10px 0 10px;">  
+    @foreach (var item in Model)
+    {
+        <div style="font-weight:bold; font-size:13px; color:#333;">
+            @Html.Raw(item.code1 + item.GioiThieu + item.code2)
+        </div>
+        @Html.Raw(item.sitemap)
+    }
+    @*<div style="text-align:center; display: block;">
+        <img src="http://www.wieistmeineip.de/ip-address/?size=468x60" border="0" alt="IP" />
+    </div>*@
+</div>
+<div class="footer-shadow"></div>

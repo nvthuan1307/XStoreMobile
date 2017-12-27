@@ -1,0 +1,101 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<MvcMobileStore.Models.TinTuc>
+
+@{
+    ViewBag.Title = "Quản trị Tin Tức";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*Scrip thực hiện Update lại Ẩn Hiện*@
+<script type="text/javascript">
+    $(function () {
+        //Thực hiện Cập nhật khi Click <a href="#" class="AnHienClick">
+        $(".AnHienClick").click(function () {
+            //Lấy Mã Tin từ liên kết Click <a href> trên
+            var _MaTin = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm UpdateNews để xử lý
+            $.post("/Admin/UpdateNews", { "id": _MaTin },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_AnHien-' + _MaTin).attr('src', data);
+             });
+        });
+    });
+</script>
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/News">
+            <span>Tin công nghệ</span>
+        </a>
+    </li>
+</ul>
+
+@*Danh sách Slider*@
+<div class="title_ne1">DANH SÁCH TIN CÔNG NGHỆ</div>
+@using (Html.BeginForm())
+{
+    <table border="1" style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+        <tr>
+            <th>Mã tin</th>
+            <th style="width: 180px">Hình ảnh</th>
+            <th>Tiêu đề</th>
+            <th>Ngày cập nhật</th>
+            <th>Trạng thái</th>
+            <th>Chỉnh sửa</th>
+            <th>Chọn</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td style="text-align: center">@item.MaTin</td>
+                <td style="text-align: center">
+                    <a href="@Url.Action("Reader", "Home", new { id = item.MaTin })" target="_blank">
+                        <img src="@item.UrlHinh" style="width:180px;" />
+                    </a>
+                </td>
+                <td style="text-align: center">@item.TieuDe</td>
+                <td style="text-align: center">@string.Format("{0:dd/MM/yyyy}", item.NgayCapNhat)</td>
+                <td style="text-align: center">
+                    @if (item.AnHien == true)
+                    {
+                        <a href="#" class="AnHienClick" data-id="@item.MaTin">
+                            <img src="/Content/Admin/Images/icon_Hien.png" id="img_AnHien-@item.MaTin" title="Hiện" />
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="#" class="AnHienClick" data-id="@item.MaTin">
+                            <img src="/Content/Admin/Images/icon_An.png" id="img_AnHien-@item.MaTin" title="Ẩn" />
+                        </a>
+                    }
+                </td>
+                <td style="text-align: center"><a href="@Url.Action("EditNews", "Admin", new { id = item.MaTin })">
+                    <img src="~/Content/Admin/Images/icon_Sua.png" /></a>
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" class="ckb_ID" name="ckb_ID" value="@item.MaTin"/>
+                </td>
+            </tr>
+        }
+    </table>
+    <div style="text-align: center; margin-left: 120px">
+        <input type="submit" value="Xóa tin tức " class="button_ne" onclick="return confirm('Bạn có chắc muốn Xóa Tin Tức đã chọn?');" />
+    </div>      
+}@*Lưu ý: đóng Form ở đây để Button chuyển sang trang Crate không thực thi được nút xóa Tin tưc*@
+
+<div style="text-align: center; margin-top: -53px; margin-left: -120px">
+    <button class="button_ne" onclick="location.href='@Url.Action("CreateNews", "Admin")'">Thêm tin tức</button>
+</div>
+
+@Html.PagedListPager(Model, Page => Url.Action("News", new { Page = Page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)

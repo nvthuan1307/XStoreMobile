@@ -1,0 +1,54 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" href="/Content/Images/ico.png" />
+    <title>SuccessLogin | Đăng Nhập Thành Công</title>
+
+    <style type="text/css">
+        body {
+            background: #e0e0e0;
+            background-image: url('../Content/Images/bg_ThongBaoFull.png');
+        }
+
+        #bg_ThongBao {
+            background-image: url('../Content/Images/bg_ThongBao.png');
+            background-repeat: no-repeat;
+            width: 700px;
+            height: 333px;
+            margin: auto;
+            margin-top: 150px;
+        }
+
+        #NoiDung {
+            text-align: center;
+            width: 700px;
+            height: 300px;
+            font-size: large;
+            padding-top: 55px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="bg_ThongBao">
+        <div id="NoiDung">
+            <img src="~/Content/Images/logo_footer.png" />
+            <br />
+            <br />
+            Chào bạn
+            <label style="font-weight: 700; color: #666">@Session["HoTen"].ToString()</label>
+            đã đăng nhập thành công!<br />
+            <br />
+            Đang quay lại trang hiện hành...<br />
+            <br />
+            <img src="~/Content/Images/loading.gif" />
+        </div>
+    </div>
+</body>
+</html>

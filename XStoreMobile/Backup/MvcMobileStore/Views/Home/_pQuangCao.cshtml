@@ -1,0 +1,15 @@
+﻿@model IEnumerable<MvcMobileStore.Models.QuangCao>
+
+@foreach(var item in Model)
+{
+    <div class="Nd_right">
+        <div class="Nd_right_top">
+            <div class="Nd_right_bottom">
+                <h2>QUẢNG CÁO</h2>
+                <a href="@item.LinkUrl" target="_blank">
+                    <img src="@item.UrlHinh" style="padding-left:2px;margin-bottom:-29px;border-radius:0px 0px 8px 8px;width:286px" />
+                </a>
+            </div>
+        </div>
+    </div>
+}

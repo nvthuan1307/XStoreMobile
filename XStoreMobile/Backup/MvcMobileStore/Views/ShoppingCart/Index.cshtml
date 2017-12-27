@@ -1,0 +1,209 @@
+﻿@model MvcMobileStore.ViewModels.ShoppingCartViewModel
+
+@{
+    ViewBag.Title = "Cart | Giỏ Hàng";
+    Layout = "~/Views/Shared/_LayoutMasterPage.cshtml";
+}
+
+
+@*Định dạng số (Format Number)*@
+<script>
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+    }
+</script>
+
+@*Xóa sản phẩm*@
+<script type="text/javascript">
+    $(function () {
+        //Thực hiện xóa khi Click <a href="#" class="XoaSP">
+        $(".XoaSP").click(function () {
+            //Lấy Id từ liên kết Click <a href> trên
+            var x = $(this).attr("data-id");
+            //Show thông báo Confirm hỏi trước khi xóa
+            if (confirm("Bạn có chắc muốn loại bỏ sản phẩm này khỏi giỏ hàng ?")) {
+                // Thực hiện xử lý Ajax
+                $.post("/ShoppingCart/RemoveFromCart", { "id": x },
+                    function (data) {
+                        //Thực hiện xóa sản phẩm ở dòng thứ x (slow là hiệu ứng xóa xong biến mất dần cho đẹp)
+                        $('#dong-' + data.XoaId).fadeOut('slow');
+                        //Thực hiện cập nhật lại tổng tiền, số lượng, giỏ hàng tóm tắt
+                        $('#lb_TT').text(formatNumber(data.TT_GioHang));
+                        $('#lb_SL').text(data.Tong_SL);
+                        $('#GioHang_TomTat').text('(' + data.Tong_SL + ')');
+                    });
+                //Thực hiện xóa sản phẩm ở dòng thứ x (cái này xóa bình thường nhưng ko có hiệu ứng mất dần)
+                //$("#dong-" + x).remove();
+            }
+        });
+    });
+</script>
+
+@*Giảm số lượng*@
+<script type="text/javascript">
+    $(function () {
+        //Thực hiện giảm khi Click <a href="#" class="GiamSL">
+        $(".GiamSL").click(function () {
+            //Lấy Id từ liên kết Click <a href> trên
+            var recordToDelete = $(this).attr("data-id");
+            if (recordToDelete != '') {
+                // Thực hiện ajax gọi Action từ Controll về
+                $.post("/ShoppingCart/ExceptCount", { "id": recordToDelete },
+                    function (data) {
+                        //Thực hiện nếu SP=0 thì xóa dòng đó (slow là hiệu ứng xóa xong biến mất dần cho đẹp), còn không thì cập nhật lại txt số lượng
+                        if (data.Tong_SP == 0) {
+                            $('#dong-' + data.XoaId).fadeOut('slow');
+                        } else {
+                            $('#txt-SoLuong-' + data.XoaId).text(data.Tong_SP);    
+                        }
+                        //Thực hiện cập nhật lại tổng tiền, số lượng, thành tiền, giỏ hàng tóm tắt
+                        $('#lb_TT').text(formatNumber(data.TT_GioHang));
+                        $('#lb_SL').text(data.Tong_SL);
+                        $('#txt-ThanhTien-' + data.XoaId).text(formatNumber(data.ThanhTien));
+                        $('#GioHang_TomTat').text('(' + data.Tong_SL + ')');
+                    });
+            }
+        });
+    });
+</script>
+
+@*Tăng số lượng*@
+<script type="text/javascript">
+    $(function () {
+        //Thực hiện tăng khi Click <a href="#" class="TangSL">
+        $(".TangSL").click(function () {
+            //Lấy Id từ liên kết Click <a href> trên
+            var recordToDelete = $(this).attr("data-id");
+            if (recordToDelete != '') {
+                // Thực hiện ajax gọi Action từ Controll về
+                $.post("/ShoppingCart/AscendCount", { "id": recordToDelete },
+                    function (data) {
+                        // Successful requests get here
+                        // Update the page elements
+                        //if (data.Tong_SP == 0) {
+                        //    $('#dong-' + data.XoaId).fadeOut('slow');
+                        //} else {
+                        //    $('#txt-SoLuong-' + data.XoaId).text(data.Tong_SP);
+                        //}
+                        //hàm if (data.Tong_SP == 0) ở trên khóa lại vì cái này chỉ tăng số lượng chứ ko có xóa hay giảm
+
+                        //Thực hiện cập nhật lại tổng tiền, số lượng, thành tiền, giỏ hàng tóm tắt
+                        $('#txt-SoLuong-' + data.XoaId).text(data.Tong_SP);
+                        $('#lb_TT').text(formatNumber(data.TT_GioHang));
+                        $('#lb_SL').text(data.Tong_SL);
+                        $('#txt-ThanhTien-' + data.XoaId).text(formatNumber(data.ThanhTien));
+                        $('#GioHang_TomTat').text('(' + data.Tong_SL + ')');
+                    });
+            }
+        });
+    });
+</script>
+
+@*Phần breadcrumbs*@
+<ul id="breadcrumbs-one" style="margin: 0px">
+    <li><a href="/ShoppingCart"><span>1</span>Giỏ hàng</a></li>
+    <li><a href="#"><b>2</b>Thông tin đặt hàng</a></li>
+    <li><a href="#"><b>3</b>Hình thức thanh toán</a></li>
+    <li><a href="#"><b>4</b>Xác nhận</a></li>
+    <li><a class="current"><b>5</b>Hoàn thành</a></li>
+</ul>
+
+@*Phần Giỏ Hàng*@
+<div class="show" style="padding: 20px 10px 0px 10px">
+    <table border="1" style="width: 685px; border-collapse: collapse; border: 1px solid #d0d0d0">
+        <tbody>
+            <tr>
+                <th class="HeaderStyle_ne" scope="col" style="width: 222px">Sản phẩm</th>
+                <th class="HeaderStyle_ne" scope="col" style="width: 140px">Số lượng</th>
+                <th class="HeaderStyle_ne" scope="col">Đơn giá</th>
+                <th class="HeaderStyle_ne" scope="col">Thành tiền</th>
+                <th class="HeaderStyle_ne" scope="col">Xóa</th>
+            </tr>
+            @foreach (var item in Model.SP_TrongGio)
+            {
+                <tr id="dong-@item.Id">
+                    <td class="ItemStyle_ne" style="text-align: center">
+                        <div>
+                            <div class="sale">
+                                <span style="font-size: 14px; color: #FFF; line-height: 95px; font-weight: bold">- @item.SanPham.KhuyenMai%</span>
+                            </div>
+                        </div>
+                        <a href="@Url.Action("Details", "Home", new { id = item.MaSP })">
+                            <img src="@item.SanPham.UrlHinh" style="width: 120px;vertical-align:middle" />
+                            <br>
+                            <span style="font-weight: 700; color: #F60">@item.SanPham.TenSP</span>
+                        </a>
+                    </td>
+                    <td class="ItemStyle_ne" style="text-align: center">
+                        <a href="#" class="GiamSL" data-id="@item.Id">
+                            <img src="/Content/Images/Tru.png" style="vertical-align: middle; width: 12px" />
+                        </a>
+                        <label id="txt-SoLuong-@item.Id" class="textCtrl" style="padding:5px 10px; text-align: center">@item.SoLuong</label>
+                        <a href="#" class="TangSL" data-id="@item.Id">
+                            <img src="/Content/Images/Cong.png" style="vertical-align: middle; width: 12px" />
+                        </a>
+                    </td>
+                    <td class="ItemStyle_ne" style="text-align: center">
+                        <span style="font-weight: 700; color: #F60;">@string.Format("{0:#,##0}", item.SanPham.GiaHienTai)<sup> VNĐ</sup></span>
+                    </td>
+                    <td class="ItemStyle_ne" style="text-align: center">            
+                        <span style="color: #666; font-size: 12px; font-weight: bold">Đã - @item.SanPham.KhuyenMai % Khuyến mãi</span><br />
+                        <br />
+                        <label id="txt-ThanhTien-@item.Id" style="font-weight: 700; color: #F60">@string.Format("{0:#,##0}", item.Thanhtien)</label><sup style="font-weight: 700; color: #F60"> VNĐ</sup>
+                    </td>
+                    <td class="ItemStyle_ne" style="text-align: center">
+                        <a href="#" class="XoaSP" data-id="@item.Id">
+                            <img src="/Content/Images/icon_delete.png" />
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <table style="width: 685px; border-bottom: 1px solid rgb(208, 208, 208); border-right: 1px solid rgb(208, 208, 208); border-left: 1px solid rgb(208, 208, 208); margin-bottom: 0px">
+        <tr>
+            <td style="text-align: right; padding-top: 15px" colspan="3">
+                <b>Tổng số lượng:</b>
+            </td>
+            <td style="text-align: center; padding-top: 15px">
+                <label style="font-weight: 700; color: #F60;" id="lb_SL">@string.Format("{0:#,##0}", Model.Tong_SL)</label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" rowspan="3" style="width: 350px;">
+                <div style="height: 50px;"></div>
+                <div style="padding: 0 70px;">
+                    <a href="@Url.Action("Index", "Home")" class="btn_Ne" style="font-size:15px;margin-right:20px">Tiếp tục mua</a>
+                    <a href="@Url.Action("EmptyCart", "ShoppingCart")" class="btn_Ne" onclick="return confirm('Bạn có chắc muốn xóa hết giỏ hàng?');" style="font-size:15px">Xóa giỏ hàng</a>
+                </div>
+            </td>
+            <td style="text-align: right; padding-top: 10px">
+                <b>Tổng giá trị đơn hàng:</b>
+            </td>
+            <td style="text-align: center; padding-top: 10px">
+                <label id="lb_TT" style="font-weight: 700; color: #F60">@string.Format("{0:#,##0}", Model.TT_GioHang)</label><sup style="font-weight: 700; color: #F60"> VNĐ</sup>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right; padding-top: 15px" colspan="4">
+                @if (Session["Username"] == null)//Chưa đăng nhập => Đăng nhập
+                {
+                    <label for="LoginControl" id="lb_DangNhap" style="cursor:pointer">
+                        <a>
+                            <img src="/Content/Images/ThanhToan-VanChuyen.png" />
+                        </a>
+                    </label>
+                }
+                else
+                {
+                    <a href="@Url.Action("AddressAndPayment", "Checkout")">
+                        <img src="/Content/Images/ThanhToan-VanChuyen.png" />
+                    </a>
+                }
+            </td>
+        </tr>
+    </table>
+    <br />
+</div>
+<div class="footer-shadow"></div>

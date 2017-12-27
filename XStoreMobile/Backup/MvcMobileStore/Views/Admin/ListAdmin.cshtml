@@ -1,0 +1,486 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<MvcMobileStore.Models.PhanQuyen_Admin>
+
+@{
+    ViewBag.Title = "Quản Trị Administrator";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .auto_Tren {
+        color: #666;
+        font-size: 13px;
+        text-align: center;
+        padding: 5px 15px;
+        border-right: 1px solid #d0d0d0;
+    }
+
+    .auto_Duoi {
+        text-align: center;
+        padding: 0px 10px 10px 10px;
+    }
+</style>
+
+@*Scrip thực hiện Update lại Trạng thái và Quyền quản trị*@
+<script type="text/javascript">
+    $(function () {
+
+        //============================Trạng Thái============================
+        //Thực hiện Cập nhật khi Click <a href="#" class="AnHienClick">
+        $(".AnHienClick").click(function () {
+            //Lấy Mã Admin từ liên kết Click <a href> trên
+            var _AD = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm UpdateMember để xử lý
+            $.post("/Admin/UpdateTrangThai", { "id": _AD },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_AnHien-' + _AD).attr('src', data);
+             });
+        });
+
+        //============================PQ_Menu============================
+        //Thực hiện Cập nhật khi Click <a href="#" class="...">
+        $(".PQ_Menu").click(function () {
+            //Lấy Mã Admin từ liên kết Click <a href> trên
+            var _AD = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm Update phân quyền để xử lý
+            $.post("/Admin/UpdatePQ_Menu", { "id": _AD },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_PQ_Menu-' + _AD).attr('src', data);
+             });
+        });
+
+        //============================PQ_Slider============================
+        //Thực hiện Cập nhật khi Click <a href="#" class="...">
+        $(".PQ_Slider").click(function () {
+            //Lấy Mã Admin từ liên kết Click <a href> trên
+            var _AD = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm Update phân quyền để xử lý
+            $.post("/Admin/UpdatePQ_Slider", { "id": _AD },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_PQ_Slider-' + _AD).attr('src', data);
+             });
+        });
+
+        //============================PQ_NhaSanXuat============================
+        //Thực hiện Cập nhật khi Click <a href="#" class="...">
+        $(".PQ_NhaSanXuat").click(function () {
+            //Lấy Mã Admin từ liên kết Click <a href> trên
+            var _AD = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm Update phân quyền để xử lý
+            $.post("/Admin/UpdatePQ_NhaSanXuat", { "id": _AD },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_PQ_NhaSanXuat-' + _AD).attr('src', data);
+             });
+        });
+
+        //============================PQ_SanPham============================
+        //Thực hiện Cập nhật khi Click <a href="#" class="...">
+        $(".PQ_SanPham").click(function () {
+            //Lấy Mã Admin từ liên kết Click <a href> trên
+            var _AD = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm Update phân quyền để xử lý
+            $.post("/Admin/UpdatePQ_SanPham", { "id": _AD },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_PQ_SanPham-' + _AD).attr('src', data);
+             });
+        });
+
+        //============================PQ_KhachHang============================
+        //Thực hiện Cập nhật khi Click <a href="#" class="...">
+        $(".PQ_KhachHang").click(function () {
+            //Lấy Mã Admin từ liên kết Click <a href> trên
+            var _AD = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm Update phân quyền để xử lý
+            $.post("/Admin/UpdatePQ_KhachHang", { "id": _AD },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_PQ_KhachHang-' + _AD).attr('src', data);
+             });
+        });
+
+        //============================PQ_DonHang============================
+        //Thực hiện Cập nhật khi Click <a href="#" class="...">
+        $(".PQ_DonHang").click(function () {
+            //Lấy Mã Admin từ liên kết Click <a href> trên
+            var _AD = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm Update phân quyền để xử lý
+            $.post("/Admin/UpdatePQ_DonHang", { "id": _AD },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_PQ_DonHang-' + _AD).attr('src', data);
+             });
+        });
+
+        //============================PQ_TinTuc============================
+        //Thực hiện Cập nhật khi Click <a href="#" class="...">
+        $(".PQ_TinTuc").click(function () {
+            //Lấy Mã Admin từ liên kết Click <a href> trên
+            var _AD = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm Update phân quyền để xử lý
+            $.post("/Admin/UpdatePQ_TinTuc", { "id": _AD },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_PQ_TinTuc-' + _AD).attr('src', data);
+             });
+        });
+
+        //============================PQ_QuangCao============================
+        //Thực hiện Cập nhật khi Click <a href="#" class="...">
+        $(".PQ_QuangCao").click(function () {
+            //Lấy Mã Admin từ liên kết Click <a href> trên
+            var _AD = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm Update phân quyền để xử lý
+            $.post("/Admin/UpdatePQ_QuangCao", { "id": _AD },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_PQ_QuangCao-' + _AD).attr('src', data);
+             });
+        });
+
+        //============================PQ_LienHe============================
+        //Thực hiện Cập nhật khi Click <a href="#" class="...">
+        $(".PQ_LienHe").click(function () {
+            //Lấy Mã Admin từ liên kết Click <a href> trên
+            var _AD = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm Update phân quyền để xử lý
+            $.post("/Admin/UpdatePQ_LienHe", { "id": _AD },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_PQ_LienHe-' + _AD).attr('src', data);
+             });
+        });
+
+        //============================PQ_GioiThieu============================
+        //Thực hiện Cập nhật khi Click <a href="#" class="...">
+        $(".PQ_GioiThieu").click(function () {
+            //Lấy Mã Admin từ liên kết Click <a href> trên
+            var _AD = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm Update phân quyền để xử lý
+            $.post("/Admin/UpdatePQ_GioiThieu", { "id": _AD },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_PQ_GioiThieu-' + _AD).attr('src', data);
+             });
+        });
+
+        //============================PQ_QuanTriAdmin============================
+        //Thực hiện Cập nhật khi Click <a href="#" class="...">
+        $(".PQ_QuanTriAdmin").click(function () {
+            //Lấy Mã Admin từ liên kết Click <a href> trên
+            var _AD = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm Update phân quyền để xử lý
+            $.post("/Admin/UpdatePQ_QuanTriAdmin", { "id": _AD },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_PQ_QuanTriAdmin-' + _AD).attr('src', data);
+             });
+        });
+
+        //============================PQ_SiteMap============================
+        //Thực hiện Cập nhật khi Click <a href="#" class="...">
+        $(".PQ_SiteMap").click(function () {
+            //Lấy Mã Admin từ liên kết Click <a href> trên
+            var _AD = $(this).attr("data-id");
+
+            // Thực hiện xử lý Ajax: gọi hàm Update phân quyền để xử lý
+            $.post("/Admin/UpdatePQ_SiteMap", { "id": _AD },
+
+             function (data) {
+                 //Thực hiện cập nhật lại Url hình ẩn hiện
+                 $('#img_PQ_SiteMap-' + _AD).attr('src', data);
+             });
+        });
+
+    });
+</script>
+
+@*roadlinktop*@
+<ul class="roadlinktop">
+    <li>
+        <a href="/Admin">
+            <img src="~/Content/Admin/Images/ico_adminhome.png" />
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/ListAdmin">
+            <span>Quản trị Administrator</span>
+        </a>
+    </li>
+</ul>
+
+@*Danh sách Slider*@
+<div class="title_ne1">DANH SÁCH QUẢN TRỊ WEBSITE</div>
+@using (Html.BeginForm())
+{
+    <table border="1" style="width: 984px; border: 1px solid #d0d0d0; border-collapse: collapse;">
+        <tr>
+            <th>Mã Admin</th>
+            <th>Tài khoản</th>
+            <th>Phân quyền quản trị</th>
+            <th>Trạng thái</th>
+            <th>Chọn</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align: center">@item.MaAdmin</td>
+                <td style="text-align: center">
+                    <img src="@item.Admin.Avatar" class="Avatar" style="width:100px;height:100px"/>
+                    <br />
+                    <label>@item.Admin.Username</label>
+                </td>
+                @*============Cột phân quyền Admin============*@
+                <td style="text-align: center">
+                    <table style="margin: 0 auto">
+                        <tr>
+                            <td class="auto_Tren" style="border-left: 1px solid #d0d0d0;">Nhà sản xuất</td>
+                            <td class="auto_Tren">Sản phẩm</td>
+                            <td class="auto_Tren">Khách hàng</td>
+                            <td class="auto_Tren">Đơn hàng</td>
+                            <td class="auto_Tren">Tin tức</td>
+                            <td class="auto_Tren">Menu</td>
+                        </tr>
+                        <tr>
+                            <td class="auto_Duoi">
+                                @if (item.PQ_NhaSanXuat == true)
+                                {
+                                    <a href="#" class="PQ_NhaSanXuat" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/accept.png" id="img_PQ_NhaSanXuat-@item.MaAdmin" title="Có" />
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="PQ_NhaSanXuat" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/block.png" id="img_PQ_NhaSanXuat-@item.MaAdmin" title="Không" />
+                                    </a>
+                                }
+                            </td>
+                            <td class="auto_Duoi">
+                                @if (item.PQ_SanPham == true)
+                                {
+                                    <a href="#" class="PQ_SanPham" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/accept.png" id="img_PQ_SanPham-@item.MaAdmin" title="Có" />
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="PQ_SanPham" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/block.png" id="img_PQ_SanPham-@item.MaAdmin" title="Không" />
+                                    </a>
+                                }
+                            </td>
+                            <td class="auto_Duoi">
+                                @if (item.PQ_KhachHang == true)
+                                {
+                                    <a href="#" class="PQ_KhachHang" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/accept.png" id="img_PQ_KhachHang-@item.MaAdmin" title="Có" />
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="PQ_KhachHang" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/block.png" id="img_PQ_KhachHang-@item.MaAdmin" title="Không" />
+                                    </a>
+                                }
+                            </td>
+                            <td class="auto_Duoi">
+                                @if (item.PQ_DonHang == true)
+                                {
+                                    <a href="#" class="PQ_DonHang" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/accept.png" id="img_PQ_DonHang-@item.MaAdmin" title="Có" />
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="PQ_DonHang" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/block.png" id="img_PQ_DonHang-@item.MaAdmin" title="Không" />
+                                    </a>
+                                }
+                            </td>
+                            <td class="auto_Duoi">
+                                @if (item.PQ_TinTuc == true)
+                                {
+                                    <a href="#" class="PQ_TinTuc" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/accept.png" id="img_PQ_TinTuc-@item.MaAdmin" title="Có" />
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="PQ_TinTuc" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/block.png" id="img_PQ_TinTuc-@item.MaAdmin" title="Không" />
+                                    </a>
+                                }
+                            </td>
+                            <td class="auto_Duoi">
+                                @if (item.PQ_Menu == true)
+                                {
+                                    <a href="#" class="PQ_Menu" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/accept.png" id="img_PQ_Menu-@item.MaAdmin" title="Có" />
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="PQ_Menu" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/block.png" id="img_PQ_Menu-@item.MaAdmin" title="Không" />
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto_Tren" style="border-left: 1px solid #d0d0d0;">Quảng cáo</td>
+                            <td class="auto_Tren">Liên hệ</td>
+                            <td class="auto_Tren">Giới thiệu</td>
+                            <td class="auto_Tren">Quản trị Admin</td>
+                            <td class="auto_Tren">Site Map</td>
+                            <td class="auto_Tren">Slider</td>
+                        </tr>
+                        <tr>
+                            <td class="auto_Duoi">
+                                @if (item.PQ_QuangCao == true)
+                                {
+                                    <a href="#" class="PQ_QuangCao" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/accept.png" id="img_PQ_QuangCao-@item.MaAdmin" title="Có" />
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="PQ_QuangCao" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/block.png" id="img_PQ_QuangCao-@item.MaAdmin" title="Không" />
+                                    </a>
+                                }
+                            </td>
+                            <td class="auto_Duoi">
+                                @if (item.PQ_LienHe == true)
+                                {
+                                    <a href="#" class="PQ_LienHe" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/accept.png" id="img_PQ_LienHe-@item.MaAdmin" title="Có" />
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="PQ_LienHe" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/block.png" id="img_PQ_LienHe-@item.MaAdmin" title="Không" />
+                                    </a>
+                                }
+                            </td>
+                            <td class="auto_Duoi">
+                                @if (item.PQ_GioiThieu == true)
+                                {
+                                    <a href="#" class="PQ_GioiThieu" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/accept.png" id="img_PQ_GioiThieu-@item.MaAdmin" title="Có" />
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="PQ_GioiThieu" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/block.png" id="img_PQ_GioiThieu-@item.MaAdmin" title="Không" />
+                                    </a>
+                                }
+                            </td>
+                            <td class="auto_Duoi">
+                                @if (item.PQ_QuanTriAdmin == true)
+                                {
+                                    <a href="#" class="PQ_QuanTriAdmin" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/accept.png" id="img_PQ_QuanTriAdmin-@item.MaAdmin" title="Có" />
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="PQ_QuanTriAdmin" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/block.png" id="img_PQ_QuanTriAdmin-@item.MaAdmin" title="Không" />
+                                    </a>
+                                }
+                            </td>
+                            <td class="auto_Duoi">
+                                @if (item.PQ_SiteMap == true)
+                                {
+                                    <a href="#" class="PQ_SiteMap" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/accept.png" id="img_PQ_SiteMap-@item.MaAdmin" title="Có" />
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="PQ_SiteMap" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/block.png" id="img_PQ_SiteMap-@item.MaAdmin" title="Không" />
+                                    </a>
+                                }
+                            </td>
+                            <td class="auto_Duoi">
+                                @if (item.PQ_Slider == true)
+                                {
+                                    <a href="#" class="PQ_Slider" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/accept.png" id="img_PQ_Slider-@item.MaAdmin" title="Có" />
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="PQ_Slider" data-id="@item.MaAdmin">
+                                        <img src="/Content/Admin/Images/block.png" id="img_PQ_Slider-@item.MaAdmin" title="Không" />
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                @*============END Cột phân quyền Admin============*@
+                <td style="text-align: center">
+                    @if (item.Admin.AnHien == true)
+                    {
+                        <a href="#" class="AnHienClick" data-id="@item.MaAdmin">
+                            <img src="/Content/Admin/Images/icon_Hien.png" id="img_AnHien-@item.MaAdmin" title="Hiện" />
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="#" class="AnHienClick" data-id="@item.MaAdmin">
+                            <img src="/Content/Admin/Images/icon_An.png" id="img_AnHien-@item.MaAdmin" title="Ẩn" />
+                        </a>
+                    }
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" class="ckb_ID" name="ckb_ID" value="@item.MaAdmin"/>
+                </td>
+            </tr>
+        }
+    </table>
+    <div style="text-align: center; margin-left: 150px">
+        <input type="submit" value="Xóa Administrator " class="button_ne" onclick="return confirm('Bạn có chắc muốn Xóa Administrator đã chọn?');" />
+    </div>      
+}@*Lưu ý: đóng Form ở đây để Button chuyển sang trang Crate không thực thi được nút xóa Administrator*@
+
+<div style="text-align: center; margin-top: -53px; margin-left: -150px">
+    <button class="button_ne" onclick="location.href='@Url.Action("CreateAdmin", "Admin")'">Thêm Administrator</button>
+</div>
+
+@Html.PagedListPager(Model, Page => Url.Action("ListAdmin", new { Page = Page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+

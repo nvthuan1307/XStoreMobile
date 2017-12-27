@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MvcMobileStore.Models.Menu>
+
+
+@*--Scrip Menu_Footer--*@
+<script type="text/javascript">
+    $(function () {
+        // effect sub menu
+        var $actived = $("#sub-nav ul.sub-menu li.active");
+        $("#sub-nav ul.sub-menu li.fl").hover(function () {
+            $actived.removeClass('active');
+            $(this).addClass('active');
+        }, function () {
+            $(this).removeClass('active');
+            $actived.addClass('active');
+        });
+
+        // back top button
+        $("li.back-top").click(function () {
+            $('html,body').animate({ scrollTop: 0 }, 500);
+        })
+    })
+</script>
+
+<nav id="sub-nav">
+    <ul class="sub-menu ce clearfix">
+        @foreach (var item in Model)
+        {
+            if (item.Thutu == 1)
+            {
+            <li class="btn-home fl active">
+                <a title="@item.TenMenu" href="@item.url">
+                    <span></span>
+                </a>
+            </li>
+            }
+            else
+            {
+            <li class="item fl">
+                <a href="@item.url">@item.TenMenu</a>
+            </li>
+            }
+        }
+
+        <li class="back-top"></li>
+    </ul>
+</nav>

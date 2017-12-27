@@ -1,0 +1,63 @@
+﻿@model MvcMobileStore.Models.Menu
+
+<ul class="col1 nolist">
+    @foreach (var item in ViewBag.mn1)
+    {
+        <li class="mobile"><a href="@item.url" rel="@item.TenMenu">@item.TenMenu</a></li>
+    }
+    @foreach (var item in ViewBag.mn2)
+    {
+        <li class="tablet"><a href="@item.url" rel="@item.TenMenu">@item.TenMenu</a></li>
+    }
+    @foreach (var item in ViewBag.mn3)
+    {
+        <li class="laptop last"><a href="@item.url" rel="@item.TenMenu">@item.TenMenu</a></li>
+    }
+</ul>
+
+<ul class="col2 nolist">
+    @foreach (var item in ViewBag.mn4)
+    {
+        <li class="accessories"><a href="@item.url" rel="@item.TenMenu">@item.TenMenu</a></li>
+    }
+    @foreach (var item in ViewBag.mn5)
+    {
+        <li class="sim-card"><a href="@item.url" rel="@item.TenMenu">@item.TenMenu</a></li>
+    }
+    @foreach (var item in ViewBag.mn6)
+    {
+        <li class="application"><a href="@item.url" rel="@item.TenMenu">@item.TenMenu</a></li>
+    }
+    @foreach (var item in ViewBag.mn7)
+    {
+        <li class="digital last"><a href="@item.url" rel="@item.TenMenu">@item.TenMenu</a></li>
+    }
+</ul>
+
+<ul class="col3 nolist last">
+    @foreach (var item in ViewBag.mn8)
+    {
+        <li class="news"><a href="@item.url" rel="@item.TenMenu">@item.TenMenu</a></li>
+    }
+    @foreach (var item in ViewBag.mn9)
+    {
+        <li class="ads"><a href="@item.url" rel="@item.TenMenu">@item.TenMenu</a></li>
+    }
+    @foreach (var item in ViewBag.mn10)
+    {
+        <li class="promotion"><a href="@item.url" rel="@item.TenMenu">@item.TenMenu</a></li>
+    }
+    @foreach (var item in ViewBag.mn11)
+    {
+        <li class="find-shop last">
+            @if (Session["Username"] == null)//Chưa đăng nhập => Đăng nhập
+            {
+                <label for="LoginControl" id="lb_DangNhap" style="cursor:pointer"><a>@item.TenMenu</a></label>
+            }
+            else
+            {
+                <a href="@item.url" rel="@item.TenMenu">@item.TenMenu</a>
+            }
+        </li>
+    }
+</ul>
