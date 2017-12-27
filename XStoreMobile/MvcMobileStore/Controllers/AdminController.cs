@@ -1633,7 +1633,687 @@ namespace MvcMobileStore.Controllers
         }
         #endregion
 
-     
+        #region Bảng Admin (ListAdmin và Delete - CreateAdmin-  Các hàm Update trạng thái, Quyền quản trị website)
+        #region ListAdmin và Delete
+        public ActionResult ListAdmin(int? page)
+        {
+            if (Session["Username_Admin"] == null)//Chưa đăng nhập => Login
+                return RedirectToAction("Login");
+            else
+                if (bool.Parse(Session["PQ_QuanTriAdmin"].ToString()) == false)//Không đủ quyền hạn vào ku vực này => thông báo
+                    return Content("<script>alert('Bạn không đủ quyền hạn vào khu vực quản trị Administrator !');window.location='/Admin/';</script>");
+
+            int PageSize = 3;//Chỉ lấy ra 3 dòng (3 Admin)
+            int PageNum = (page ?? 1);
+
+            //Lấy ra Danh sách Admin
+            var _PQ = (from pq in db.PhanQuyen_Admins
+                       orderby pq.MaAdmin descending
+                       select pq).ToPagedList(PageNum, PageSize);
+            return View(_PQ);
+        }
+
+        //Hàm xóa Danh Sách Admin trực tiếp trên Form ListAdmin
+        [HttpPost]
+        public ActionResult ListAdmin(int[] ckb_ID)
+        {
+            if (ckb_ID == null)//ckb_ID==null: Mảng ckb_ID trống, chưa chọn CheckBox nào để xóa
+            {
+                return Content("<script>alert('Vui lòng chọn 1 Administrator để xóa!');window.location='/Admin/ListAdmin';</script>");
+            }
+            else //Thực hiện các bước để xóa
+            {
+                try
+                {
+                    for (int i = 0; i < ckb_ID.Length; i++)//Duyệt vòng lặp tất cả các CheckBox đã chọn
+                    {
+                        //Tạo biến tạm chứa CheckBox đã chọn
+                        int temp = ckb_ID[i];
+
+                        //Kiểm tra mã Admin muốn xóa không được trung với Mã Admin đang đăng nhập (Tức không thể xóa TK của chính mình)
+                        if (temp != int.Parse(Session["MaAdmin"].ToString()))
+                        {
+
+                            //Thực hiện xóa bảng phân quyền trước rồi xóa bảng Admin
+                            //Lấy ra Phân quyền có mã Admin trùng với CheckBox đã chọn
+                            var _PQ = this.db.PhanQuyen_Admins.Where(p => p.MaAdmin == temp).SingleOrDefault();
+
+                            //Thực hiện xóa bảng phân quyền
+                            this.db.PhanQuyen_Admins.DeleteOnSubmit(_PQ);
+
+                            //Tiếp đến xóa bảng Admin
+                            //Lấy ra Admin có mã Admin trùng với CheckBox đã chọn
+                            var _AD = this.db.Admins.Where(a => a.MaAdmin == temp).SingleOrDefault();
+
+                            //Thực hiện xóa bảng Admin
+                            this.db.Admins.DeleteOnSubmit(_AD);
+                        }
+                        else
+                        {
+                            return Content("<script>alert('Bạn không thể tự xóa tài khoản của mình !');window.location='/Admin/ListAdmin';</script>");
+                        }
+                    }
+                    //Lưu thay đổi và thông báo
+                    this.db.SubmitChanges();
+                    return Content("<script>alert('Xóa thành công !');window.location='/Admin/ListAdmin';</script>");
+                }
+                catch
+                {
+                    return Content("<script>alert('Lỗi hệ thống !);window.location='/Admin/ListAdmin';</script>");
+                }
+            }
+        }
+        #endregion
+
+        #region CreateAdmin
+        public ActionResult CreateAdmin()
+        {
+            if (Session["Username_Admin"] == null)//Chưa đăng nhập => Login
+                return RedirectToAction("Login");
+            else
+                if (bool.Parse(Session["PQ_QuanTriAdmin"].ToString()) == false)//Không đủ quyền hạn vào ku vực này => thông báo
+                    return Content("<script>alert('Bạn không đủ quyền hạn vào khu vực quản trị Administrator !');window.location='/Admin/';</script>");
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateAdmin(FormCollection collection, Admin ad, PhanQuyen_Admin pq)
+        {
+            try
+            {
+                //Lấy giá trị ở Form Register         
+                string _Username = collection["txt_Username"];
+                string _Password = collection["txt_Password"]; string _RePassword = collection["txt_NhapLaiPass"];
+                string _Email = collection["txt_Email"];
+                string _HoTen = collection["txt_HoTen"];
+                string _DiaChi = collection["txt_DiaChi"];
+                string _DienThoai = collection["txt_DienThoai"];
+                string _Cmnd = collection["txt_Cmnd"];
+                string _NgaySinh = collection["txt_Ngay"] + "/" + collection["dl_Thang"] + "/" + collection["txt_Nam"];
+                int _GioiTinh = int.Parse(collection["sl_GioiTinh"]);
+
+                //Gán giá trị để Đăng Ký mới tài khoản
+
+                //Kiểm tra xem tài khoản đã có người sử dụng chưa?
+                var _CheckUser = db.Admins.FirstOrDefault(a => a.Username == _Username);
+                if (_CheckUser != null)
+                    return Content("<script>alert('Tên đăng nhập đã có người sử dụng!');window.location='/Admin/CreateAdmin';</script>");
+                else
+                    ad.Username = _Username;
+
+                //Kiểm tra Mật khẩu nhập lại có giống Mật khẩu đăng ký không?
+                if (_RePassword != _Password)
+                    return Content("<script>alert('Mật khẩu nhập lại không đúng!');window.location='/Admin/CreateAdmin';</script>");
+                else
+                    ad.Password = _Password;
+
+                //Kiểm tra xem Email đã có người sử dụng chưa?
+                var _CheckEmail = db.Admins.FirstOrDefault(a => a.Email == _Email);
+                if (_CheckEmail != null)
+                    return Content("<script>alert('Email đã có người sử dụng!');window.location='/Admin/CreateAdmin';</script>");
+                else
+                    ad.Email = _Email;
+
+                ad.HoTen = _HoTen;
+                ad.DiaChi = _DiaChi;
+                ad.DienThoai = _DienThoai;
+                ad.CMND = _Cmnd;
+                ad.NgaySinh = Convert.ToDateTime(_NgaySinh);
+
+                if (_GioiTinh == 0)//Ở đây không thể Convert sang kiểu Bool nên gán điều kiện
+                    ad.GioiTinh = false;
+                else
+                    ad.GioiTinh = true;
+
+                ad.NgayDangKy = DateTime.Now;
+
+                //Khai báo _FileUpload ở <input type="file" id="_FileUpload" name="_FileUpload" /> trên Form CreateAdmin
+                HttpPostedFileBase _FileUpload = Request.Files["_FileUpload"];
+                if (_FileUpload != null && _FileUpload.ContentLength > 0)//Kiểm tra đã chọn 1 file Upload để thực hiện tiếp
+                {
+                    //khai báo biến _FileName là tên File
+                    string _FileName = Path.GetFileName(_FileUpload.FileName);
+
+                    //Khai báo biến _Path là đường dẫn Upload File
+                    string _Path = Path.Combine(Server.MapPath("~/Content/Images/Upload/"), _FileName);
+
+                    //Kiểm tra chỉ cho Upload File có kính thước < 1 MB
+                    if (_FileUpload.ContentLength > 1 * 1024 * 1024)
+                    {
+                        return Content("<script>alert('Kích thước của tập tin không được vượt quá 1 MB!');window.location='/Admin/CreateAdmin';</script>");
+                    }
+
+                    //Ngoài hạn chế dung lượng File Upload lên Server thì quan trọng nhất là chỉ cho phép User Upload được dạng File ảnh lên
+                    //Vì nếu cho Upload được tất cả các File thì User có thể Upload File Backdoor, Shell lên Server dẫn đến Site bị hacker tấn công
+
+                    //Khai báo mảng chứa các đuôi file hợp lệ cho Upload
+                    var _DuoiFile = new[] { "jpg", "jpeg", "png", "gif" };
+
+                    //Khai báo biến _FileExt: trong đó GetExtension là lấy phần mở rộng (đuôi File), Substring(1): lấy từ vị trí thứ nhất => Tức sẽ lấy ra đuôi File
+                    var _FileExt = Path.GetExtension(_FileUpload.FileName).Substring(1);
+
+                    //Kiểm tra trong mảng _DuoiFile KHÔNG chứa phần đuôi file của tập tin User upload lên
+                    if (!_DuoiFile.Contains(_FileExt))
+                    {
+                        return Content("<script>alert('Bảo mật Website! Chỉ được Upload tập tin hình ảnh dạng (.jpg, .jpeg, .png, .gif)!');window.location='/Admin/CreateAdmin';</script>");
+                    }
+
+                    //Thực thi Upload tập tin lên Server
+                    _FileUpload.SaveAs(_Path);
+
+                    //Gán giá trị Avatar là đường dẫn của tập tin vừa Upload để Update trong Database
+                    ad.Avatar = "/Content/Images/Upload/" + _FileName;
+                }
+                else
+                {
+                    //Ở đây, mặc định trong CSDL khi Thêm mới thì Avatar Admin đã mặc định sẵn là "/Content/Images/Upload/Avatar_Admin.jpg"
+                    //Nhưng thêm trên Form xuống CSDL nếu KHÔNG chọn Avatar thì nó gán là Null => không có Avatar và Session["Avatar"] cũng = Null
+                    //Session["Avatar"] = Null => sẽ bị lỗi ở _PHeader (K có ảnh Avatar để Show lên)
+                    //Nên nếu khách hàng không chọn Avatar ta sẽ Lưu Url Avatar mặc định cho khách hàng.
+                    ad.Avatar = "/Content/Images/Upload/Avatar_Admin.jpg";
+                }
+
+                ad.AnHien = true;//Mặc định cho tài khoản là Hiện
+
+                //Thực hiện thêm mới vào bảng Admin
+                db.Admins.InsertOnSubmit(ad);
+                db.SubmitChanges();
+
+                //=====================================================================
+                //Sau khi đã thêm mới tài khoản thì tiếp tục thêm mới cho bảng phân quyền
+                pq.MaAdmin = ad.MaAdmin;//Lấy mã Admin vừa tạo mới
+
+                //Gán các giá trị phân quyền trên Form vào bảng phân quyền
+                if (collection["ckb_PhanQuyen1"] == "DaChon")
+                    pq.PQ_Menu = true;
+                else
+                    pq.PQ_Menu = false;
+
+                if (collection["ckb_PhanQuyen2"] == "DaChon")
+                    pq.PQ_Slider = true;
+                else
+                    pq.PQ_Slider = false;
+
+                if (collection["ckb_PhanQuyen3"] == "DaChon")
+                    pq.PQ_NhaSanXuat = true;
+                else
+                    pq.PQ_NhaSanXuat = false;
+
+                if (collection["ckb_PhanQuyen4"] == "DaChon")
+                    pq.PQ_SanPham = true;
+                else
+                    pq.PQ_SanPham = false;
+
+                if (collection["ckb_PhanQuyen5"] == "DaChon")
+                    pq.PQ_KhachHang = true;
+                else
+                    pq.PQ_KhachHang = false;
+
+                if (collection["ckb_PhanQuyen6"] == "DaChon")
+                    pq.PQ_DonHang = true;
+                else
+                    pq.PQ_DonHang = false;
+
+                if (collection["ckb_PhanQuyen7"] == "DaChon")
+                    pq.PQ_TinTuc = true;
+                else
+                    pq.PQ_TinTuc = false;
+
+                if (collection["ckb_PhanQuyen8"] == "DaChon")
+                    pq.PQ_QuangCao = true;
+                else
+                    pq.PQ_QuangCao = false;
+
+                if (collection["ckb_PhanQuyen9"] == "DaChon")
+                    pq.PQ_LienHe = true;
+                else
+                    pq.PQ_LienHe = false;
+
+                if (collection["ckb_PhanQuyen10"] == "DaChon")
+                    pq.PQ_GioiThieu = true;
+                else
+                    pq.PQ_GioiThieu = false;
+
+                if (collection["ckb_PhanQuyen11"] == "DaChon")
+                    pq.PQ_QuanTriAdmin = true;
+                else
+                    pq.PQ_QuanTriAdmin = false;
+
+                if (collection["ckb_PhanQuyen12"] == "DaChon")
+                    pq.PQ_SiteMap = true;
+                else
+                    pq.PQ_SiteMap = false;
+
+                //Thực hiện thêm mới vào bảng Phân quyền
+                db.PhanQuyen_Admins.InsertOnSubmit(pq);
+                db.SubmitChanges();
+
+                return Content("<script>alert('Thêm mới tài khoản quản trị thành công !');window.location='/Admin/ListAdmin';</script>");
+            }
+            catch
+            {
+                return Content("<script>alert('Đăng ký thất bại.Vui lòng kiểm tra Ngày/Tháng/Năm sinh đã hợp lệ chưa?!');window.location='/Admin/CreateAdmin';</script>");
+            }
+        }
+        #endregion
+
+        #region UpdateTrangThai
+        //Hàm khóa hoặc mở khóa tài khoản Admin (ở đây sử dụng hàm void để Response.Write hình update lại)
+        [HttpPost]
+        public void UpdateTrangThai(int id)
+        {
+            //Lấy ra tài khoản Admin cần Update Ẩn Hiện
+            var _AD = (from ad in db.Admins where ad.MaAdmin == id select ad).SingleOrDefault();
+
+            //Tạo chuỗi _Hinh để chứa đường dẫn hình Ẩn Hiện khi Update lại
+            string _Hinh = "";
+
+            //Ẩn thì cập nhật lại thành hiện và ngược lại
+            if (_AD.AnHien == true)
+            {
+                _AD.AnHien = false;
+                _Hinh = "/Content/Admin/Images/icon_An.png";
+            }
+            else
+            {
+                _AD.AnHien = true;
+                _Hinh = "/Content/Admin/Images/icon_Hien.png";
+            }
+
+            //Lưu chỉnh sửa
+            UpdateModel(_AD);
+            db.SubmitChanges();
+
+            //Xuất ra (Trả về) đường dẫn hình để Update lại trên Form
+            Response.Write(_Hinh);
+        }
+        #endregion
+
+        #region UpdatePQ_Menu
+        //Hàm Update Phân quyền cho quản trị:(ở đây sử dụng hàm void để Response.Write hình update lại)
+        [HttpPost]
+        public void UpdatePQ_Menu(int id)
+        {
+            //Lấy ra tài khoản Admin trong bảng phân quyền cần Update quyền quản trị
+            var _PQ = (from ad in db.PhanQuyen_Admins where ad.MaAdmin == id select ad).SingleOrDefault();
+
+            //Tạo chuỗi _Hinh để chứa đường dẫn hình Ẩn Hiện khi Update lại
+            string _Hinh = "";
+
+            //Không có quyền  thì cập nhật lại thành có và ngược lại
+            if (_PQ.PQ_Menu == true)
+            {
+                _PQ.PQ_Menu = false;
+                _Hinh = "/Content/Admin/Images/block.png";
+            }
+            else
+            {
+                _PQ.PQ_Menu = true;
+                _Hinh = "/Content/Admin/Images/accept.png";
+            }
+
+            //Lưu chỉnh sửa
+            UpdateModel(_PQ);
+            db.SubmitChanges();
+
+            //Xuất ra (Trả về) đường dẫn hình để Update lại trên Form
+            Response.Write(_Hinh);
+        }
+        #endregion
+
+        #region UpdatePQ_Slider
+        //Hàm Update Phân quyền cho quản trị:(ở đây sử dụng hàm void để Response.Write hình update lại)
+        [HttpPost]
+        public void UpdatePQ_Slider(int id)
+        {
+            //Lấy ra tài khoản Admin trong bảng phân quyền cần Update quyền quản trị
+            var _PQ = (from ad in db.PhanQuyen_Admins where ad.MaAdmin == id select ad).SingleOrDefault();
+
+            //Tạo chuỗi _Hinh để chứa đường dẫn hình Ẩn Hiện khi Update lại
+            string _Hinh = "";
+
+            //Không có quyền  thì cập nhật lại thành có và ngược lại
+            if (_PQ.PQ_Slider == true)
+            {
+                _PQ.PQ_Slider = false;
+                _Hinh = "/Content/Admin/Images/block.png";
+            }
+            else
+            {
+                _PQ.PQ_Slider = true;
+                _Hinh = "/Content/Admin/Images/accept.png";
+            }
+
+            //Lưu chỉnh sửa
+            UpdateModel(_PQ);
+            db.SubmitChanges();
+
+            //Xuất ra (Trả về) đường dẫn hình để Update lại trên Form
+            Response.Write(_Hinh);
+        }
+        #endregion
+
+        #region UpdatePQ_NhaSanXuat
+        //Hàm Update Phân quyền cho quản trị:(ở đây sử dụng hàm void để Response.Write hình update lại)
+        [HttpPost]
+        public void UpdatePQ_NhaSanXuat(int id)
+        {
+            //Lấy ra tài khoản Admin trong bảng phân quyền cần Update quyền quản trị
+            var _PQ = (from ad in db.PhanQuyen_Admins where ad.MaAdmin == id select ad).SingleOrDefault();
+
+            //Tạo chuỗi _Hinh để chứa đường dẫn hình Ẩn Hiện khi Update lại
+            string _Hinh = "";
+
+            //Không có quyền  thì cập nhật lại thành có và ngược lại
+            if (_PQ.PQ_NhaSanXuat == true)
+            {
+                _PQ.PQ_NhaSanXuat = false;
+                _Hinh = "/Content/Admin/Images/block.png";
+            }
+            else
+            {
+                _PQ.PQ_NhaSanXuat = true;
+                _Hinh = "/Content/Admin/Images/accept.png";
+            }
+
+            //Lưu chỉnh sửa
+            UpdateModel(_PQ);
+            db.SubmitChanges();
+
+            //Xuất ra (Trả về) đường dẫn hình để Update lại trên Form
+            Response.Write(_Hinh);
+        }
+        #endregion
+
+        #region UpdatePQ_SanPham
+        //Hàm Update Phân quyền cho quản trị:(ở đây sử dụng hàm void để Response.Write hình update lại)
+        [HttpPost]
+        public void UpdatePQ_SanPham(int id)
+        {
+            //Lấy ra tài khoản Admin trong bảng phân quyền cần Update quyền quản trị
+            var _PQ = (from ad in db.PhanQuyen_Admins where ad.MaAdmin == id select ad).SingleOrDefault();
+
+            //Tạo chuỗi _Hinh để chứa đường dẫn hình Ẩn Hiện khi Update lại
+            string _Hinh = "";
+
+            //Không có quyền thì cập nhật lại thành có và ngược lại
+            if (_PQ.PQ_SanPham == true)
+            {
+                _PQ.PQ_SanPham = false;
+                _Hinh = "/Content/Admin/Images/block.png";
+            }
+            else
+            {
+                _PQ.PQ_SanPham = true;
+                _Hinh = "/Content/Admin/Images/accept.png";
+            }
+
+            //Lưu chỉnh sửa
+            UpdateModel(_PQ);
+            db.SubmitChanges();
+
+            //Xuất ra (Trả về) đường dẫn hình để Update lại trên Form
+            Response.Write(_Hinh);
+        }
+        #endregion
+
+        #region UpdatePQ_KhachHang
+        //Hàm Update Phân quyền cho quản trị:(ở đây sử dụng hàm void để Response.Write hình update lại)
+        [HttpPost]
+        public void UpdatePQ_KhachHang(int id)
+        {
+            //Lấy ra tài khoản Admin trong bảng phân quyền cần Update quyền quản trị
+            var _PQ = (from ad in db.PhanQuyen_Admins where ad.MaAdmin == id select ad).SingleOrDefault();
+
+            //Tạo chuỗi _Hinh để chứa đường dẫn hình Ẩn Hiện khi Update lại
+            string _Hinh = "";
+
+            //Không có quyền thì cập nhật lại thành có và ngược lại
+            if (_PQ.PQ_KhachHang == true)
+            {
+                _PQ.PQ_KhachHang = false;
+                _Hinh = "/Content/Admin/Images/block.png";
+            }
+            else
+            {
+                _PQ.PQ_KhachHang = true;
+                _Hinh = "/Content/Admin/Images/accept.png";
+            }
+
+            //Lưu chỉnh sửa
+            UpdateModel(_PQ);
+            db.SubmitChanges();
+
+            //Xuất ra (Trả về) đường dẫn hình để Update lại trên Form
+            Response.Write(_Hinh);
+        }
+        #endregion
+
+        #region UpdatePQ_DonHang
+        //Hàm Update Phân quyền cho quản trị:(ở đây sử dụng hàm void để Response.Write hình update lại)
+        [HttpPost]
+        public void UpdatePQ_DonHang(int id)
+        {
+            //Lấy ra tài khoản Admin trong bảng phân quyền cần Update quyền quản trị
+            var _PQ = (from ad in db.PhanQuyen_Admins where ad.MaAdmin == id select ad).SingleOrDefault();
+
+            //Tạo chuỗi _Hinh để chứa đường dẫn hình Ẩn Hiện khi Update lại
+            string _Hinh = "";
+
+            //Không có quyền thì cập nhật lại thành có và ngược lại
+            if (_PQ.PQ_DonHang == true)
+            {
+                _PQ.PQ_DonHang = false;
+                _Hinh = "/Content/Admin/Images/block.png";
+            }
+            else
+            {
+                _PQ.PQ_DonHang = true;
+                _Hinh = "/Content/Admin/Images/accept.png";
+            }
+
+            //Lưu chỉnh sửa
+            UpdateModel(_PQ);
+            db.SubmitChanges();
+
+            //Xuất ra (Trả về) đường dẫn hình để Update lại trên Form
+            Response.Write(_Hinh);
+        }
+        #endregion
+
+        #region UpdatePQ_TinTuc
+        //Hàm Update Phân quyền cho quản trị:(ở đây sử dụng hàm void để Response.Write hình update lại)
+        [HttpPost]
+        public void UpdatePQ_TinTuc(int id)
+        {
+            //Lấy ra tài khoản Admin trong bảng phân quyền cần Update quyền quản trị
+            var _PQ = (from ad in db.PhanQuyen_Admins where ad.MaAdmin == id select ad).SingleOrDefault();
+
+            //Tạo chuỗi _Hinh để chứa đường dẫn hình Ẩn Hiện khi Update lại
+            string _Hinh = "";
+
+            //Không có quyền thì cập nhật lại thành có và ngược lại
+            if (_PQ.PQ_TinTuc == true)
+            {
+                _PQ.PQ_TinTuc = false;
+                _Hinh = "/Content/Admin/Images/block.png";
+            }
+            else
+            {
+                _PQ.PQ_TinTuc = true;
+                _Hinh = "/Content/Admin/Images/accept.png";
+            }
+
+            //Lưu chỉnh sửa
+            UpdateModel(_PQ);
+            db.SubmitChanges();
+
+            //Xuất ra (Trả về) đường dẫn hình để Update lại trên Form
+            Response.Write(_Hinh);
+        }
+        #endregion
+
+        #region UpdatePQ_QuangCao
+        //Hàm Update Phân quyền cho quản trị:(ở đây sử dụng hàm void để Response.Write hình update lại)
+        [HttpPost]
+        public void UpdatePQ_QuangCao(int id)
+        {
+            //Lấy ra tài khoản Admin trong bảng phân quyền cần Update quyền quản trị
+            var _PQ = (from ad in db.PhanQuyen_Admins where ad.MaAdmin == id select ad).SingleOrDefault();
+
+            //Tạo chuỗi _Hinh để chứa đường dẫn hình Ẩn Hiện khi Update lại
+            string _Hinh = "";
+
+            //Không có quyền thì cập nhật lại thành có và ngược lại
+            if (_PQ.PQ_QuangCao == true)
+            {
+                _PQ.PQ_QuangCao = false;
+                _Hinh = "/Content/Admin/Images/block.png";
+            }
+            else
+            {
+                _PQ.PQ_QuangCao = true;
+                _Hinh = "/Content/Admin/Images/accept.png";
+            }
+
+            //Lưu chỉnh sửa
+            UpdateModel(_PQ);
+            db.SubmitChanges();
+
+            //Xuất ra (Trả về) đường dẫn hình để Update lại trên Form
+            Response.Write(_Hinh);
+        }
+        #endregion
+
+        #region UpdatePQ_LienHe
+        //Hàm Update Phân quyền cho quản trị:(ở đây sử dụng hàm void để Response.Write hình update lại)
+        [HttpPost]
+        public void UpdatePQ_LienHe(int id)
+        {
+            //Lấy ra tài khoản Admin trong bảng phân quyền cần Update quyền quản trị
+            var _PQ = (from ad in db.PhanQuyen_Admins where ad.MaAdmin == id select ad).SingleOrDefault();
+
+            //Tạo chuỗi _Hinh để chứa đường dẫn hình Ẩn Hiện khi Update lại
+            string _Hinh = "";
+
+            //Không có quyền thì cập nhật lại thành có và ngược lại
+            if (_PQ.PQ_LienHe == true)
+            {
+                _PQ.PQ_LienHe = false;
+                _Hinh = "/Content/Admin/Images/block.png";
+            }
+            else
+            {
+                _PQ.PQ_LienHe = true;
+                _Hinh = "/Content/Admin/Images/accept.png";
+            }
+
+            //Lưu chỉnh sửa
+            UpdateModel(_PQ);
+            db.SubmitChanges();
+
+            //Xuất ra (Trả về) đường dẫn hình để Update lại trên Form
+            Response.Write(_Hinh);
+        }
+        #endregion
+
+        #region UpdatePQ_GioiThieu
+        //Hàm Update Phân quyền cho quản trị:(ở đây sử dụng hàm void để Response.Write hình update lại)
+        [HttpPost]
+        public void UpdatePQ_GioiThieu(int id)
+        {
+            //Lấy ra tài khoản Admin trong bảng phân quyền cần Update quyền quản trị
+            var _PQ = (from ad in db.PhanQuyen_Admins where ad.MaAdmin == id select ad).SingleOrDefault();
+
+            //Tạo chuỗi _Hinh để chứa đường dẫn hình Ẩn Hiện khi Update lại
+            string _Hinh = "";
+
+            //Không có quyền thì cập nhật lại thành có và ngược lại
+            if (_PQ.PQ_GioiThieu == true)
+            {
+                _PQ.PQ_GioiThieu = false;
+                _Hinh = "/Content/Admin/Images/block.png";
+            }
+            else
+            {
+                _PQ.PQ_GioiThieu = true;
+                _Hinh = "/Content/Admin/Images/accept.png";
+            }
+
+            //Lưu chỉnh sửa
+            UpdateModel(_PQ);
+            db.SubmitChanges();
+
+            //Xuất ra (Trả về) đường dẫn hình để Update lại trên Form
+            Response.Write(_Hinh);
+        }
+        #endregion
+
+        #region UpdatePQ_QuanTriAdmin
+        //Hàm Update Phân quyền cho quản trị:(ở đây sử dụng hàm void để Response.Write hình update lại)
+        [HttpPost]
+        public void UpdatePQ_QuanTriAdmin(int id)
+        {
+            //Lấy ra tài khoản Admin trong bảng phân quyền cần Update quyền quản trị
+            var _PQ = (from ad in db.PhanQuyen_Admins where ad.MaAdmin == id select ad).SingleOrDefault();
+
+            //Tạo chuỗi _Hinh để chứa đường dẫn hình Ẩn Hiện khi Update lại
+            string _Hinh = "";
+
+            //Không có quyền thì cập nhật lại thành có và ngược lại
+            if (_PQ.PQ_QuanTriAdmin == true)
+            {
+                _PQ.PQ_QuanTriAdmin = false;
+                _Hinh = "/Content/Admin/Images/block.png";
+            }
+            else
+            {
+                _PQ.PQ_QuanTriAdmin = true;
+                _Hinh = "/Content/Admin/Images/accept.png";
+            }
+
+            //Lưu chỉnh sửa
+            UpdateModel(_PQ);
+            db.SubmitChanges();
+
+            //Xuất ra (Trả về) đường dẫn hình để Update lại trên Form
+            Response.Write(_Hinh);
+        }
+        #endregion
+
+        #region UpdatePQ_SiteMap
+        //Hàm Update Phân quyền cho quản trị:(ở đây sử dụng hàm void để Response.Write hình update lại)
+        [HttpPost]
+        public void UpdatePQ_SiteMap(int id)
+        {
+            //Lấy ra tài khoản Admin trong bảng phân quyền cần Update quyền quản trị
+            var _PQ = (from ad in db.PhanQuyen_Admins where ad.MaAdmin == id select ad).SingleOrDefault();
+
+            //Tạo chuỗi _Hinh để chứa đường dẫn hình Ẩn Hiện khi Update lại
+            string _Hinh = "";
+
+            //Không có quyền thì cập nhật lại thành có và ngược lại
+            if (_PQ.PQ_SiteMap == true)
+            {
+                _PQ.PQ_SiteMap = false;
+                _Hinh = "/Content/Admin/Images/block.png";
+            }
+            else
+            {
+                _PQ.PQ_SiteMap = true;
+                _Hinh = "/Content/Admin/Images/accept.png";
+            }
+
+            //Lưu chỉnh sửa
+            UpdateModel(_PQ);
+            db.SubmitChanges();
+
+            //Xuất ra (Trả về) đường dẫn hình để Update lại trên Form
+            Response.Write(_Hinh);
+        }
+        #endregion
+        #endregion
 
      
     }
