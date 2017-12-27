@@ -127,28 +127,7 @@ namespace MvcMobileStore.Controllers
         #endregion
 
         #region Sản phẩm khuyến mãi (Promotions)
-        public ActionResult Promotions(int? page)
-        {
-            int PageSize = 12;//Chỉ lấy ra 12 dòng (12 Sản Phẩm)
-            int PageNum = (page ?? 1);
-
-            //Lấy ra sản phẩm khuyến mãi
-            var SP_KhuyenMai = (from sp in db.SanPhams
-                                where sp.AnHien == true
-                                orderby sp.KhuyenMai descending
-                                select sp).ToPagedList(PageNum, PageSize);
-            return View(SP_KhuyenMai);
-        }
-        #endregion
-
-
-
-   
-
-
-   
-
-
+       
   
 
     
