@@ -2315,6 +2315,47 @@ namespace MvcMobileStore.Controllers
         #endregion
         #endregion
 
-     
+        #region Bảng SiteMap (SiteMap và Update)
+        public ActionResult SiteMap()
+        {
+            if (Session["Username_Admin"] == null)//Chưa đăng nhập => Login
+                return RedirectToAction("Login");
+            else
+                if (bool.Parse(Session["PQ_SiteMap"].ToString()) == false)//Không đủ quyền hạn vào ku vực này => thông báo
+                    return Content("<script>alert('Bạn không đủ quyền hạn vào khu vực quản trị SiteMap !');window.location='/Admin/';</script>");
+
+            //Lấy ra thông tin SiteMap, ở đây chỉ 1 hàng dữ liệu nên gán cứng MaTT=1
+            var _TT = db.ThongTins.First(t => t.MaTT == 1);
+            return View(_TT);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]//Cho phép nhập kiểu HTML
+        public ActionResult SiteMap(FormCollection collection)
+        {
+            try
+            {
+                //Lấy giá trị ở Form SiteMap
+                string _SiteMap = collection["txt_SiteMap"];
+                var _TT = db.ThongTins.First(t => t.MaTT == 1);//Lấy ra thông tin bản đồ website, ở đây chỉ 1 hàng dữ liệu nên gán cứng MaTT=1
+
+                //Bắt lỗi không cho Site map trống
+                if (_SiteMap == "")
+                    return Content("<script>alert('Vui lòng code SiteMap cho bản đồ Website!');window.location='/Admin/SiteMap';</script>");
+
+                //Gán giá trị để chỉnh sửa
+                _TT.sitemap = _SiteMap;
+
+                //Thực hiện chỉnh sửa
+                UpdateModel(_TT);
+                db.SubmitChanges();
+                return Content("<script>alert('Cập nhật Site map thành công !');window.location='/Admin/SiteMap';</script>");
+            }
+            catch
+            {
+                return Content("<script>alert('Lỗi hệ thông!');window.location='/Admin/About';</script>");
+            }
+        }
+        #endregion
     }
 }
