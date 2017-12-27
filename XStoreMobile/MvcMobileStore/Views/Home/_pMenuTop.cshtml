@@ -1,6 +1,19 @@
 ﻿@model MvcMobileStore.Models.Menu
 
-
+<ul class="col1 nolist">
+    @foreach (var item in ViewBag.mn1)
+    {
+        <li class="mobile"><a href="@item.url" rel="@item.TenMenu">@item.TenMenu</a></li>
+    }
+    @foreach (var item in ViewBag.mn2)
+    {
+        <li class="tablet"><a href="@item.url" rel="@item.TenMenu">@item.TenMenu</a></li>
+    }
+    @foreach (var item in ViewBag.mn3)
+    {
+        <li class="laptop last"><a href="@item.url" rel="@item.TenMenu">@item.TenMenu</a></li>
+    }
+</ul>
 
 <ul class="col2 nolist">
     @foreach (var item in ViewBag.mn4)

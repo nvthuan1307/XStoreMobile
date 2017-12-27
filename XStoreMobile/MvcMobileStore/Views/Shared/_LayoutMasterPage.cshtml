@@ -119,7 +119,7 @@
         </div>
             
         <form method="post" class="xenForm eAuth" id="login" runat="server" style="display: none;">
-           
+            @{Html.RenderAction("_pLogin", "Home");}
         </form>
     }
     else // Ngược lại hiện lên thẻ Div để ko làm cko logo dịch chuyển
@@ -142,12 +142,13 @@
             </div>
             <div id="right_">
                 @Html.Partial("_pFaceBook")
-                @Html.Partial("_pHoTro")  
+                @Html.Partial("_pHoTro")
+                @{Html.RenderAction("_pQuangCao", "Home");}
             </div>
         </div>
 
         <div id="Menu_footer">
-         
+            @{Html.RenderAction("_pMenuFooter", "Home");}
         </div>
     </div>
     <div id="footer">
