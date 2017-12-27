@@ -907,7 +907,7 @@ namespace MvcMobileStore.Controllers
                     return Content("<script>alert('Bạn không đủ quyền hạn vào khu vực quản trị Khách Hàng !');window.location='/Admin/';</script>"); ;
 
             int PageSize = 10;//Chỉ lấy ra 10 dòng (10 Member)
-            //int PageNum = (page ?? 1);
+            int PageNum = (page ?? 1);
 
             //Lấy ra Danh sách Member
             var _KH = (from s in db.KhachHangs
