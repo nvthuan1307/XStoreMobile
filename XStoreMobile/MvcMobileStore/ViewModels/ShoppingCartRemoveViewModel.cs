@@ -7,7 +7,7 @@ namespace MvcMobileStore.ViewModels
 {
     public class ShoppingCartRemoveViewModel
     {
-        //Ở đây 1 số biến thấy không cần thiết dùng mình đã bỏ, chỉ dùng những cái cần thiết
+        //Ở đây 1 ssố biến thấy không cần thiết dùng mình đã bỏ, chỉ dùng những cái cần thiết
         public decimal TT_GioHang { get; set; }//Biến tổng tiền để tính lại Tổng giá trị giỏ hàng sau khi xóa 1 sản phẩm nào đó
         public int Tong_SL { get; set; }// Biến tổng số lượng để tính lại tổng số sản phẩm còn lại sau khi giảm hoặc tăng số lượng SP
         public int Tong_SP { get; set; }//Biến số lượng của 1 sản phẩm để tính lại số lượng còn sau khi giảm.
