@@ -60,6 +60,39 @@ namespace MvcMobileStore.Controllers
         //
         // GET: /Account/Register
 
+        [AllowAnonymous]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Account/Register
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(RegisterModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // Attempt to register the user
+                try
+                {
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    WebSecurity.Login(model.UserName, model.Password);
+                    return RedirectToAction("Index", "Home");
+                }
+                catch (MembershipCreateUserException e)
+                {
+                    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
         //
         // POST: /Account/Disassociate
 
@@ -91,6 +124,18 @@ namespace MvcMobileStore.Controllers
 
         //
         // GET: /Account/Manage
+
+        public ActionResult Manage(ManageMessageId? message)
+        {
+            ViewBag.StatusMessage =
+                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
+                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
+                : "";
+            ViewBag.HasLocalPassword = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
+            ViewBag.ReturnUrl = Url.Action("Manage");
+            return View();
+        }
 
         //
         // POST: /Account/Manage
