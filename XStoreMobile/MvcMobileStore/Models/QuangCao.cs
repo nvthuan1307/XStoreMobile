@@ -24,5 +24,4 @@ namespace MvcMobileStore.Models
         public Nullable<System.DateTime> Ngayhethan { get; set; }
         public bool AnHien { get; set; }
     }
-	//Chinh sua 27122017
 }

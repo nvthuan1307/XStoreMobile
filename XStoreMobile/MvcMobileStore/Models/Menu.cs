@@ -13,7 +13,7 @@ namespace MvcMobileStore.Models
     using System.Collections.Generic;
     
     public partial class Menu
-    {   // crerate model for menu 
+    {
         public int MaMenu { get; set; }
         public string TenMenu { get; set; }
         public string url { get; set; }

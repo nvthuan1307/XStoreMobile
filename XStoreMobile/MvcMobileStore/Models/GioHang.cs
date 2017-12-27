@@ -11,7 +11,7 @@ namespace MvcMobileStore.Models
 {
     using System;
     using System.Collections.Generic;
-    //Chinh sua kieu du lieu 
+    
     public partial class GioHang
     {
         public int Id { get; set; }

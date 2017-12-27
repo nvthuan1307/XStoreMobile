@@ -20,12 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>4.0</OldToolsVersion>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -202,7 +198,6 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1616,64 +1611,16 @@
     <Content Include="Views\Home\_pHangMoi.cshtml" />
     <Content Include="Views\Home\_pHangCaoCap.cshtml" />
     <Content Include="Views\Home\_pHangTrungCap.cshtml" />
-    <Content Include="Views\Home\_pQuangCao.cshtml" />
     <Content Include="Views\Shared\_pMenuSlide.cshtml" />
-    <Content Include="Views\Home\_pSlider.cshtml" />
-    <Content Include="Views\Home\News.cshtml" />
-    <Content Include="Views\Home\Reader.cshtml" />
-    <Content Include="Views\Home\_pMenuTop.cshtml" />
-    <Content Include="Views\Home\_pMenuFooter.cshtml" />
     <Content Include="Views\Home\Producer.cshtml" />
     <Content Include="Views\Home\Promotions.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\_pHeader.cshtml" />
     <Content Include="Views\Admin\_pFooter.cshtml" />
-    <Content Include="Views\Admin\Producer.cshtml" />
-    <Content Include="Views\Admin\CreateProducer.cshtml" />
-    <Content Include="Views\Admin\EditProducer.cshtml" />
-    <Content Include="Views\Admin\Menu.cshtml" />
-    <Content Include="Views\Admin\EditMenu.cshtml" />
-    <Content Include="Views\Admin\Slider.cshtml" />
-    <Content Include="Views\Admin\CreateSlider.cshtml" />
-    <Content Include="Views\Admin\EditSlider.cshtml" />
-    <Content Include="Views\Admin\News.cshtml" />
-    <Content Include="Views\Admin\CreateNews.cshtml" />
-    <Content Include="Views\Admin\EditNews.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\_pLogin.cshtml" />
-    <Content Include="Views\Home\Logout.cshtml" />
-    <Content Include="Views\Home\SuccessLogin.cshtml" />
-    <Content Include="Views\Home\Account.cshtml" />
-    <Content Include="Views\Home\ChangePassword.cshtml" />
-    <Content Include="Views\Home\Register.cshtml" />
-    <Content Include="Views\Home\SuccessRegister.cshtml" />
     <Content Include="Views\Shared\_LayoutMasterPage_DangKy.cshtml" />
-    <Content Include="Views\ShoppingCart\Index.cshtml" />
-    <Content Include="Views\ShoppingCart\EmptyCart.cshtml" />
     <Content Include="Views\Checkout\AddressAndPayment.cshtml" />
     <Content Include="Views\Checkout\Complete.cshtml" />
-    <Content Include="Views\ShoppingCart\CartSummary.cshtml" />
-    <Content Include="Views\Admin\Login.cshtml" />
-    <Content Include="Views\Admin\Account.cshtml" />
-    <Content Include="Views\Admin\ChangePassword.cshtml" />
-    <Content Include="Views\Admin\Product.cshtml" />
-    <Content Include="Views\Admin\CreateProduct.cshtml" />
-    <Content Include="Views\Admin\EditProduct.cshtml" />
-    <Content Include="Views\Admin\Advertisement.cshtml" />
-    <Content Include="Views\Admin\CreateAdvertisement.cshtml" />
-    <Content Include="Views\Admin\EditAdvertisement.cshtml" />
-    <Content Include="Views\Admin\Order.cshtml" />
-    <Content Include="Views\Home\Search.cshtml" />
-    <Content Include="Views\Admin\Member.cshtml" />
-    <Content Include="Views\Admin\OrderDetail.cshtml" />
-    <Content Include="Views\Admin\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Admin\Contact.cshtml" />
-    <Content Include="Views\Admin\Reply.cshtml" />
-    <Content Include="Views\Admin\ListAdmin.cshtml" />
-    <Content Include="Views\Admin\CreateAdmin.cshtml" />
-    <Content Include="Views\Admin\SiteMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

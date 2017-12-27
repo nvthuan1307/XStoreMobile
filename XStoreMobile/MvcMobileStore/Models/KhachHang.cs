@@ -20,7 +20,7 @@ namespace MvcMobileStore.Models
             this.DonHang = new HashSet<DonHang>();
             this.LienHe = new HashSet<LienHe>();
         }
-    //Cap nhat lan cuoi 27122017
+    
         public int MaKH { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }

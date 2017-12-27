@@ -44,7 +44,7 @@ namespace MvcMobileStore.Controllers
             ModelState.AddModelError("", "The user name or password provided is incorrect.");
             return View(model);
         }
-        // create new funtion to ....
+
         //
         // POST: /Account/LogOff
 
