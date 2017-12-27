@@ -11,7 +11,7 @@ namespace MvcMobileStore.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    //Chinh sua cap nhat 27102017
     public partial class TinTuc
     {
         public int MaTin { get; set; }
